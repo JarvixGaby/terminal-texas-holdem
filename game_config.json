@@ -1,0 +1,22 @@
+{
+  "small_blind": 5,
+  "big_blind": 10,
+  "initial_chips": 1000,
+  "min_players": 2,
+  "max_players": 6,
+  "ai_skill_level": "intermediate",
+  "ai_thinking_time": 1.0,
+  "ai_decision_variance": 0.1,
+  "show_odds_in_game": false,
+  "auto_muck_losing_hands": true,
+  "confirm_simple_actions": false,
+  "animation_speed": 1.0,
+  "enable_side_pots": true,
+  "enable_all_in_protection": true,
+  "tournament_mode": false,
+  "blind_increase_interval": 0,
+  "show_opponent_strength": false,
+  "highlight_mistakes": false,
+  "enable_hints": false,
+  "track_statistics": true
+}

@@ -1,0 +1,33 @@
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# macOS / editor local files
+.DS_Store
+.vscode/
+.idea/
+.claude/settings.local.json
+
+# Runtime/local gameplay artifacts
+game_history.json
+player_stats.json
+player_evaluation.json
+poker_game.db
+poker_game.log
+diagnostics_*.json
+data/
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak

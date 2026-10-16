@@ -1,0 +1,133 @@
+{
+  "gate_version": "phase2.2",
+  "status": "FAIL",
+  "protocol": {
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "hands_per_seed": 500,
+    "player_count": 4,
+    "starting_chips": 10000
+  },
+  "checks": [
+    {
+      "name": "benchmark_metadata",
+      "status": "PASS",
+      "threshold": "declared benchmark protocol",
+      "observed": {
+        "seeds": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "hands_per_seed": 500,
+        "player_count": 4,
+        "starting_chips": 10000,
+        "run_count": 10
+      }
+    },
+    {
+      "name": "multi_seed_summary",
+      "status": "PASS",
+      "threshold": "mean/std/min/max for required numeric metrics",
+      "observed": "complete"
+    },
+    {
+      "name": "completion",
+      "status": "FAIL",
+      "threshold": "each run hands_played == 500",
+      "observed": {
+        "seed": 9,
+        "hands_played": 237
+      }
+    },
+    {
+      "name": "runtime_errors",
+      "status": "PASS",
+      "threshold": "every run errors == []",
+      "observed": "ok"
+    },
+    {
+      "name": "action_coverage",
+      "status": "PASS",
+      "threshold": "every run total_actions > 0",
+      "observed": "ok"
+    },
+    {
+      "name": "illegal_action_rate",
+      "status": "PASS",
+      "threshold": "every run illegal_action_rate == 0.0",
+      "observed": "ok"
+    },
+    {
+      "name": "required_metrics",
+      "status": "PASS",
+      "threshold": "every run includes required top-level metrics",
+      "observed": "ok"
+    },
+    {
+      "name": "transcript_availability",
+      "status": "PASS",
+      "threshold": "1 <= len(transcript_samples) <= 3 for completed runs",
+      "observed": "ok"
+    },
+    {
+      "name": "transcript_safety",
+      "status": "PASS",
+      "threshold": "no private/deck/hidden-state tokens in transcript text",
+      "observed": "ok"
+    },
+    {
+      "name": "profile_coverage",
+      "status": "PASS",
+      "threshold": "every run includes required built-in archetype profile metrics",
+      "observed": "ok"
+    },
+    {
+      "name": "average_decision_score",
+      "status": "PASS",
+      "threshold": "every run average_decision_score >= 70.0",
+      "observed": "ok"
+    },
+    {
+      "name": "style_separability_score",
+      "status": "PASS",
+      "threshold": "every run style_separability_score >= 0.20",
+      "observed": "ok"
+    },
+    {
+      "name": "poor_blunder_rate",
+      "status": "PASS",
+      "threshold": "every run poor+blunder share <= 10%",
+      "observed": "ok"
+    },
+    {
+      "name": "blunder_rate",
+      "status": "PASS",
+      "threshold": "every run blunder share <= 1%",
+      "observed": "ok"
+    },
+    {
+      "name": "json_safety",
+      "status": "PASS",
+      "threshold": "standard JSON serializable artifact",
+      "observed": "ok"
+    }
+  ]
+}
