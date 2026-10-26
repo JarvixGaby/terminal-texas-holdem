@@ -16,20 +16,20 @@ Overall design rating: 2.0 / 5, aligned with the initial system-design scorecard
 
 Core product:
 
-- Terminal Texas Hold'em game in `main.py` and `game.py`.
-- Human players and AI players in `player.py`.
-- Standard AI in `smart_ai_system.py`.
-- Advanced AI in `advanced_ai_engine.py`.
-- Optimized equity/odds tools in `optimized_odds_calculator.py`.
-- JSON hand history in `game_history.py`.
-- SQLite database layer in `database.py`.
-- Replay/history UI in `history_viewer.py`, `instant_replay.py`, and `quick_replay_system.py`.
-- Side-pot support in `side_pot_manager.py`.
-- Rule helpers/checklist in `official_rules.py` and `docs/no-limit-holdem-rule-compliance-checklist.md`.
+- Terminal Texas Hold'em game in `main.py` and `texas_holdem/engine/game.py`.
+- Human players and AI players in `texas_holdem/engine/player.py`.
+- Standard AI in `texas_holdem/ai/smart_ai_system.py`.
+- Advanced AI in `texas_holdem/ai/advanced_ai_engine.py`.
+- Optimized equity/odds tools in `texas_holdem/ai/optimized_odds_calculator.py`.
+- JSON hand history in `texas_holdem/history/game_history.py`.
+- SQLite database layer in `texas_holdem/storage/database.py`.
+- Replay/history UI in `texas_holdem/history/history_viewer.py`, `texas_holdem/history/instant_replay.py`, and `texas_holdem/history/quick_replay_system.py`.
+- Side-pot support in `texas_holdem/engine/side_pot_manager.py`.
+- Rule helpers/checklist in `texas_holdem/engine/official_rules.py` and `docs/no-limit-holdem-rule-compliance-checklist.md`.
 
 New in this sprint:
 
-- `decision_evaluator.py`: rule-based evaluator for individual poker decisions.
+- `texas_holdem/ai/decision_evaluator.py`: rule-based evaluator for individual poker decisions.
 - `tests/test_decision_evaluator.py`: evaluator behavior and robustness coverage.
 - `tests/test_decision_feedback_integration.py`: history/game feedback integration tests.
 - `game_history.PlayerAction.decision_evaluation`: persisted decision-feedback field.
@@ -44,7 +44,7 @@ Current validation:
 
 ### Standard AI
 
-The standard AI path uses `smart_ai_system.py` through `AIPlayer._standard_decision(...)`.
+The standard AI path uses `texas_holdem/ai/smart_ai_system.py` through `AIPlayer._standard_decision(...)`.
 
 Observed strengths:
 
@@ -56,11 +56,11 @@ Risks:
 
 - Behavior is not yet statistically benchmarked.
 - It is called from the game loop directly, not through a stable provider interface.
-- Opponent modeling updates are pushed from `game.py`, increasing coupling.
+- Opponent modeling updates are pushed from `texas_holdem/engine/game.py`, increasing coupling.
 
 ### Advanced AI
 
-The advanced AI path uses `advanced_ai_engine.py` through `AIPlayer._advanced_decision(...)`.
+The advanced AI path uses `texas_holdem/ai/advanced_ai_engine.py` through `AIPlayer._advanced_decision(...)`.
 
 Observed strengths:
 
@@ -93,7 +93,7 @@ Risks:
 
 ### 1. Engine and UI are too coupled
 
-`game.py` still prints UI text, prompts for input, sleeps after AI actions, records history, updates AI opponent models, and controls gameplay. This is acceptable for a terminal prototype but blocks platform evolution.
+`texas_holdem/engine/game.py` still prints UI text, prompts for input, sleeps after AI actions, records history, updates AI opponent models, and controls gameplay. This is acceptable for a terminal prototype but blocks platform evolution.
 
 Why it matters:
 
@@ -204,7 +204,7 @@ Make the poker engine decision-source agnostic and measurable.
 
 Create:
 
-- `decision_provider.py`
+- `texas_holdem/ai/decision_provider.py`
 - `GameStateSnapshot`
 - `ActionResponse`
 - `DecisionProvider`
@@ -220,7 +220,7 @@ Move the existing prompt/confirm logic behind `HumanCliDecisionProvider`.
 
 Acceptance:
 
-- `game.py` requests a decision from provider.
+- `texas_holdem/engine/game.py` requests a decision from provider.
 - CLI behavior stays the same.
 
 ### Task 3: Built-in AI provider wrapper
@@ -244,7 +244,7 @@ Acceptance:
 
 ### Task 5: AI behavior report MVP
 
-Create `ai_system_evaluator.py` that can run N hands and output JSON metrics.
+Create `texas_holdem/analytics/ai_system_evaluator.py` that can run N hands and output JSON metrics.
 
 Acceptance:
 

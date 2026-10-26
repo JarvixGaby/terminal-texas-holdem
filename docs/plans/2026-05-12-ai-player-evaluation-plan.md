@@ -6,7 +6,7 @@
 
 **Architecture:** Use existing deterministic scenario tests, existing benchmark/evaluator functions, and a fresh smoke benchmark artifact. Treat this as evaluation, not feature implementation. Preserve Phase 2 public/private and benchmark-gate contracts: reports may summarize public-safe transcript samples and aggregate metrics, but must not expose hidden deck order or non-showdown private cards.
 
-**Tech Stack:** Python 3, pytest, `headless_simulation.py`, `ai_system_evaluator.py`, existing test files under `tests/`, Markdown report under `docs/reports/`.
+**Tech Stack:** Python 3, pytest, `texas_holdem/analytics/headless_simulation.py`, `texas_holdem/analytics/ai_system_evaluator.py`, existing test files under `tests/`, Markdown report under `docs/reports/`.
 
 ---
 
@@ -60,7 +60,7 @@ python3 -m pytest -q tests/test_ai_scenario_sanity.py tests/test_ai_profiles.py 
 
 ```bash
 python3 - <<'PY'
-from ai_system_evaluator import benchmark_ai_system
+from texas_holdem.analytics.ai_system_evaluator import benchmark_ai_system
 report = benchmark_ai_system(
     num_hands=100,
     player_count=4,
@@ -83,7 +83,7 @@ PY
 
 ```bash
 python3 - <<'PY'
-from ai_system_evaluator import benchmark_ai_system_multi_seed
+from texas_holdem.analytics.ai_system_evaluator import benchmark_ai_system_multi_seed
 report = benchmark_ai_system_multi_seed(
     seeds=[0, 1, 2],
     hands_per_seed=30,

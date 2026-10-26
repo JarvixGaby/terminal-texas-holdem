@@ -1,5 +1,41 @@
 # Project Reflection
 
+## 2026-10-26 — Use public price for calling-station small-blind completion
+**Context:** After the call-over-raise repair, the calling-station profile still folded too often before the flop. A position-level diagnostic found that most of its small-blind folds came from a generic entry-range threshold even when the additional call was cheap.
+**Decision:** Let only this profile complete the small blind outside its normal range when estimated equity covers the public pot-odds price and it has enough chips. Keep negative-price guards and all other positions unchanged. Accept the change after every seed completed the primary benchmark and the full suite passed.
+**Reasoning:** The small blind is a bounded, public-price opportunity for a passive opponent to continue more often without broadly permitting weak calls against full blind bets or raises.
+**Tradeoffs:** VPIP entered its target band and fold rate mostly did, but call rate and showdown rate remain below target. Average decision score declined slightly; profile calibration is still WARN despite the passing primary product gate.
+
+## 2026-10-26 — Make the calling-station's strong-hand response passive
+**Context:** After safe preflop tuning, a 200-hand public-action diagnostic still showed more postflop raises than calls for the calling-station opponent. The generic strong-hand branches ignored the profile's low aggression setting when facing a bet.
+**Decision:** Prefer calls over re-raises for this profile when facing a bet with at least 60% estimated equity, while preserving free-action value betting and the previous price guards. Keep the change after a complete ten-seed primary benchmark passed.
+**Reasoning:** Converting strong-hand re-raises into calls expresses the intended persona without forcing weak negative-price calls; the latter already failed a completion gate in the prior experiment.
+**Tradeoffs:** Call rate and style separability improved, but the profile still misses calibration bands, fold rate rose, and average decision score dipped slightly. The decision is about recognizable opponent behavior, not poker strength.
+
+## 2026-10-25 — Tune AI personas against the full completion gate
+**Context:** Terminal play and the prior ten-seed benchmark showed the calling-station opponent folding too often despite its sticky profile settings. The generic preflop entry threshold selected too few hands, and a separate price guard rejected many close calls.
+**Decision:** Widen only this profile's preflop passive entry and close-price tolerance. Reject a broader candidate that also increased postflop calls because three seeds ended before hand 500. Keep the preflop-only candidate after all ten seeds completed and the primary gate passed.
+**Reasoning:** A recognizable persona needs different observable choices, but local benchmark completion and legal-action safety are acceptance requirements. Comparing the same seeds and metrics provides a firmer basis than a few terminal hands.
+**Tradeoffs:** Calling frequency improved but remains below its target band, and poor/blunder rate rose modestly. The profile still requires later fixture-backed calibration; its current behavior should not be described as fully calibrated or stronger poker play.
+
+## 2026-10-25 — Keep eight-player action prompts readable and advice consistent
+**Context:** A ten-hand terminal playthrough at an eight-player table showed a large portrait wall and repeated table details crowding each decision. It also exposed short-stack call amounts that exceeded the player's chips, river draw outs that could no longer arrive, conflicting quick advice and post-action feedback, and an immediate replay prompt that lost the saved hand.
+**Decision:** Keep full portraits available through `头像` / `avatars` and show a compact summary automatically at large tables. Use the payable call amount for odds and confirmation, suppress draw outs on the river, derive quick advice from the same preview evaluation used for feedback, and retain the just-completed hand for immediate replay after saving.
+**Reasoning:** The player needs the current action and chip commitment in view. Advice and feedback should use one price and one evaluation basis; replay should work at the moment the hand ends.
+**Tradeoffs:** Large tables show fewer details automatically, so players use `状态` / `status` for the full table and `头像` / `avatars` for the gallery. The training estimates remain approximate, and this interface change does not establish that any AI playing style has reached its calibration target.
+
+## 2026-10-16 — Give avatar opponents their own in-game names
+**Context:** The user wanted each AI opponent's name to match its mascot but was concerned about using agent product names directly in the game.
+**Decision:** Use English sound-alike names with distinct spellings for the six avatar profiles, number repeated profiles, and show only those in-game names beneath the terminal sprites. Keep source names in asset attribution.
+**Reasoning:** A stable nickname connects actions, chip counts, and the avatar without presenting the game character as an official agent product.
+**Tradeoffs:** The visual mascots and phonetic references still resemble their sources; renaming alone does not resolve possible rights questions.
+
+## 2026-10-16 — Make AI opponent avatars readable in the terminal
+**Context:** The user rejected several hand-drawn avatar drafts because their shapes did not resemble the referenced CodeIsland mascots. Comparing the original GIFs exposed missing features such as Claude's keyboard base, Codex's rounded body, Gemini's four-point star, and Cursor's faceted cube.
+**Decision:** Store the original MIT-licensed CodeIsland GIFs with attribution, sample their first frames into 24×18 terminal sprites, and render those sprites with true-color half-block cells. Keep avatar assignment stable for each opponent profile.
+**Reasoning:** Sampling the source artwork preserves its actual silhouettes and colors; a wider terminal grid keeps the eyes and keyboard details that disappeared in the small invented sprites.
+**Tradeoffs:** The terminal rendering is static and takes more rows than the earlier compact version. A live terminal playthrough showed that repeating the full gallery each hand crowded out game information, so it now appears once per game. Terminals without color support get a monochrome silhouette with dark features left open; those silhouettes still lose detail compared with true color. The avatars are visual themes rather than the models driving poker decisions.
+
 ## 2026-10-15 — Let players choose the terminal language before play
 **Context:** The terminal game showed Chinese-only messages across menus, betting, replay, coaching, and input errors. The user requested Chinese and English play, fewer emoji, and a README that reflects actual behavior.
 **Decision:** Choose a language before the first game screen, translate terminal print/input output for the active session, and accept Chinese action and replay commands alongside existing English commands. Keep engine action values, history records, and public agent contracts unchanged.
@@ -37,10 +73,10 @@
 **Tradeoffs:** Platform-visible features are delayed. The benefit is a clearer safety and evaluation baseline for any later AI Poker Arena work, with fewer chances to retrofit privacy, benchmark semantics, or non-goal language after public surfaces exist.
 
 ## 2026-05-08 — Introduce Sprint 3 engine event boundary before renderer replacement
-**Context:** After Sprint 2, `game.py` still mixed state mutation, CLI output, AI action delay, history, and benchmark behavior. The project needed an event-oriented seam before external agents or online rooms could safely reuse the engine.
-**Decision:** Add `EngineEvent` as a structured event contract, mirror core events from `game.py` without removing existing prints, add a first `TerminalEventRenderer`, let headless simulations optionally collect events, make AI action delay injectable, and define an immutable external-agent state contract that separates private hole cards from public player state.
+**Context:** After Sprint 2, `texas_holdem/engine/game.py` still mixed state mutation, CLI output, AI action delay, history, and benchmark behavior. The project needed an event-oriented seam before external agents or online rooms could safely reuse the engine.
+**Decision:** Add `EngineEvent` as a structured event contract, mirror core events from `texas_holdem/engine/game.py` without removing existing prints, add a first `TerminalEventRenderer`, let headless simulations optionally collect events, make AI action delay injectable, and define an immutable external-agent state contract that separates private hole cards from public player state.
 **Reasoning:** Event mirroring gives tests and adapters a stable contract while preserving current terminal play. Keeping private cards separate in the future-facing state contract reduces the risk of leakage when external agents or online rooms are introduced.
-**Tradeoffs:** The CLI still has direct prints in `game.py`, so renderer replacement remains incremental. Headless simulations can collect events, but existing benchmark summaries still use history records until the event stream fully covers all needed analytics.
+**Tradeoffs:** The CLI still has direct prints in `texas_holdem/engine/game.py`, so renderer replacement remains incremental. Headless simulations can collect events, but existing benchmark summaries still use history records until the event stream fully covers all needed analytics.
 
 ## 2026-05-08 — Adopt AGENTS.md-centered documentation system
 **Context:** The repository had a root-level project index and several root-level user/history documents, while `AGENTS.md` defines `docs/` as the stable home for permanent project documentation and root docs as only `AGENTS.md`, `CLAUDE.md`, and `README.md`.
@@ -55,7 +91,7 @@
 **Tradeoffs:** Sprint 2 remained local/terminal-focused longer, and the final benchmark used deeper stacks to complete all 1,000 requested hands after AI tuning; this delays WebSocket prototyping but reduces the risk of building online features on unstable engine/metric semantics.
 
 ## 2026-05-09 — Use three separate Codex agents for slice execution review
-**Context:** Sprint 3 is migrating terminal output from direct `game.py` prints into `EngineEvent` + `TerminalEventRenderer` through small TDD slices. The user wanted the continuing workflow to include product, engineering, and senior poker-player perspectives, and then clarified that all three roles should be implemented by Codex agents rather than by Hermes role-playing inline.
+**Context:** Sprint 3 is migrating terminal output from direct `texas_holdem/engine/game.py` prints into `EngineEvent` + `TerminalEventRenderer` through small TDD slices. The user wanted the continuing workflow to include product, engineering, and senior poker-player perspectives, and then clarified that all three roles should be implemented by Codex agents rather than by Hermes role-playing inline.
 **Decision:** Document the triad workflow in `docs/triad-role-workflow.md` and require each active `[>]` slice to run through three separate Codex agent sessions: Product Manager Codex Agent for read-only acceptance/non-goal pre-check, Engineer Codex Agent for strict-TDD implementation, and Senior Poker Player Codex Agent for read-only poker realism and terminal UX review. Hermes remains the coordinator and independent verification gate.
 **Reasoning:** Separate Codex runs create clearer role isolation and reduce the risk that implementation momentum overrides product scope or player-trust concerns. This is especially important while the project is still a local terminal trainer but is being prepared for a future AI Poker Arena / Agent Poker Platform.
 **Tradeoffs:** Each slice now costs more orchestration time than a single engineer run, and read-only review agents may occasionally require another engineer pass. The added friction is intentional for architecture-boundary work where preserving terminal UX, poker semantics, and future agent-readiness matters more than raw speed.

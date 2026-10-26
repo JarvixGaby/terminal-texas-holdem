@@ -1,4 +1,4 @@
-from game_rules import (
+from texas_holdem.engine.game_rules import (
     BettingStructure,
     BlindStructure,
     GameRules,

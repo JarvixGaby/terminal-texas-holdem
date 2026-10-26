@@ -399,7 +399,7 @@ Remove known breakage and make the current local game reliable.
 
 1. Fix docs referencing obsolete launch/backup file names. ✅ Done in baseline cleanup.
 2. Fix pytest warnings caused by tests returning bool. ✅ Done in baseline cleanup.
-3. Fix `quick_replay_system.py` missing `odds_calculator` import. ✅ Done in baseline cleanup by switching to `optimized_odds_calculator`.
+3. Fix `texas_holdem/history/quick_replay_system.py` missing `odds_calculator` import. ✅ Done in baseline cleanup by switching to `optimized_odds_calculator`.
 4. Add module import smoke tests. ✅ Done in baseline cleanup.
 5. Add No-Limit Hold'em rule compliance checklist. ✅ Done in baseline cleanup.
 
@@ -419,7 +419,7 @@ Every completed hand should have machine-readable decision evaluations.
 
 ### Tasks
 
-1. Create `decision_evaluator.py` data structures.
+1. Create `texas_holdem/ai/decision_evaluator.py` data structures.
 2. Implement pot odds calculation helper.
 3. Implement rule-based evaluation for call/fold/check/raise.
 4. Add evaluation records to hand history.
@@ -452,7 +452,7 @@ Evaluate whether the built-in AI is actually good and profile-consistent.
 
 ### Tasks
 
-1. Create `ai_system_evaluator.py`.
+1. Create `texas_holdem/analytics/ai_system_evaluator.py`.
 2. Add headless simulation mode.
 3. Simulate 1,000+ hands with AI-only tables.
 4. Collect AI profile stats.
@@ -618,7 +618,7 @@ Add the first AI feedback/evaluation loop while keeping the existing local game 
 
 ### Task B: Add decision evaluation models
 
-Create `decision_evaluator.py` with:
+Create `texas_holdem/ai/decision_evaluator.py` with:
 
 - `DecisionContext`
 - `DecisionEvaluation`

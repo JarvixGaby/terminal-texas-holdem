@@ -4,10 +4,10 @@ import random
 
 import pytest
 
-from action_validator import validate_action
-from advanced_ai_engine import ActionLine, AdvancedAIEngine, BetSizingEngine
-from card import Card, Rank, Suit
-from decision_provider import ActionResponse, GameStateSnapshot, VisiblePlayerSnapshot
+from texas_holdem.ai.action_validator import validate_action
+from texas_holdem.ai.advanced_ai_engine import ActionLine, AdvancedAIEngine, BetSizingEngine
+from texas_holdem.engine.card import Card, Rank, Suit
+from texas_holdem.ai.decision_provider import ActionResponse, GameStateSnapshot, VisiblePlayerSnapshot
 
 
 @dataclass(frozen=True)

@@ -1,4 +1,4 @@
-from betting_rules import NoLimitBettingRules
+from texas_holdem.engine.betting_rules import NoLimitBettingRules
 
 
 def test_no_limit_min_raise_uses_last_full_raise_increment():

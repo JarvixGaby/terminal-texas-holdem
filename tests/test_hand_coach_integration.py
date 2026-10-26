@@ -1,7 +1,7 @@
 """Integration coverage for hand-end coach summaries."""
 
-from game import TexasHoldemGame
-from player import AIPlayer, HumanPlayer
+from texas_holdem.engine.game import TexasHoldemGame
+from texas_holdem.engine.player import AIPlayer, HumanPlayer
 
 
 def test_show_instant_replay_prints_non_blocking_hand_coach_summary(monkeypatch, capsys):

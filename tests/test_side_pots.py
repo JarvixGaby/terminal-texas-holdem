@@ -2,8 +2,8 @@
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from player import HumanPlayer
-from game import TexasHoldemGame
+from texas_holdem.engine.player import HumanPlayer
+from texas_holdem.engine.game import TexasHoldemGame
 
 
 def test_side_pot_calculation_with_all_in():
@@ -32,7 +32,7 @@ def test_side_pot_calculation_with_all_in():
 
 def test_blind_contributions_recorded():
     """After _collect_blinds, side_pot_manager must have SB and BB contributions."""
-    from player import AIPlayer
+    from texas_holdem.engine.player import AIPlayer
     players = [AIPlayer("Alice", 1000), AIPlayer("Bob", 1000), AIPlayer("Charlie", 1000)]
     game = TexasHoldemGame(players, small_blind=5, big_blind=10)
     game.active_players = list(game.players)
@@ -48,7 +48,7 @@ def test_blind_contributions_recorded():
 
 def test_call_contribution_recorded():
     """After a call action in _betting_round, side_pot_manager records the contribution."""
-    from player import AIPlayer
+    from texas_holdem.engine.player import AIPlayer
     players = [AIPlayer("Alice", 1000), AIPlayer("Bob", 1000), AIPlayer("Charlie", 1000)]
     game = TexasHoldemGame(players, small_blind=5, big_blind=10)
     game.active_players = list(game.players)
@@ -73,9 +73,9 @@ def test_all_in_player_does_not_win_main_pot():
     Alice wins side pot (300). Bob or Charlie wins main pot (400) based on their hands.
     Alice must NOT receive the main pot.
     """
-    from player import AIPlayer
-    from card import Card, Rank, Suit
-    from hand_evaluator import HandEvaluator
+    from texas_holdem.engine.player import AIPlayer
+    from texas_holdem.engine.card import Card, Rank, Suit
+    from texas_holdem.engine.hand_evaluator import HandEvaluator
 
     alice = HumanPlayer("Alice", 100)
     bob = HumanPlayer("Bob", 500)

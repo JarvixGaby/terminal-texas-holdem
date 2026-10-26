@@ -1,10 +1,10 @@
-from engine_events import EngineEvent
-from action_validator import ValidatedAction
-from card import Card, Rank, Suit
-from decision_provider import ActionResponse, DecisionProvider
-from game import TexasHoldemGame
-from game_history import GameHistoryManager
-from player import AIPlayer, HumanPlayer
+from texas_holdem.engine.engine_events import EngineEvent
+from texas_holdem.ai.action_validator import ValidatedAction
+from texas_holdem.engine.card import Card, Rank, Suit
+from texas_holdem.ai.decision_provider import ActionResponse, DecisionProvider
+from texas_holdem.engine.game import TexasHoldemGame
+from texas_holdem.history.game_history import GameHistoryManager
+from texas_holdem.engine.player import AIPlayer, HumanPlayer
 
 
 def make_game():
@@ -219,7 +219,7 @@ def test_play_hand_routes_completion_display_through_renderer(tmp_path, monkeypa
     monkeypatch.setattr(game, "start_new_hand", lambda: True)
     monkeypatch.setattr(game, "_betting_round", lambda: False)
     monkeypatch.setattr(game, "_show_instant_replay", lambda final_hands, winner_names: None)
-    monkeypatch.setattr("game.player_style_analyzer.save_stats", lambda: None)
+    monkeypatch.setattr("texas_holdem.engine.game.player_style_analyzer.save_stats", lambda: None)
     lines = []
     game.enable_terminal_event_rendering(print_fn=lines.append)
 
@@ -228,7 +228,7 @@ def test_play_hand_routes_completion_display_through_renderer(tmp_path, monkeypa
     stdout = capsys.readouterr().out
     completion_lines = [
         "\n==============================",
-        "游戏结束",
+        "本手结束",
         "==============================",
         "\n🏆 AI-1 获胜！（其他玩家都已弃牌）",
         "💰 获得彩池: 15 筹码",
@@ -246,7 +246,7 @@ def test_winner_routes_announcement_through_renderer_for_early_fold(tmp_path, mo
     game.pot = 15
     game.active_players[1].fold()
     monkeypatch.setattr(game, "_show_instant_replay", lambda final_hands, winner_names: None)
-    monkeypatch.setattr("game.player_style_analyzer.save_stats", lambda: None)
+    monkeypatch.setattr("texas_holdem.engine.game.player_style_analyzer.save_stats", lambda: None)
     events = []
     lines = []
     game.subscribe_to_events(events.append)
@@ -271,7 +271,7 @@ def test_winner_routes_announcement_through_renderer_for_early_fold(tmp_path, mo
     assert lines.count("\n🏆 AI-1 获胜！（其他玩家都已弃牌）") == 1
     assert lines[:4] == [
         "\n==============================",
-        "游戏结束",
+        "本手结束",
         "==============================",
         "\n🏆 AI-1 获胜！（其他玩家都已弃牌）",
     ]
@@ -651,7 +651,7 @@ def test_early_winner_emits_hand_completed_without_private_payload(tmp_path, mon
     game = make_game()
     game.history_manager = GameHistoryManager(str(tmp_path / "history.json"))
     game._show_instant_replay = lambda final_hands, winner_names: None
-    monkeypatch.setattr("game.player_style_analyzer.save_stats", lambda: None)
+    monkeypatch.setattr("texas_holdem.engine.game.player_style_analyzer.save_stats", lambda: None)
     game.pot = 15
     game.active_players[1].fold()
     events = []
@@ -691,7 +691,7 @@ def test_showdown_routes_start_display_through_renderer(tmp_path, monkeypatch):
         Card(Suit.CLUBS, Rank.JACK),
     ]
     monkeypatch.setattr(game, "_show_instant_replay", lambda final_hands, winner_names: None)
-    monkeypatch.setattr("game.player_style_analyzer.save_stats", lambda: None)
+    monkeypatch.setattr("texas_holdem.engine.game.player_style_analyzer.save_stats", lambda: None)
     events = []
     trace = []
     game.subscribe_to_events(events.append)
@@ -744,7 +744,7 @@ def test_showdown_routes_hand_reveal_through_renderer(tmp_path, monkeypatch):
         Card(Suit.CLUBS, Rank.JACK),
     ]
     monkeypatch.setattr(game, "_show_instant_replay", lambda final_hands, winner_names: None)
-    monkeypatch.setattr("game.player_style_analyzer.save_stats", lambda: None)
+    monkeypatch.setattr("texas_holdem.engine.game.player_style_analyzer.save_stats", lambda: None)
     events = []
     trace = []
     game.subscribe_to_events(events.append)
@@ -797,7 +797,7 @@ def test_winner_routes_announcement_through_renderer_for_showdown(tmp_path, monk
         Card(Suit.CLUBS, Rank.JACK),
     ]
     monkeypatch.setattr(game, "_show_instant_replay", lambda final_hands, winner_names: None)
-    monkeypatch.setattr("game.player_style_analyzer.save_stats", lambda: None)
+    monkeypatch.setattr("texas_holdem.engine.game.player_style_analyzer.save_stats", lambda: None)
     events = []
     trace = []
     game.subscribe_to_events(events.append)
@@ -850,7 +850,7 @@ def test_pot_distribution_routes_display_through_renderer(tmp_path, monkeypatch)
         Card(Suit.CLUBS, Rank.JACK),
     ]
     monkeypatch.setattr(game, "_show_instant_replay", lambda final_hands, winner_names: None)
-    monkeypatch.setattr("game.player_style_analyzer.save_stats", lambda: None)
+    monkeypatch.setattr("texas_holdem.engine.game.player_style_analyzer.save_stats", lambda: None)
     events = []
     trace = []
     game.subscribe_to_events(events.append)
@@ -885,7 +885,7 @@ def test_early_fold_pot_distribution_routes_display_through_renderer(tmp_path, m
     game.pot = 15
     game.active_players[1].fold()
     monkeypatch.setattr(game, "_show_instant_replay", lambda final_hands, winner_names: None)
-    monkeypatch.setattr("game.player_style_analyzer.save_stats", lambda: None)
+    monkeypatch.setattr("texas_holdem.engine.game.player_style_analyzer.save_stats", lambda: None)
     events = []
     lines = []
     game.subscribe_to_events(events.append)

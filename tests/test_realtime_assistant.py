@@ -1,5 +1,5 @@
-from card import Card, Rank, Suit
-from realtime_assistant import RealtimeAssistant, SuggestedAction
+from texas_holdem.engine.card import Card, Rank, Suit
+from texas_holdem.training.realtime_assistant import RealtimeAssistant, SuggestedAction
 
 
 def make_card(rank: Rank, suit: Suit) -> Card:

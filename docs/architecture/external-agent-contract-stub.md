@@ -12,8 +12,8 @@ This is documentation only. It does not implement an HTTP API, WebSocket server,
 
 The future external agent adapter must sit behind the existing local decision boundary:
 
-1. `game.py` builds a decision-time `GameStateSnapshot` for exactly one acting seat.
-2. `agent_state_contract.py` converts that snapshot into an `ExternalAgentState` with public table state plus only the acting seat's `private_hole_cards`.
+1. `texas_holdem/engine/game.py` builds a decision-time `GameStateSnapshot` for exactly one acting seat.
+2. `texas_holdem/ai/agent_state_contract.py` converts that snapshot into an `ExternalAgentState` with public table state plus only the acting seat's `private_hole_cards`.
 3. A future adapter serializes `ExternalAgentState` into an external agent request.
 4. The external agent returns an action response.
 5. The adapter maps that response into `ActionResponse`.

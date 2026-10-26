@@ -2,8 +2,8 @@
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from player import HumanPlayer
-from game import TexasHoldemGame
+from texas_holdem.engine.player import HumanPlayer
+from texas_holdem.engine.game import TexasHoldemGame
 
 
 def make_game():
@@ -33,7 +33,7 @@ def test_blinds_deducted_once():
 
 def test_preflop_betting_does_not_reset_blind_bets():
     """_betting_round() must not reset SB/BB current_bet at preflop start (would double-charge)."""
-    from player import AIPlayer
+    from texas_holdem.engine.player import AIPlayer
     players = [AIPlayer("Alice", 1000), AIPlayer("Bob", 1000), AIPlayer("Charlie", 1000)]
     game = TexasHoldemGame(players, small_blind=5, big_blind=10)
     game.active_players = list(game.players)

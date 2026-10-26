@@ -33,10 +33,10 @@ Status: completed
 
 Delivered:
 
-- `decision_provider.py`
-- `action_validator.py`
-- `headless_simulation.py`
-- `ai_system_evaluator.py`
+- `texas_holdem/ai/decision_provider.py`
+- `texas_holdem/ai/action_validator.py`
+- `texas_holdem/analytics/headless_simulation.py`
+- `texas_holdem/analytics/ai_system_evaluator.py`
 - baseline AI intelligence report
 
 Report:
@@ -49,7 +49,7 @@ Status: completed
 
 Delivered:
 
-- `DecisionProvider -> ActionValidator -> apply action` pipeline in `game.py`
+- `DecisionProvider -> ActionValidator -> apply action` pipeline in `texas_holdem/engine/game.py`
 - validated fallback for illegal provider output
 - history action metadata
 - internal AI live `Card` adapter path
@@ -182,12 +182,12 @@ Status: completed
 
 Why:
 
-`game.py` still mixes CLI printing, sleeps, state mutation, history, and evaluation. External agents and online rooms need a cleaner engine/event boundary.
+`texas_holdem/engine/game.py` still mixes CLI printing, sleeps, state mutation, history, and evaluation. External agents and online rooms need a cleaner engine/event boundary.
 
 Deliverables:
 
 - document proposed engine/event API
-- identify minimal extraction seams from `game.py`
+- identify minimal extraction seams from `texas_holdem/engine/game.py`
 - define game events emitted by engine
 - define command/action inputs consumed by engine
 - no large refactor unless the spike identifies a safe incremental path
@@ -203,7 +203,7 @@ These should wait until Sprint 2 is complete:
 
 ### Sprint 3 — Engine/UI separation
 
-- extract headless game engine from CLI-heavy `game.py`
+- extract headless game engine from CLI-heavy `texas_holdem/engine/game.py`
 - emit structured events instead of direct print-only flow
 - keep terminal UI as an adapter
 

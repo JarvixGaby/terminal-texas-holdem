@@ -10,11 +10,11 @@ These benchmark gates are local trainer quality gates and diagnostics. They are 
 
 ## Current Module Boundaries
 
-- `headless_simulation.py` executes local AI-only simulations through `run_ai_only_simulation(num_hands, player_count, starting_chips, seed, collect_events)`. It owns hand execution, temporary history/stat isolation, final stacks, hand summaries, and optional engine-event collection.
-- `ai_system_evaluator.py` summarizes simulations through `evaluate_ai_system(...)`, `benchmark_ai_system(...)`, and `benchmark_ai_system_multi_seed(...)`. It owns report shape, aggregate metrics, JSON artifact writing, profile metrics, stack metrics, seeded/multi-seed reports, and transcript samples.
-- `action_validator.py` remains the legality and fallback boundary. Benchmark gates may consume illegal-action metrics, but they do not redefine No-Limit Hold'em legality.
-- `decision_provider.py` remains the decision abstraction boundary. Benchmark gates evaluate provider behavior only through existing simulation/evaluator outputs.
-- `engine_events.py` remains the event boundary. Benchmark gates may require transcript/event safety, but this document does not introduce new event semantics.
+- `texas_holdem/analytics/headless_simulation.py` executes local AI-only simulations through `run_ai_only_simulation(num_hands, player_count, starting_chips, seed, collect_events)`. It owns hand execution, temporary history/stat isolation, final stacks, hand summaries, and optional engine-event collection.
+- `texas_holdem/analytics/ai_system_evaluator.py` summarizes simulations through `evaluate_ai_system(...)`, `benchmark_ai_system(...)`, and `benchmark_ai_system_multi_seed(...)`. It owns report shape, aggregate metrics, JSON artifact writing, profile metrics, stack metrics, seeded/multi-seed reports, and transcript samples.
+- `texas_holdem/ai/action_validator.py` remains the legality and fallback boundary. Benchmark gates may consume illegal-action metrics, but they do not redefine No-Limit Hold'em legality.
+- `texas_holdem/ai/decision_provider.py` remains the decision abstraction boundary. Benchmark gates evaluate provider behavior only through existing simulation/evaluator outputs.
+- `texas_holdem/engine/engine_events.py` remains the event boundary. Benchmark gates may require transcript/event safety, but this document does not introduce new event semantics.
 - `docs/architecture/public-private-state-contract.md` remains the visibility source of truth. Transcript/report safety gates reference that contract and must not weaken it.
 
 ## Gate Categories
@@ -33,7 +33,7 @@ Slice 2.2 defines the gates only. Machine-readable `PASS` / `WARN` / `FAIL` / `N
 The primary Phase 2 benchmark acceptance protocol is a deterministic multi-seed local benchmark:
 
 ```python
-from ai_system_evaluator import benchmark_ai_system_multi_seed
+from texas_holdem.analytics.ai_system_evaluator import benchmark_ai_system_multi_seed
 
 benchmark_ai_system_multi_seed(
     seeds=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
@@ -68,7 +68,7 @@ Reasoning:
 A single-seed smoke benchmark may be used for quick local sanity checks:
 
 ```python
-from ai_system_evaluator import benchmark_ai_system
+from texas_holdem.analytics.ai_system_evaluator import benchmark_ai_system
 
 benchmark_ai_system(
     num_hands=100,

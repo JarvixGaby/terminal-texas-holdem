@@ -1,4 +1,4 @@
-from player_evaluation import PlayerEvaluationSystem
+from texas_holdem.training.player_evaluation import PlayerEvaluationSystem
 
 
 def test_evaluate_player_style_alias_returns_comprehensive_evaluation(monkeypatch):

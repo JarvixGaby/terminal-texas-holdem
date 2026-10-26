@@ -95,10 +95,10 @@ Engineer requirements:
 
 - Execute only the current `[>]` item or explicitly scoped batch in `docs/active_plan.md`.
 - Use strict TDD for behavior changes: RED, GREEN, focused tests, full suite.
-- Preserve canonical No-Limit Hold'em rules and `hand_evaluator.py` semantics.
+- Preserve canonical No-Limit Hold'em rules and `texas_holdem/engine/hand_evaluator.py` semantics.
 - Preserve `DecisionProvider` / `ActionValidator` as the legality boundary.
 - Preserve public/private state safety; no hidden cards in public trainer feedback or benchmark summaries.
-- Avoid broad `game.py` rewrites.
+- Avoid broad `texas_holdem/engine/game.py` rewrites.
 - Add stable reports under `docs/reports/` and index them when production code or durable decisions change.
 
 Expected output:

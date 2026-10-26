@@ -1,0 +1,741 @@
+{
+  "protocol": {
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "hands_per_seed": 100,
+    "player_count": 4,
+    "starting_chips": 10000,
+    "ai_equity_simulations": 500
+  },
+  "runs": [
+    {
+      "seed": 0,
+      "hands_completed": 100,
+      "errors": [],
+      "illegal_action_rate": 0.0,
+      "station_actions": 266,
+      "station_call_rate": 0.37593984962406013,
+      "counts": [
+        {
+          "phase": "flop",
+          "opportunity": "facing",
+          "action": "call",
+          "count": 19
+        },
+        {
+          "phase": "flop",
+          "opportunity": "facing",
+          "action": "fold",
+          "count": 4
+        },
+        {
+          "phase": "flop",
+          "opportunity": "free",
+          "action": "check",
+          "count": 39
+        },
+        {
+          "phase": "flop",
+          "opportunity": "free",
+          "action": "raise",
+          "count": 6
+        },
+        {
+          "phase": "preflop",
+          "opportunity": "facing",
+          "action": "call",
+          "count": 56
+        },
+        {
+          "phase": "preflop",
+          "opportunity": "facing",
+          "action": "fold",
+          "count": 31
+        },
+        {
+          "phase": "preflop",
+          "opportunity": "facing",
+          "action": "raise",
+          "count": 3
+        },
+        {
+          "phase": "river",
+          "opportunity": "facing",
+          "action": "call",
+          "count": 11
+        },
+        {
+          "phase": "river",
+          "opportunity": "facing",
+          "action": "fold",
+          "count": 7
+        },
+        {
+          "phase": "river",
+          "opportunity": "free",
+          "action": "check",
+          "count": 21
+        },
+        {
+          "phase": "river",
+          "opportunity": "free",
+          "action": "raise",
+          "count": 9
+        },
+        {
+          "phase": "turn",
+          "opportunity": "facing",
+          "action": "call",
+          "count": 14
+        },
+        {
+          "phase": "turn",
+          "opportunity": "facing",
+          "action": "fold",
+          "count": 6
+        },
+        {
+          "phase": "turn",
+          "opportunity": "free",
+          "action": "check",
+          "count": 32
+        },
+        {
+          "phase": "turn",
+          "opportunity": "free",
+          "action": "raise",
+          "count": 8
+        }
+      ],
+      "facing_price_margin": [
+        {
+          "phase": "flop",
+          "action": "call",
+          "estimated_equity_minus_price": "0..+10pp",
+          "count": 1
+        },
+        {
+          "phase": "flop",
+          "action": "call",
+          "estimated_equity_minus_price": "<-10pp",
+          "count": 1
+        },
+        {
+          "phase": "flop",
+          "action": "call",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 17
+        },
+        {
+          "phase": "flop",
+          "action": "fold",
+          "estimated_equity_minus_price": "-10..0pp",
+          "count": 3
+        },
+        {
+          "phase": "flop",
+          "action": "fold",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 1
+        },
+        {
+          "phase": "preflop",
+          "action": "call",
+          "estimated_equity_minus_price": "-10..0pp",
+          "count": 17
+        },
+        {
+          "phase": "preflop",
+          "action": "call",
+          "estimated_equity_minus_price": "0..+10pp",
+          "count": 7
+        },
+        {
+          "phase": "preflop",
+          "action": "call",
+          "estimated_equity_minus_price": "<-10pp",
+          "count": 2
+        },
+        {
+          "phase": "preflop",
+          "action": "call",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 30
+        },
+        {
+          "phase": "preflop",
+          "action": "fold",
+          "estimated_equity_minus_price": "-10..0pp",
+          "count": 4
+        },
+        {
+          "phase": "preflop",
+          "action": "fold",
+          "estimated_equity_minus_price": "0..+10pp",
+          "count": 1
+        },
+        {
+          "phase": "preflop",
+          "action": "fold",
+          "estimated_equity_minus_price": "<-10pp",
+          "count": 23
+        },
+        {
+          "phase": "preflop",
+          "action": "fold",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 3
+        },
+        {
+          "phase": "preflop",
+          "action": "raise",
+          "estimated_equity_minus_price": "0..+10pp",
+          "count": 1
+        },
+        {
+          "phase": "preflop",
+          "action": "raise",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 2
+        },
+        {
+          "phase": "river",
+          "action": "call",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 11
+        },
+        {
+          "phase": "river",
+          "action": "fold",
+          "estimated_equity_minus_price": "0..+10pp",
+          "count": 3
+        },
+        {
+          "phase": "river",
+          "action": "fold",
+          "estimated_equity_minus_price": "<-10pp",
+          "count": 2
+        },
+        {
+          "phase": "river",
+          "action": "fold",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 2
+        },
+        {
+          "phase": "turn",
+          "action": "call",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 14
+        },
+        {
+          "phase": "turn",
+          "action": "fold",
+          "estimated_equity_minus_price": "-10..0pp",
+          "count": 2
+        },
+        {
+          "phase": "turn",
+          "action": "fold",
+          "estimated_equity_minus_price": "0..+10pp",
+          "count": 1
+        },
+        {
+          "phase": "turn",
+          "action": "fold",
+          "estimated_equity_minus_price": "<-10pp",
+          "count": 1
+        },
+        {
+          "phase": "turn",
+          "action": "fold",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 2
+        }
+      ]
+    },
+    {
+      "seed": 1,
+      "hands_completed": 100,
+      "errors": [],
+      "illegal_action_rate": 0.0,
+      "station_actions": 238,
+      "station_call_rate": 0.3235294117647059,
+      "counts": [
+        {
+          "phase": "flop",
+          "opportunity": "facing",
+          "action": "call",
+          "count": 11
+        },
+        {
+          "phase": "flop",
+          "opportunity": "facing",
+          "action": "fold",
+          "count": 3
+        },
+        {
+          "phase": "flop",
+          "opportunity": "free",
+          "action": "check",
+          "count": 40
+        },
+        {
+          "phase": "flop",
+          "opportunity": "free",
+          "action": "raise",
+          "count": 3
+        },
+        {
+          "phase": "preflop",
+          "opportunity": "facing",
+          "action": "call",
+          "count": 46
+        },
+        {
+          "phase": "preflop",
+          "opportunity": "facing",
+          "action": "fold",
+          "count": 35
+        },
+        {
+          "phase": "preflop",
+          "opportunity": "facing",
+          "action": "raise",
+          "count": 3
+        },
+        {
+          "phase": "preflop",
+          "opportunity": "free",
+          "action": "check",
+          "count": 1
+        },
+        {
+          "phase": "preflop",
+          "opportunity": "free",
+          "action": "raise",
+          "count": 1
+        },
+        {
+          "phase": "river",
+          "opportunity": "facing",
+          "action": "call",
+          "count": 10
+        },
+        {
+          "phase": "river",
+          "opportunity": "facing",
+          "action": "fold",
+          "count": 5
+        },
+        {
+          "phase": "river",
+          "opportunity": "free",
+          "action": "check",
+          "count": 17
+        },
+        {
+          "phase": "river",
+          "opportunity": "free",
+          "action": "raise",
+          "count": 8
+        },
+        {
+          "phase": "turn",
+          "opportunity": "facing",
+          "action": "call",
+          "count": 10
+        },
+        {
+          "phase": "turn",
+          "opportunity": "facing",
+          "action": "fold",
+          "count": 7
+        },
+        {
+          "phase": "turn",
+          "opportunity": "free",
+          "action": "check",
+          "count": 31
+        },
+        {
+          "phase": "turn",
+          "opportunity": "free",
+          "action": "raise",
+          "count": 7
+        }
+      ],
+      "facing_price_margin": [
+        {
+          "phase": "flop",
+          "action": "call",
+          "estimated_equity_minus_price": "-10..0pp",
+          "count": 1
+        },
+        {
+          "phase": "flop",
+          "action": "call",
+          "estimated_equity_minus_price": "0..+10pp",
+          "count": 2
+        },
+        {
+          "phase": "flop",
+          "action": "call",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 8
+        },
+        {
+          "phase": "flop",
+          "action": "fold",
+          "estimated_equity_minus_price": "<-10pp",
+          "count": 1
+        },
+        {
+          "phase": "flop",
+          "action": "fold",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 2
+        },
+        {
+          "phase": "preflop",
+          "action": "call",
+          "estimated_equity_minus_price": "-10..0pp",
+          "count": 17
+        },
+        {
+          "phase": "preflop",
+          "action": "call",
+          "estimated_equity_minus_price": "0..+10pp",
+          "count": 9
+        },
+        {
+          "phase": "preflop",
+          "action": "call",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 20
+        },
+        {
+          "phase": "preflop",
+          "action": "fold",
+          "estimated_equity_minus_price": "-10..0pp",
+          "count": 5
+        },
+        {
+          "phase": "preflop",
+          "action": "fold",
+          "estimated_equity_minus_price": "0..+10pp",
+          "count": 2
+        },
+        {
+          "phase": "preflop",
+          "action": "fold",
+          "estimated_equity_minus_price": "<-10pp",
+          "count": 26
+        },
+        {
+          "phase": "preflop",
+          "action": "fold",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 2
+        },
+        {
+          "phase": "preflop",
+          "action": "raise",
+          "estimated_equity_minus_price": "-10..0pp",
+          "count": 1
+        },
+        {
+          "phase": "preflop",
+          "action": "raise",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 2
+        },
+        {
+          "phase": "river",
+          "action": "call",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 10
+        },
+        {
+          "phase": "river",
+          "action": "fold",
+          "estimated_equity_minus_price": "-10..0pp",
+          "count": 2
+        },
+        {
+          "phase": "river",
+          "action": "fold",
+          "estimated_equity_minus_price": "0..+10pp",
+          "count": 1
+        },
+        {
+          "phase": "river",
+          "action": "fold",
+          "estimated_equity_minus_price": "<-10pp",
+          "count": 1
+        },
+        {
+          "phase": "river",
+          "action": "fold",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 1
+        },
+        {
+          "phase": "turn",
+          "action": "call",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 10
+        },
+        {
+          "phase": "turn",
+          "action": "fold",
+          "estimated_equity_minus_price": "0..+10pp",
+          "count": 3
+        },
+        {
+          "phase": "turn",
+          "action": "fold",
+          "estimated_equity_minus_price": "<-10pp",
+          "count": 1
+        },
+        {
+          "phase": "turn",
+          "action": "fold",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "seed": 2,
+      "hands_completed": 100,
+      "errors": [],
+      "illegal_action_rate": 0.0,
+      "station_actions": 215,
+      "station_call_rate": 0.3581395348837209,
+      "counts": [
+        {
+          "phase": "flop",
+          "opportunity": "facing",
+          "action": "call",
+          "count": 18
+        },
+        {
+          "phase": "flop",
+          "opportunity": "facing",
+          "action": "fold",
+          "count": 3
+        },
+        {
+          "phase": "flop",
+          "opportunity": "free",
+          "action": "check",
+          "count": 24
+        },
+        {
+          "phase": "flop",
+          "opportunity": "free",
+          "action": "raise",
+          "count": 5
+        },
+        {
+          "phase": "preflop",
+          "opportunity": "facing",
+          "action": "call",
+          "count": 38
+        },
+        {
+          "phase": "preflop",
+          "opportunity": "facing",
+          "action": "fold",
+          "count": 46
+        },
+        {
+          "phase": "preflop",
+          "opportunity": "facing",
+          "action": "raise",
+          "count": 1
+        },
+        {
+          "phase": "preflop",
+          "opportunity": "free",
+          "action": "check",
+          "count": 4
+        },
+        {
+          "phase": "preflop",
+          "opportunity": "free",
+          "action": "raise",
+          "count": 1
+        },
+        {
+          "phase": "river",
+          "opportunity": "facing",
+          "action": "call",
+          "count": 9
+        },
+        {
+          "phase": "river",
+          "opportunity": "facing",
+          "action": "fold",
+          "count": 1
+        },
+        {
+          "phase": "river",
+          "opportunity": "free",
+          "action": "check",
+          "count": 16
+        },
+        {
+          "phase": "river",
+          "opportunity": "free",
+          "action": "raise",
+          "count": 7
+        },
+        {
+          "phase": "turn",
+          "opportunity": "facing",
+          "action": "call",
+          "count": 12
+        },
+        {
+          "phase": "turn",
+          "opportunity": "facing",
+          "action": "fold",
+          "count": 6
+        },
+        {
+          "phase": "turn",
+          "opportunity": "free",
+          "action": "check",
+          "count": 20
+        },
+        {
+          "phase": "turn",
+          "opportunity": "free",
+          "action": "raise",
+          "count": 4
+        }
+      ],
+      "facing_price_margin": [
+        {
+          "phase": "flop",
+          "action": "call",
+          "estimated_equity_minus_price": "-10..0pp",
+          "count": 1
+        },
+        {
+          "phase": "flop",
+          "action": "call",
+          "estimated_equity_minus_price": "0..+10pp",
+          "count": 3
+        },
+        {
+          "phase": "flop",
+          "action": "call",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 14
+        },
+        {
+          "phase": "flop",
+          "action": "fold",
+          "estimated_equity_minus_price": "-10..0pp",
+          "count": 1
+        },
+        {
+          "phase": "flop",
+          "action": "fold",
+          "estimated_equity_minus_price": "0..+10pp",
+          "count": 1
+        },
+        {
+          "phase": "flop",
+          "action": "fold",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 1
+        },
+        {
+          "phase": "preflop",
+          "action": "call",
+          "estimated_equity_minus_price": "-10..0pp",
+          "count": 8
+        },
+        {
+          "phase": "preflop",
+          "action": "call",
+          "estimated_equity_minus_price": "0..+10pp",
+          "count": 8
+        },
+        {
+          "phase": "preflop",
+          "action": "call",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 22
+        },
+        {
+          "phase": "preflop",
+          "action": "fold",
+          "estimated_equity_minus_price": "-10..0pp",
+          "count": 7
+        },
+        {
+          "phase": "preflop",
+          "action": "fold",
+          "estimated_equity_minus_price": "<-10pp",
+          "count": 38
+        },
+        {
+          "phase": "preflop",
+          "action": "fold",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 1
+        },
+        {
+          "phase": "preflop",
+          "action": "raise",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 1
+        },
+        {
+          "phase": "river",
+          "action": "call",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 9
+        },
+        {
+          "phase": "river",
+          "action": "fold",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 1
+        },
+        {
+          "phase": "turn",
+          "action": "call",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 12
+        },
+        {
+          "phase": "turn",
+          "action": "fold",
+          "estimated_equity_minus_price": "0..+10pp",
+          "count": 4
+        },
+        {
+          "phase": "turn",
+          "action": "fold",
+          "estimated_equity_minus_price": "<-10pp",
+          "count": 1
+        },
+        {
+          "phase": "turn",
+          "action": "fold",
+          "estimated_equity_minus_price": ">=+10pp",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

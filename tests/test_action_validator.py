@@ -1,5 +1,5 @@
-from action_validator import validate_action
-from decision_provider import ActionResponse, GameStateSnapshot, VisiblePlayerSnapshot
+from texas_holdem.ai.action_validator import validate_action
+from texas_holdem.ai.decision_provider import ActionResponse, GameStateSnapshot, VisiblePlayerSnapshot
 
 
 def snapshot(**overrides):

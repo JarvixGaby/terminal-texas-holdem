@@ -11,10 +11,10 @@ from typing import List, Optional
 
 # Input and logging helpers have local fallbacks.
 try:
-    from enhanced_error_handling import (
+    from texas_holdem.support.enhanced_error_handling import (
         safe_int_input, safe_str_input, safe_choice_input, safe_confirm_input,
     )
-    from enhanced_logging import log_game_event, log_user_action
+    from texas_holdem.support.enhanced_logging import log_game_event, log_user_action
     
 except ImportError as e:
     
@@ -90,14 +90,21 @@ except ImportError as e:
         pass  # 空实现
 
 # === 原有模块导入 ===
-from player import Player, HumanPlayer, AIPlayer
-from game import TexasHoldemGame
-from game_rules import BLIND_PRESETS, STACK_PROFILES, BlindStructure, StackProfile, create_rules
-from history_viewer import HistoryViewer
-from player_evaluation import player_evaluation_system
-from training_center import LocalTrainerCenter
-import localization
-from localization import choose_language, terminal_language
+from texas_holdem.engine.player import Player, HumanPlayer, AIPlayer
+from texas_holdem.engine.game import TexasHoldemGame
+from texas_holdem.engine.game_rules import (
+    BLIND_PRESETS,
+    MAX_PLAYERS,
+    STACK_PROFILES,
+    BlindStructure,
+    StackProfile,
+    create_rules,
+)
+from texas_holdem.history.history_viewer import HistoryViewer
+from texas_holdem.training.player_evaluation import player_evaluation_system
+from texas_holdem.training.training_center import LocalTrainerCenter
+import texas_holdem.ui.localization as localization
+from texas_holdem.ui.localization import choose_language, terminal_language
 
 
 class EnhancedTexasHoldemUI:
@@ -153,10 +160,13 @@ class EnhancedTexasHoldemUI:
         settings = {}
         
         # AI玩家数量（使用优化的输入处理）
+        opponent_prompt = (
+            f"请输入AI玩家数量 (1-{MAX_PLAYERS - 1}，总人数{MAX_PLAYERS}人以内): "
+        )
         settings['ai_count'] = safe_int_input(
-            "请输入AI玩家数量 (1-5): ", 
+            opponent_prompt,
             min_val=1, 
-            max_val=5, 
+            max_val=MAX_PLAYERS - 1,
             default=2
         )
         
@@ -246,6 +256,10 @@ class EnhancedTexasHoldemUI:
     
     def create_players(self, settings):
         """创建玩家"""
+        ai_count = settings['ai_count']
+        if not isinstance(ai_count, int) or not 1 <= ai_count <= MAX_PLAYERS - 1:
+            raise ValueError(f"电脑玩家数量必须在1-{MAX_PLAYERS - 1}人之间")
+
         players = []
         
         # 创建人类玩家
@@ -254,19 +268,41 @@ class EnhancedTexasHoldemUI:
         log_user_action("加入游戏", settings['player_name'])
         
         # 创建AI玩家
-        ai_names = ["Alice", "Bob", "Charlie", "Diana", "Eve"]
         companion_profiles = [
             "balanced", "loose_aggressive", "calling_station",
-            "tight_aggressive", "maniac",
+            "tight_aggressive", "maniac", "nit", "balanced",
+            "loose_aggressive", "calling_station",
         ]
-        companion_style_names = ["均衡型", "松凶型", "跟注型", "紧凶型", "激进型"]
-        for i in range(settings['ai_count']):
-            ai_name = f"机器人{ai_names[i]}"
-            ai_player = AIPlayer(
-                ai_name, settings['initial_chips'], archetype_name=companion_profiles[i],
-            )
+        companion_style_names = {
+            "balanced": "均衡型",
+            "loose_aggressive": "松凶型",
+            "calling_station": "跟注型",
+            "tight_aggressive": "紧凶型",
+            "maniac": "激进型",
+            "nit": "紧手型",
+        }
+        companion_names = {
+            "balanced": "Clawd Kode",
+            "loose_aggressive": "Kodeks",
+            "calling_station": "Jemini CLI",
+            "tight_aggressive": "Kurser",
+            "maniac": "OppenKode",
+            "nit": "Koder",
+        }
+        name_counts = {}
+        used_names = {human_player.name}
+        for i in range(ai_count):
+            profile = companion_profiles[i]
+            base_name = companion_names[profile]
+            name_counts[base_name] = name_counts.get(base_name, 0) + 1
+            ai_name = base_name if name_counts[base_name] == 1 else f"{base_name} {name_counts[base_name]}"
+            while ai_name in used_names:
+                name_counts[base_name] += 1
+                ai_name = f"{base_name} {name_counts[base_name]}"
+            used_names.add(ai_name)
+            ai_player = AIPlayer(ai_name, settings['initial_chips'], archetype_name=profile)
             players.append(ai_player)
-            print(f"{ai_name}：{companion_style_names[i]}")
+            print(f"{ai_name}： {companion_style_names[profile]}")
             log_game_event("AI玩家加入", ai_name)
         
         return players
@@ -276,7 +312,7 @@ class EnhancedTexasHoldemUI:
         try:
             # 重置AI引擎（新游戏开始）
             try:
-                from smart_ai_system import ai_engine_manager
+                from texas_holdem.ai.smart_ai_system import ai_engine_manager
                 ai_engine_manager.reset_for_new_game()
             except ImportError:
                 pass  # 如果导入失败，继续使用旧的AI系统
@@ -318,7 +354,7 @@ class EnhancedTexasHoldemUI:
                     
                     if not self.game.is_game_over():
                         # 检查人类玩家是否被淘汰
-                        from player import HumanPlayer
+                        from texas_holdem.engine.player import HumanPlayer
                         human_player = next((p for p in self.game.players if isinstance(p, HumanPlayer)), None)
                         if human_player and human_player.chips == 0:
                             print(f"\n💔 {human_player.name} 已被淘汰！")
@@ -406,13 +442,19 @@ class EnhancedTexasHoldemUI:
         print(f"👥 玩家数量: {len(game.players)}")
         print(f"💰 盲注结构: {game.small_blind}/{game.big_blind}")
         print(f"💎 起始筹码: {game.players[0].chips}")
-        print(f"📏 筹码深度: {game.rules.stack_profile}")
+        stack_labels = {
+            "short": "短码 20BB",
+            "standard": "标准 50BB",
+            "deep": "深码 100BB",
+            "custom": "自定义",
+        }
+        print(f"📏 筹码深度: {stack_labels.get(game.rules.stack_profile, game.rules.stack_profile)}")
         print()
         
         print("👥 玩家列表:")
         print("-" * 30)
         for i, player in enumerate(game.players, 1):
-            player_type = "🤖 AI" if hasattr(player, 'ai_type') else "👤 玩家"
+            player_type = "🤖 AI" if isinstance(player, AIPlayer) else "👤 玩家"
             print(f"{i}. {player_type} {player.name}: {player.chips} 筹码")
         
         print()
@@ -465,7 +507,7 @@ class EnhancedTexasHoldemUI:
     def _show_data_visualization(self):
         """使用实际保存的牌局历史展示玩家数据。"""
         try:
-            from data_visualization import ASCIIChartRenderer
+            from texas_holdem.analytics.data_visualization import ASCIIChartRenderer
             
             print("\n📈 数据可视化")
             print("-" * 30)

@@ -6,13 +6,13 @@
 
 **Architecture:** Prefer additive public `EngineEvent` coverage and headless observability at existing stable boundaries. Batch work by risk: first add coverage assertions and collect-events summaries, then renderer parity tests, then only small routing/extraction steps.
 
-**Tech Stack:** Python, pytest, existing `EngineEvent`, `headless_simulation.py`, `terminal_renderer.py`.
+**Tech Stack:** Python, pytest, existing `EngineEvent`, `texas_holdem/analytics/headless_simulation.py`, `texas_holdem/ui/terminal_renderer.py`.
 
 ---
 
 ## Global guardrails
 
-- No broad rewrite of `game.py`.
+- No broad rewrite of `texas_holdem/engine/game.py`.
 - No canonical poker rule changes.
 - Preserve terminal behavior unless a parity test is written first.
 - Do not start online-room/API/WebSocket work in these batches.
@@ -35,7 +35,7 @@
    - `SimulationResult.event_type_counts` counts event types when `collect_events=True`.
    - `SimulationResult.event_types_by_hand_id` groups event types by hand id.
    - At least one completed hand has `hand_started`, `betting_round_started`, `action_applied`, and `hand_completed`.
-2. Implement the minimal summary fields in `headless_simulation.py`.
+2. Implement the minimal summary fields in `texas_holdem/analytics/headless_simulation.py`.
 3. Verify:
    ```bash
    python3 -m pytest -q tests/test_headless_simulation.py::test_run_ai_only_simulation_summarizes_event_coverage
@@ -74,7 +74,7 @@
 
 **Tasks:**
 
-1. Create a short report listing remaining direct IO in `game.py` by category.
+1. Create a short report listing remaining direct IO in `texas_holdem/engine/game.py` by category.
 2. Do not modify production code unless a tiny tested event slice is identified.
 
 ## Batch 5 — Next safe event slice from inventory
@@ -101,7 +101,7 @@ For event batches, also run a collect-events smoke:
 
 ```bash
 python3 - <<'PY'
-from headless_simulation import run_ai_only_simulation
+from texas_holdem.analytics.headless_simulation import run_ai_only_simulation
 result = run_ai_only_simulation(num_hands=1, player_count=4, starting_chips=500, collect_events=True)
 print(result.errors)
 print(len(result.engine_events))

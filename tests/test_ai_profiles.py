@@ -3,10 +3,10 @@ from dataclasses import FrozenInstanceError
 
 import pytest
 
-from advanced_ai_engine import AdvancedAIEngine
-from card import Card, Rank, Suit
-from player import AIPlayer
-from ai_profiles import (
+from texas_holdem.ai.advanced_ai_engine import AdvancedAIEngine
+from texas_holdem.engine.card import Card, Rank, Suit
+from texas_holdem.engine.player import AIPlayer
+from texas_holdem.ai.ai_profiles import (
     AIArchetypeProfile,
     ARCHETYPE_PROFILES,
     DEFAULT_ARCHETYPE_NAME,
@@ -96,7 +96,7 @@ def test_default_engine_construction_remains_compatible_without_profile_selectio
 
 
 def test_computer_player_uses_selected_archetype_and_refreshes_reused_name():
-    from advanced_ai_engine import advanced_ai_manager
+    from texas_holdem.ai.advanced_ai_engine import advanced_ai_manager
 
     original = dict(advanced_ai_manager.engines)
     try:
@@ -126,6 +126,34 @@ def test_terminal_companions_get_distinct_play_styles(monkeypatch):
     ]
 
 
+def test_terminal_game_supports_ten_total_players(monkeypatch):
+    import main
+    from texas_holdem.engine.game import TexasHoldemGame
+
+    monkeypatch.setattr(main, "log_user_action", lambda *args: None)
+    monkeypatch.setattr(main, "log_game_event", lambda *args: None)
+    players = main.EnhancedTexasHoldemUI.__new__(main.EnhancedTexasHoldemUI).create_players(
+        {"player_name": "Human", "initial_chips": 1000, "ai_count": 9}
+    )
+
+    assert len(players) == 10
+    assert len({player.name for player in players}) == 10
+    assert players[-1].name == "Jemini CLI 2"
+    assert players[7].archetype_name == "balanced"
+    assert isinstance(TexasHoldemGame(players), TexasHoldemGame)
+
+    with pytest.raises(ValueError, match="2-10"):
+        TexasHoldemGame([AIPlayer(f"Extra-{index}") for index in range(11)])
+
+
+def test_terminal_player_creation_rejects_more_than_nine_computer_opponents():
+    import main
+
+    ui = main.EnhancedTexasHoldemUI.__new__(main.EnhancedTexasHoldemUI)
+    with pytest.raises(ValueError, match="1-9"):
+        ui.create_players({"player_name": "Human", "initial_chips": 1000, "ai_count": 10})
+
+
 def test_companion_styles_take_distinct_preflop_lines_with_same_public_price(monkeypatch):
     monkeypatch.setattr("random.random", lambda: 0.0)
     hole_cards = [Card(Suit.CLUBS, Rank.SEVEN), Card(Suit.CLUBS, Rank.SIX)]
@@ -144,8 +172,8 @@ def test_companion_styles_take_distinct_preflop_lines_with_same_public_price(mon
 
 
 def test_game_history_records_actual_companion_profiles(tmp_path):
-    from game import TexasHoldemGame
-    from game_history import GameHistoryManager
+    from texas_holdem.engine.game import TexasHoldemGame
+    from texas_holdem.history.game_history import GameHistoryManager
 
     players = [
         AIPlayer("Alice", archetype_name="balanced"),

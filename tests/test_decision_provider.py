@@ -2,18 +2,18 @@ from dataclasses import asdict
 import json
 import random
 
-from action_validator import validate_action
-from advanced_ai_engine import advanced_ai_manager
-from card import Card, Rank, Suit
-from decision_provider import (
+from texas_holdem.ai.action_validator import validate_action
+from texas_holdem.ai.advanced_ai_engine import advanced_ai_manager
+from texas_holdem.engine.card import Card, Rank, Suit
+from texas_holdem.ai.decision_provider import (
     ActionResponse,
     BuiltInAIDecisionProvider,
     GameStateSnapshot,
     HumanCliDecisionProvider,
     VisiblePlayerSnapshot,
 )
-from agent_state_contract import external_agent_state_from_snapshot
-from player import AIPlayer
+from texas_holdem.ai.agent_state_contract import external_agent_state_from_snapshot
+from texas_holdem.engine.player import AIPlayer
 
 
 def make_snapshot(**overrides):
@@ -190,7 +190,7 @@ def test_builtin_ai_receives_position_relative_to_rotating_blinds():
 
 
 def test_heads_up_position_maps_button_small_blind_and_big_blind():
-    from advanced_ai_engine import PositionRangeManager
+    from texas_holdem.ai.advanced_ai_engine import PositionRangeManager
 
     assert PositionRangeManager.get_position_name(0, 2) == "BTN"
     assert PositionRangeManager.get_position_name(1, 2) == "BB"

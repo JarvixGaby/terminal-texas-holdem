@@ -12,12 +12,12 @@ Phase 2 is a planning, contract, and validation phase. It keeps the project loca
 
 Primary boundaries:
 
-- `agent_state_contract.py` remains the future external-agent state-shape anchor.
-- `decision_provider.py` remains the decision input/output abstraction.
-- `action_validator.py` remains the legality and fallback boundary for actions returned by providers.
-- `engine_events.py` remains the terminal/headless/future-adapter event boundary.
-- `headless_simulation.py` remains the local benchmark and event-collection runner.
-- `ai_system_evaluator.py` remains the local aggregate benchmark/report generator.
+- `texas_holdem/ai/agent_state_contract.py` remains the future external-agent state-shape anchor.
+- `texas_holdem/ai/decision_provider.py` remains the decision input/output abstraction.
+- `texas_holdem/ai/action_validator.py` remains the legality and fallback boundary for actions returned by providers.
+- `texas_holdem/engine/engine_events.py` remains the terminal/headless/future-adapter event boundary.
+- `texas_holdem/analytics/headless_simulation.py` remains the local benchmark and event-collection runner.
+- `texas_holdem/analytics/ai_system_evaluator.py` remains the local aggregate benchmark/report generator.
 
 ## Explicit Non-Goals
 
@@ -107,7 +107,7 @@ Acceptance criteria:
 - Adds tests that serialize external-agent state snapshots.
 - Verifies no unrevealed opponent hole cards, deck order, private AI internals, or unsafe seeds appear in public state.
 - Verifies the acting player/agent receives only its own private hole cards.
-- Keeps `agent_state_contract.py` immutable-state intent intact.
+- Keeps `texas_holdem/ai/agent_state_contract.py` immutable-state intent intact.
 
 Validation:
 

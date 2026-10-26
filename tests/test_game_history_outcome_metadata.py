@@ -1,7 +1,7 @@
 import json
 import pytest
 
-from game_history import GameHistoryManager
+from texas_holdem.history.game_history import GameHistoryManager
 
 
 def test_finish_game_persists_explicit_outcome_metadata(tmp_path):
@@ -95,7 +95,7 @@ def test_history_replace_failure_keeps_last_complete_record(tmp_path, monkeypatc
     original = history_file.read_bytes()
 
     manager.start_new_game_record(["AI-1", "AI-2"], 5, 10, 1)
-    monkeypatch.setattr("game_history.os.replace", lambda *args: (_ for _ in ()).throw(OSError("disk error")))
+    monkeypatch.setattr("texas_holdem.history.game_history.os.replace", lambda *args: (_ for _ in ()).throw(OSError("disk error")))
     with pytest.raises(OSError, match="disk error"):
         manager.finish_game([], 0, ["AI-2"])
 

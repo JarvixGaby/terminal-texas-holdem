@@ -26,10 +26,10 @@ Note: use `python3`; the current environment does not provide a `python` command
 
 ## Current status
 
-Latest full-suite validation after the README refresh:
+Latest full-suite validation after the source package reorganization:
 
 ```text
-302 passed
+319 passed
 ```
 
 Phase 2 contract-hardening is complete/documented: public/private state visibility docs, benchmark acceptance gates, decision/action/event boundary docs, external-agent state serialization safety tests, executable benchmark gate validation, external-agent request/response contract stubs, and platform non-goals are in place.
@@ -38,18 +38,36 @@ Phase 3 AI Evaluation Loop is complete through Stage 3.5. The canonical primary 
 
 On 2026-10-15 the terminal computer-opponent profile and AI position update passed a fresh primary `10 × 500` gate with zero illegal actions and zero runtime errors. A separate late-position open-raise candidate passed reduced diagnostics but failed primary completion and was rolled back. Profile calibration still reports WARN.
 
+## Source package layout
+
+Application modules live under `texas_holdem/`, grouped by responsibility:
+
+| Directory | Responsibility |
+| --- | --- |
+| `texas_holdem/engine/` | Cards, hand evaluation, rules, players, betting, game flow, side pots, and engine events. |
+| `texas_holdem/ai/` | Built-in AI, decision providers and validation, archetypes, odds, and agent state contracts. |
+| `texas_holdem/training/` | Coaching, player evaluation and styles, training center, and real-time advice. |
+| `texas_holdem/history/` | Hand history, history browsing, and replay. |
+| `texas_holdem/analytics/` | Headless simulation, AI benchmarks, analytics, and visualizations. |
+| `texas_holdem/storage/` | SQLite and optimized data management. |
+| `texas_holdem/support/` | Configuration, logging, error handling, exceptions, and cache utilities. |
+| `texas_holdem/ui/` | Terminal localization and event rendering. |
+| `tests/` | Automated tests, including the three formerly root-level test scripts. |
+
+`main.py` remains the terminal launcher. Root-level `ai_system_evaluator.py` and `agent_state_contract.py` are small compatibility imports for the documented benchmark command and existing agent-contract imports. Runtime JSON/configuration files stay at the project root so existing persistence paths remain stable.
+
 Sprint 2 added:
 
-- `decision_provider.py`
-- `action_validator.py`
-- `headless_simulation.py`
-- `ai_system_evaluator.py`
+- `texas_holdem/ai/decision_provider.py`
+- `texas_holdem/ai/action_validator.py`
+- `texas_holdem/analytics/headless_simulation.py`
+- `texas_holdem/analytics/ai_system_evaluator.py`
 - tests for all four modules
 - AI intelligence baseline report under `docs/reports/`
 
 Sprint 2.1 added:
 
-- provider + validator pipeline integration in `game.py`
+- provider + validator pipeline integration in `texas_holdem/engine/game.py`
 - action metadata in history records
 - live Card-object adapter path for internal AI
 - headless simulation in-memory AI manager isolation
@@ -97,62 +115,63 @@ Sprint 2.4-2.6 completed:
 | Path | Purpose |
 | --- | --- |
 | `scripts/start.sh` | Starts the terminal app from any working directory. |
+| `scripts/diagnose_calling_station_opportunities.py` | Read-only calling-station opportunity and pot-price diagnostic for fast and runtime equity settings. |
 | `main.py` | Terminal application entry point and menu/UI orchestration; assigns distinct built-in archetypes to computer opponents. Still large; future refactor target. |
-| `localization.py` | Startup language selection and terminal-only Chinese/English text translation; internal game state and saved history retain their existing values. |
-| `game.py` | Main Texas Hold'em game loop, betting rounds, dealing, showdown, history/evaluation integration. Still mixes engine + CLI output. |
-| `player.py` | Player, HumanPlayer, AIPlayer, and AI decision dispatch. |
-| `card.py` | Card, suit, rank, and deck primitives. |
-| `hand_evaluator.py` | Poker hand ranking and comparison. |
-| `side_pot_manager.py` | Side-pot calculation and contribution tracking. |
-| `official_rules.py` | Rule helper / No-Limit Hold'em rule concepts. |
+| `texas_holdem/ui/localization.py` | Startup language selection and terminal-only Chinese/English text translation; internal game state and saved history retain their existing values. |
+| `texas_holdem/engine/game.py` | Main Texas Hold'em game loop, betting rounds, dealing, showdown, history/evaluation integration. Still mixes engine + CLI output. |
+| `texas_holdem/engine/player.py` | Player, HumanPlayer, AIPlayer, and AI decision dispatch. |
+| `texas_holdem/engine/card.py` | Card, suit, rank, and deck primitives. |
+| `texas_holdem/engine/hand_evaluator.py` | Poker hand ranking and comparison. |
+| `texas_holdem/engine/side_pot_manager.py` | Side-pot calculation and contribution tracking. |
+| `texas_holdem/engine/official_rules.py` | Rule helper / No-Limit Hold'em rule concepts. |
 
 ## AI and decision systems
 
 | Path | Purpose |
 | --- | --- |
-| `smart_ai_system.py` | Standard AI decision system. |
-| `advanced_ai_engine.py` | Advanced AI engine with range/GTO-style concepts. |
-| `ai_profiles.py` | Sprint 4 immutable built-in AI archetype profile config for nit, TAG, LAG, calling-station, maniac, and balanced opponents. |
-| `optimized_odds_calculator.py` | Monte Carlo equity/odds calculator with caching/performance modes. |
-| `decision_evaluator.py` | Rule-based evaluator for individual decisions: grade, score, reasoning, risk tags, metrics. |
-| `decision_provider.py` | Sprint 2 provider abstraction: snapshots, action responses, built-in AI adapter, human CLI adapter. |
-| `action_validator.py` | Sprint 2 action validation and safe fallback layer. |
-| `engine_events.py` | Sprint 3 structured engine event contract used by terminal/headless/future online adapters. |
-| `terminal_renderer.py` | Sprint 3 terminal adapter for rendering selected `EngineEvent` objects outside engine mutation code. |
-| `agent_state_contract.py` | Immutable public/private state contract for future external-agent APIs; serializes public table state plus only the acting seat's private hand and strips hidden action-history internals. |
-| `headless_simulation.py` | Sprint 2 AI-only simulation wrapper for non-interactive benchmark runs. |
-| `ai_system_evaluator.py` | Sprint 2 aggregate AI behavior/evaluation report generator; includes player-level poker metrics, benchmark JSON output, blind-aware preflop opportunities, profile metrics, configurable starting chips, optional seeded runs, multi-seed benchmark summaries, stack concentration metrics, human-readable transcript samples, Phase 2 machine-readable benchmark gate evaluation, optional benchmark progress artifacts, Phase 3 profile target-band calibration fields, sanitized poor/blunder audit samples, and public transcript/schema safety metadata. |
-| `realtime_assistant.py` | Real-time assistant / coaching support. |
-| `hand_coach.py` | Hand-end coaching summary builder for human players; converts action-level decision evaluations into a non-blocking per-hand average score, worst-decision highlight, and next-hand focus while avoiding opponent private-card leaks. |
-| `training_center.py` | Local trainer center that converts player evaluation/statistics into next-session focus areas and execution checklists. |
-| `player_evaluation.py` | Player evaluation logic. |
-| `player_styles.py` | Player style analyzer and persistent style stats. |
+| `texas_holdem/ai/smart_ai_system.py` | Standard AI decision system. |
+| `texas_holdem/ai/advanced_ai_engine.py` | Advanced AI engine with range/GTO-style concepts. |
+| `texas_holdem/ai/ai_profiles.py` | Sprint 4 immutable built-in AI archetype profile config for nit, TAG, LAG, calling-station, maniac, and balanced opponents. |
+| `texas_holdem/ai/optimized_odds_calculator.py` | Monte Carlo equity/odds calculator with caching/performance modes. |
+| `texas_holdem/ai/decision_evaluator.py` | Rule-based evaluator for individual decisions: grade, score, reasoning, risk tags, metrics. |
+| `texas_holdem/ai/decision_provider.py` | Sprint 2 provider abstraction: snapshots, action responses, built-in AI adapter, human CLI adapter. |
+| `texas_holdem/ai/action_validator.py` | Sprint 2 action validation and safe fallback layer. |
+| `texas_holdem/engine/engine_events.py` | Sprint 3 structured engine event contract used by terminal/headless/future online adapters. |
+| `texas_holdem/ui/terminal_renderer.py` | Sprint 3 terminal adapter for rendering selected `EngineEvent` objects outside engine mutation code. |
+| `texas_holdem/ai/agent_state_contract.py` | Immutable public/private state contract for future external-agent APIs; serializes public table state plus only the acting seat's private hand and strips hidden action-history internals. |
+| `texas_holdem/analytics/headless_simulation.py` | Sprint 2 AI-only simulation wrapper for non-interactive benchmark runs. |
+| `texas_holdem/analytics/ai_system_evaluator.py` | Sprint 2 aggregate AI behavior/evaluation report generator; includes player-level poker metrics, benchmark JSON output, blind-aware preflop opportunities, profile metrics, configurable starting chips, optional seeded runs, multi-seed benchmark summaries, stack concentration metrics, human-readable transcript samples, Phase 2 machine-readable benchmark gate evaluation, optional benchmark progress artifacts, Phase 3 profile target-band calibration fields, sanitized poor/blunder audit samples, and public transcript/schema safety metadata. |
+| `texas_holdem/training/realtime_assistant.py` | Real-time assistant / coaching support. |
+| `texas_holdem/training/hand_coach.py` | Hand-end coaching summary builder for human players; converts action-level decision evaluations into a non-blocking per-hand average score, worst-decision highlight, and next-hand focus while avoiding opponent private-card leaks. |
+| `texas_holdem/training/training_center.py` | Local trainer center that converts player evaluation/statistics into next-session focus areas and execution checklists. |
+| `texas_holdem/training/player_evaluation.py` | Player evaluation logic. |
+| `texas_holdem/training/player_styles.py` | Player style analyzer and persistent style stats. |
 
 ## History, replay, analytics, and persistence
 
 | Path | Purpose |
 | --- | --- |
-| `game_history.py` | JSON hand history manager with atomic saves, damaged-file protection, decision evaluations, and explicit outcome/blind metadata. |
-| `history_viewer.py` | History browsing and replay entry points. |
-| `instant_replay.py` | Instant replay system. |
-| `quick_replay_system.py` | Quick replay and odds review support. |
-| `database.py` | SQLite persistence layer. Long-term target is to make SQLite canonical. |
-| `advanced_analytics.py` | Higher-level analytics features. |
-| `data_visualization.py` | Data visualization/reporting utilities. |
-| `optimized_data_manager.py` | Optimized data management helpers. |
+| `texas_holdem/history/game_history.py` | JSON hand history manager with atomic saves, damaged-file protection, decision evaluations, and explicit outcome/blind metadata. |
+| `texas_holdem/history/history_viewer.py` | History browsing and replay entry points. |
+| `texas_holdem/history/instant_replay.py` | Instant replay system. |
+| `texas_holdem/history/quick_replay_system.py` | Quick replay and odds review support. |
+| `texas_holdem/storage/database.py` | SQLite persistence layer. Long-term target is to make SQLite canonical. |
+| `texas_holdem/analytics/advanced_analytics.py` | Higher-level analytics features. |
+| `texas_holdem/analytics/data_visualization.py` | Data visualization/reporting utilities. |
+| `texas_holdem/storage/optimized_data_manager.py` | Optimized data management helpers. |
 
 ## Config, logging, and infrastructure
 
 | Path | Purpose |
 | --- | --- |
-| `config.py` | General configuration. |
-| `game_config.py` | Game configuration helpers. |
-| `enhanced_config_manager.py` | Enhanced configuration manager. |
-| `enhanced_error_handling.py` | Error handling utilities. |
-| `enhanced_logging.py` | Logging utilities. |
-| `constants.py` | Shared constants. |
-| `exceptions.py` | Custom exceptions. |
-| `lru_cache.py` | Cache utility. |
+| `texas_holdem/support/config.py` | General configuration. |
+| `texas_holdem/support/game_config.py` | Game configuration helpers. |
+| `texas_holdem/support/enhanced_config_manager.py` | Enhanced configuration manager. |
+| `texas_holdem/support/enhanced_error_handling.py` | Error handling utilities. |
+| `texas_holdem/support/enhanced_logging.py` | Logging utilities. |
+| `texas_holdem/ai/constants.py` | Shared constants. |
+| `texas_holdem/support/exceptions.py` | Custom exceptions. |
+| `texas_holdem/support/lru_cache.py` | Cache utility. |
 
 ## Tests
 
@@ -178,9 +197,9 @@ Sprint 2.4-2.6 completed:
 | `tests/test_blinds.py` | Blind/dealer behavior tests. |
 | `tests/test_dealer.py` | Dealer behavior tests. |
 | `tests/test_side_pots.py` | Side-pot tests. |
-| `test_integration.py` | Legacy/root integration tests. |
-| `test_side_pot_detailed.py` | Legacy/root detailed side-pot tests. |
-| `test_side_pot_fix.py` | Legacy/root side-pot regression tests. |
+| `tests/test_integration.py` | Integration tests moved from the project root. |
+| `tests/test_side_pot_detailed.py` | Detailed side-pot tests moved from the project root. |
+| `tests/test_side_pot_fix.py` | Side-pot regression tests moved from the project root. |
 
 ## Documentation
 
@@ -308,6 +327,23 @@ Sprint 2.4-2.6 completed:
 | `docs/reports/2026-10-15-companion-late-open-reduced-benchmark-evaluation.json` | Reduced-protocol gate evaluation for the rejected candidate. |
 | `docs/reports/2026-10-15-companion-late-open-primary-benchmark.json` | Rejected CO/BTN open-raise candidate's primary artifact; seed 9 ended at hand 237. |
 | `docs/reports/2026-10-15-companion-late-open-primary-benchmark-evaluation.json` | Failed primary gate evaluation for the rejected candidate. |
+| `docs/reports/2026-10-25-calling-station-style-calibration.md` | Preflop-only calling-station tuning decision, primary benchmark comparison, and remaining calibration limits. |
+| `docs/reports/2026-10-25-calling-station-style-calibration.json` | Rejected preflop plus postflop candidate's primary artifact; three seeds ended early. |
+| `docs/reports/2026-10-25-calling-station-style-calibration-evaluation.json` | Failed primary gate evaluation for the rejected style candidate. |
+| `docs/reports/2026-10-25-calling-station-preflop-only-primary.json` | Accepted preflop-only candidate's 10-seed × 500-hand primary artifact. |
+| `docs/reports/2026-10-25-calling-station-preflop-only-primary-evaluation.json` | Passing primary gate evaluation for the accepted candidate. |
+| `docs/reports/2026-10-26-calling-station-call-over-raise.md` | Calling-station postflop style diagnosis, accepted policy, primary comparison, and remaining limits. |
+| `docs/reports/2026-10-26-calling-station-call-over-raise-primary.json` | Accepted postflop call-over-raise candidate's 10-seed × 500-hand primary artifact. |
+| `docs/reports/2026-10-26-calling-station-call-over-raise-primary-evaluation.json` | Passing primary gate evaluation for the postflop style repair. |
+| `docs/reports/2026-10-26-calling-station-small-blind-completion.md` | Calling-station small-blind diagnosis, accepted policy, primary comparison, and remaining calibration limits. |
+| `docs/reports/2026-10-26-calling-station-small-blind-completion-primary.json` | Accepted small-blind completion candidate's 10-seed × 500-hand primary artifact. |
+| `docs/reports/2026-10-26-calling-station-small-blind-completion-primary-evaluation.json` | Passing primary gate evaluation for the small-blind candidate. |
+| `docs/reports/2026-10-26-calling-station-astra-medium-equity-check.md` | Astra's bounded postflop check decision, primary comparison, and runtime-equity diagnostic. |
+| `docs/reports/2026-10-26-calling-station-astra-medium-equity-check-primary.json` | Accepted Astra candidate's 10-seed × 500-hand primary artifact. |
+| `docs/reports/2026-10-26-calling-station-astra-medium-equity-check-primary-evaluation.json` | Passing primary gate evaluation for the Astra candidate. |
+| `docs/reports/2026-10-26-calling-station-opportunity-diagnostic.md` | Calling-station conditional-call and price diagnosis comparing five and 500 equity simulations. |
+| `docs/reports/2026-10-26-calling-station-runtime-opportunities.json` | Three-seed, 300-hand runtime-equity opportunity counts at 500 simulations per decision. |
+| `docs/reports/2026-10-26-calling-station-fast-opportunities.json` | Same-protocol fast-equity opportunity counts at five simulations per decision. |
 | `docs/archive/README.md` | Archive and directory organization policy. |
 
 ## Runtime data artifacts

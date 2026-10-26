@@ -4,7 +4,7 @@
 
 **Goal:** Resume Sprint 3 with a narrow, low-risk robustness slice: add explicit betting-round lifecycle engine events and document event coverage without changing terminal gameplay behavior.
 
-**Architecture:** Keep `game.py` behavior stable and add event mirroring at the `_betting_round()` boundary. Do not attempt GameState extraction, online-room work, or broad print migration in this slice. Use focused tests first, then full regression and a small benchmark smoke.
+**Architecture:** Keep `texas_holdem/engine/game.py` behavior stable and add event mirroring at the `_betting_round()` boundary. Do not attempt GameState extraction, online-room work, or broad print migration in this slice. Use focused tests first, then full regression and a small benchmark smoke.
 
 **Tech Stack:** Python, dataclasses-based `EngineEvent`, existing `TerminalEventRenderer`, pytest via `python3 -m pytest -q`.
 
@@ -12,7 +12,7 @@
 
 ## Guardrails
 
-- No broad rewrite of `game.py`.
+- No broad rewrite of `texas_holdem/engine/game.py`.
 - No canonical poker rule changes.
 - Preserve current terminal print behavior.
 - Events must not include private hole cards or deck internals.
@@ -48,7 +48,7 @@ Expected first run: FAIL because lifecycle events are not implemented.
 **Objective:** Add event emission to `_betting_round()` without changing betting logic.
 
 **Files:**
-- Modify: `game.py`
+- Modify: `texas_holdem/engine/game.py`
 
 **Implementation notes:**
 - Emit `betting_round_started` immediately after the existing start print.
@@ -76,7 +76,7 @@ Expected first run: FAIL because lifecycle events are not implemented.
 ```bash
 python3 -m pytest -q
 python3 - <<'PY'
-from ai_system_evaluator import benchmark_ai_system
+from texas_holdem.analytics.ai_system_evaluator import benchmark_ai_system
 result = benchmark_ai_system(num_hands=10, player_count=4)
 data = result.to_dict()
 print(f"Hands: {data['hands_played']}")

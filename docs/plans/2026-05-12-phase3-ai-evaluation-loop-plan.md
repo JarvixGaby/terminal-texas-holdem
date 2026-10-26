@@ -236,7 +236,7 @@ Define repeatable agent roles so benchmark results drive structured iteration.
 
 ### Stage 3.1 checklist
 
-- [ ] Inspect existing `ai_system_evaluator.py` benchmark protocol and gate helpers.
+- [ ] Inspect existing `texas_holdem/analytics/ai_system_evaluator.py` benchmark protocol and gate helpers.
 - [ ] Decide whether the first primary gate run is full `10 × 500` or reduced due to runtime.
 - [ ] Run the primary/reduced benchmark and save a machine-readable artifact.
 - [ ] Generate a human-readable benchmark gate report.
@@ -246,7 +246,7 @@ Define repeatable agent roles so benchmark results drive structured iteration.
 
 ### Stage 3.2 checklist
 
-- [ ] Read `ai_profiles.py` target fields and current profile metric output.
+- [ ] Read `texas_holdem/ai/ai_profiles.py` target fields and current profile metric output.
 - [ ] Define target bands for each archetype.
 - [ ] Add target-vs-observed profile calibration metrics.
 - [ ] Run a calibration benchmark.

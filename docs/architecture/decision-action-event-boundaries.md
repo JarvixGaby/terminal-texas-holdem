@@ -12,18 +12,18 @@ It is a contract document only. It does not implement online rooms, WebSocket se
 
 | Layer | Current module | Contract responsibility |
 | --- | --- | --- |
-| Decision input | `decision_provider.py` / `GameStateSnapshot` | Build the acting seat's decision snapshot: public game state plus that seat's private hole cards. |
+| Decision input | `texas_holdem/ai/decision_provider.py` / `GameStateSnapshot` | Build the acting seat's decision snapshot: public game state plus that seat's private hole cards. |
 | Decision provider | `DecisionProvider.decide(...) -> ActionResponse` | Return a proposed action, amount, optional JSON-safe metadata, raw response, and provider error without mutating game state. |
-| Legality boundary | `validate_action(...) -> ValidatedAction` in `action_validator.py` | Normalize provider output, enforce legal action/amount constraints, and return safe fallback actions without throwing. |
-| Engine mutation | `game.py` betting/showdown flow | Apply only `ValidatedAction.action` and `ValidatedAction.amount` to chips, pot, side pots, folds, all-ins, history, and events. |
-| Event boundary | `EngineEvent.public_payload`, `private_payload_by_player`, `metadata` in `engine_events.py` | Emit serializable lifecycle/action/showdown/feedback events for terminal, headless, and future adapters. |
-| Terminal adapter | `terminal_renderer.py` | Render selected public engine events into terminal text. |
-| Headless adapter | `headless_simulation.py` | Collect public-safe serialized events and hand summaries for local benchmark/evaluation. |
-| Benchmark/reporting | `ai_system_evaluator.py` | Consume hand summaries and transcript samples as local trainer diagnostics and benchmark gates. |
+| Legality boundary | `validate_action(...) -> ValidatedAction` in `texas_holdem/ai/action_validator.py` | Normalize provider output, enforce legal action/amount constraints, and return safe fallback actions without throwing. |
+| Engine mutation | `texas_holdem/engine/game.py` betting/showdown flow | Apply only `ValidatedAction.action` and `ValidatedAction.amount` to chips, pot, side pots, folds, all-ins, history, and events. |
+| Event boundary | `EngineEvent.public_payload`, `private_payload_by_player`, `metadata` in `texas_holdem/engine/engine_events.py` | Emit serializable lifecycle/action/showdown/feedback events for terminal, headless, and future adapters. |
+| Terminal adapter | `texas_holdem/ui/terminal_renderer.py` | Render selected public engine events into terminal text. |
+| Headless adapter | `texas_holdem/analytics/headless_simulation.py` | Collect public-safe serialized events and hand summaries for local benchmark/evaluation. |
+| Benchmark/reporting | `texas_holdem/analytics/ai_system_evaluator.py` | Consume hand summaries and transcript samples as local trainer diagnostics and benchmark gates. |
 
 ## Decision Snapshot Contract
 
-`GameStateSnapshot` is built immediately before a player acts through `game.py`'s provider pipeline. It is the only state shape a `DecisionProvider` should need.
+`GameStateSnapshot` is built immediately before a player acts through `texas_holdem/engine/game.py`'s provider pipeline. It is the only state shape a `DecisionProvider` should need.
 
 Allowed fields include:
 
@@ -81,7 +81,7 @@ Current provider notes:
 
 ## `ActionResponse` Metadata Handling
 
-`ActionResponse.metadata` is provider-supplied. It may be persisted into action metadata through `game.py`'s `_build_action_metadata()` and may later be inspected by benchmark/reporting code.
+`ActionResponse.metadata` is provider-supplied. It may be persisted into action metadata through `texas_holdem/engine/game.py`'s `_build_action_metadata()` and may later be inspected by benchmark/reporting code.
 
 Allowed public metadata examples:
 
@@ -137,7 +137,7 @@ Validation non-responsibilities:
 
 ## Engine Mutation Boundary
 
-Only the engine flow in `game.py` may apply a validated action to game state. The engine should use the pre-action snapshot for decision evaluation and then mutate state in the betting branch:
+Only the engine flow in `texas_holdem/engine/game.py` may apply a validated action to game state. The engine should use the pre-action snapshot for decision evaluation and then mutate state in the betting branch:
 
 1. Build decision snapshot.
 2. Ask provider for `ActionResponse`.
@@ -219,7 +219,7 @@ Current rendered event types include hand start, cards dealt, community cards, g
 
 ## Headless and Benchmark Consumption Boundary
 
-`headless_simulation.py` may collect serialized `EngineEvent.to_dict()` results when `collect_events=True`. It may also summarize hand records for benchmark reporting.
+`texas_holdem/analytics/headless_simulation.py` may collect serialized `EngineEvent.to_dict()` results when `collect_events=True`. It may also summarize hand records for benchmark reporting.
 
 Headless and benchmark consumers may use:
 
@@ -237,11 +237,11 @@ They must not publish:
 - `private_payload_by_player` content into public samples.
 - Provider `raw_response` fields unless they have been serialized and visibility-filtered.
 
-`ai_system_evaluator.py` may use internal summaries to compute local metrics, but public transcript samples and durable reports must remain public/private safe.
+`texas_holdem/analytics/ai_system_evaluator.py` may use internal summaries to compute local metrics, but public transcript samples and durable reports must remain public/private safe.
 
 ## Report and History Metadata Boundary
 
-`game.py` records provider/validator metadata through `_build_action_metadata()`:
+`texas_holdem/engine/game.py` records provider/validator metadata through `_build_action_metadata()`:
 
 - `raw_action`
 - `raw_amount`

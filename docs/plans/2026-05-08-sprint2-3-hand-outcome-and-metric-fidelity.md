@@ -33,7 +33,7 @@ Out of scope for this first Sprint 2.3 slice:
 
 **Files:**
 - Modify: `tests/test_game_history_outcome_metadata.py`
-- Modify later: `game_history.py`
+- Modify later: `texas_holdem/history/game_history.py`
 
 **Steps:**
 1. Create tests that call `finish_game(..., outcome_metadata={...})`.
@@ -47,7 +47,7 @@ Out of scope for this first Sprint 2.3 slice:
 **Objective:** Add backward-compatible outcome metadata to `GameRecord`.
 
 **Files:**
-- Modify: `game_history.py`
+- Modify: `texas_holdem/history/game_history.py`
 
 **Steps:**
 1. Add `outcome_metadata: Dict[str, Any] = field(default_factory=dict)` to `GameRecord`.
@@ -63,8 +63,8 @@ Out of scope for this first Sprint 2.3 slice:
 
 **Files:**
 - Modify: `tests/test_headless_simulation.py`
-- Modify later: `headless_simulation.py`
-- Modify later: `game.py`
+- Modify later: `texas_holdem/analytics/headless_simulation.py`
+- Modify later: `texas_holdem/engine/game.py`
 
 **Steps:**
 1. Add assertions that every hand summary contains `outcome_metadata`.
@@ -74,11 +74,11 @@ Out of scope for this first Sprint 2.3 slice:
 
 ## Task 4: Emit outcome metadata from game endings
 
-**Objective:** Make `game.py` pass explicit outcome metadata into history for showdown and early-winner endings.
+**Objective:** Make `texas_holdem/engine/game.py` pass explicit outcome metadata into history for showdown and early-winner endings.
 
 **Files:**
-- Modify: `game.py`
-- Modify: `headless_simulation.py`
+- Modify: `texas_holdem/engine/game.py`
+- Modify: `texas_holdem/analytics/headless_simulation.py`
 
 **Steps:**
 1. Add helper to build `street_reach` from final game phase.
@@ -94,7 +94,7 @@ Out of scope for this first Sprint 2.3 slice:
 
 **Files:**
 - Modify: `tests/test_ai_metrics.py`
-- Modify later: `ai_system_evaluator.py`
+- Modify later: `texas_holdem/analytics/ai_system_evaluator.py`
 
 **Steps:**
 1. Build synthetic two-hand simulation:
@@ -109,7 +109,7 @@ Out of scope for this first Sprint 2.3 slice:
 **Objective:** Update `showdown_rate` to prefer `outcome_metadata.went_to_showdown`.
 
 **Files:**
-- Modify: `ai_system_evaluator.py`
+- Modify: `texas_holdem/analytics/ai_system_evaluator.py`
 
 **Steps:**
 1. If `outcome_metadata` contains `went_to_showdown`, count showdown only when true.

@@ -1,7 +1,7 @@
-from action_validator import ValidatedAction
-from decision_provider import ActionResponse, DecisionProvider
-from game import TexasHoldemGame
-from player import AIPlayer, HumanPlayer
+from texas_holdem.ai.action_validator import ValidatedAction
+from texas_holdem.ai.decision_provider import ActionResponse, DecisionProvider
+from texas_holdem.engine.game import TexasHoldemGame
+from texas_holdem.engine.player import AIPlayer, HumanPlayer
 
 
 class FixedProvider(DecisionProvider):

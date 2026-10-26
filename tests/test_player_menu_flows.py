@@ -1,7 +1,7 @@
 from types import SimpleNamespace
 
 import main
-from game_history import GameHistoryManager, GamePhase, GameRecord, PlayerAction, PlayerHand
+from texas_holdem.history.game_history import GameHistoryManager, GamePhase, GameRecord, PlayerAction, PlayerHand
 
 
 def make_ui(monkeypatch):
@@ -73,6 +73,32 @@ def test_main_menu_hides_internal_update_messages(monkeypatch, capsys):
     assert "优化增强版" not in output
     assert "优化系统管理" not in output
     assert "感谢游戏" in output
+
+
+def test_new_game_settings_allow_nine_computer_opponents(monkeypatch):
+    ui = object.__new__(main.EnhancedTexasHoldemUI)
+    ui.clear_screen = lambda: None
+    input_calls = []
+
+    def capture_int_input(*args, **kwargs):
+        input_calls.append((args, kwargs))
+        return kwargs["max_val"]
+
+    monkeypatch.setattr(main, "safe_int_input", capture_int_input)
+    monkeypatch.setattr(main, "safe_str_input", lambda *args, **kwargs: "Human")
+    monkeypatch.setattr(main, "log_user_action", lambda *args, **kwargs: None)
+    monkeypatch.setattr(
+        ui, "_get_rule_settings",
+        lambda: SimpleNamespace(small_blind=5, big_blind=10, starting_chips=1000),
+    )
+
+    settings = ui.get_game_settings()
+
+    assert settings["ai_count"] == 9
+    prompt, options = input_calls[0]
+    assert "1-9" in prompt[0]
+    assert options["min_val"] == 1
+    assert options["max_val"] == 9
 
 
 def test_finished_game_returns_to_menu_without_error(monkeypatch, capsys):

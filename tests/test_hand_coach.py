@@ -1,6 +1,6 @@
 """Hand-end coach summary tests."""
 
-from hand_coach import HandCoach
+from texas_holdem.training.hand_coach import HandCoach
 
 
 def test_hand_coach_summarizes_worst_human_decision_without_opponent_cards():

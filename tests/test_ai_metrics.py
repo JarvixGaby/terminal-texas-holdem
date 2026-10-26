@@ -1,11 +1,11 @@
 import json
 
-from ai_system_evaluator import (
+from texas_holdem.analytics.ai_system_evaluator import (
     PlayerPokerMetrics,
     benchmark_ai_system,
     summarize_ai_evaluations,
 )
-from headless_simulation import SimulationResult
+from texas_holdem.analytics.headless_simulation import SimulationResult
 
 
 def synthetic_simulation():

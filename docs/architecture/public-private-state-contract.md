@@ -10,12 +10,12 @@ No API server, WebSocket server, online room, auth system, or external-agent run
 
 ## Current Module Boundaries
 
-- `agent_state_contract.py` defines immutable future-facing external-agent state objects: `ExternalAgentState` and `PublicAgentPlayerState`.
-- `decision_provider.py` defines `GameStateSnapshot`, `VisiblePlayerSnapshot`, `DecisionProvider`, `ActionResponse`, `BuiltInAIDecisionProvider`, and `HumanCliDecisionProvider`.
-- `action_validator.py` validates provider output through `validate_action(...)` and normalizes unsafe or illegal responses into `ValidatedAction`.
-- `engine_events.py` defines `EngineEvent` with `public_payload`, `private_payload_by_player`, and `metadata`.
-- `headless_simulation.py` runs local AI-only simulations and can collect serialized engine events when `collect_events=True`.
-- `ai_system_evaluator.py` summarizes local benchmark results, player/profile metrics, stack metrics, seeded/multi-seed reports, and bounded transcript samples.
+- `texas_holdem/ai/agent_state_contract.py` defines immutable future-facing external-agent state objects: `ExternalAgentState` and `PublicAgentPlayerState`.
+- `texas_holdem/ai/decision_provider.py` defines `GameStateSnapshot`, `VisiblePlayerSnapshot`, `DecisionProvider`, `ActionResponse`, `BuiltInAIDecisionProvider`, and `HumanCliDecisionProvider`.
+- `texas_holdem/ai/action_validator.py` validates provider output through `validate_action(...)` and normalizes unsafe or illegal responses into `ValidatedAction`.
+- `texas_holdem/engine/engine_events.py` defines `EngineEvent` with `public_payload`, `private_payload_by_player`, and `metadata`.
+- `texas_holdem/analytics/headless_simulation.py` runs local AI-only simulations and can collect serialized engine events when `collect_events=True`.
+- `texas_holdem/analytics/ai_system_evaluator.py` summarizes local benchmark results, player/profile metrics, stack metrics, seeded/multi-seed reports, and bounded transcript samples.
 
 ## Protected Private Data
 
@@ -101,7 +101,7 @@ Private:
 
 ## Benchmark Transcript and Reporting Rules
 
-`ai_system_evaluator.py` currently builds transcript samples from `headless_simulation.py` hand summaries. Phase 2 treats these samples as public-facing review artifacts.
+`texas_holdem/analytics/ai_system_evaluator.py` currently builds transcript samples from `texas_holdem/analytics/headless_simulation.py` hand summaries. Phase 2 treats these samples as public-facing review artifacts.
 
 Transcript samples may include:
 
@@ -132,7 +132,7 @@ Aggregate benchmark reports must label their purpose correctly:
 - `GameStateSnapshot.hole_cards` is private to the acting seat even though it is part of the decision snapshot.
 - `VisiblePlayerSnapshot` and `PublicAgentPlayerState` must remain opponent-public: name, chips, current bet, folded/all-in flags, and position only.
 - `BuiltInAIDecisionProvider` may use the acting player's hand and public game state, but its returned metadata must remain JSON-safe and hidden-card filtered.
-- `validate_action(...)` in `action_validator.py` validates only actions and amounts. It must not become a visibility or hidden-information bypass.
+- `validate_action(...)` in `texas_holdem/ai/action_validator.py` validates only actions and amounts. It must not become a visibility or hidden-information bypass.
 - `EngineEvent.public_payload` is safe for terminal/headless/future public consumers. `private_payload_by_player` is reserved for future seat-scoped private delivery and requires tests before use.
 - `EngineEvent.metadata` must be treated as public-adapter metadata unless a future contract explicitly scopes it.
 

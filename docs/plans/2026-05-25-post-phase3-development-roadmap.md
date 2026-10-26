@@ -47,7 +47,7 @@ Date: 2026-05-25
 
 ### Headless Engine / Action API
 
-- 继续把 headless simulation 和 terminal game loop 的 action path 对齐，减少 `game.py` 中终端输出、状态 mutation、benchmark 逻辑混杂。
+- 继续把 headless simulation 和 terminal game loop 的 action path 对齐，减少 `texas_holdem/engine/game.py` 中终端输出、状态 mutation、benchmark 逻辑混杂。
 - 明确 action-driven engine 的最小 contract：public snapshot、legal actions、action response、validated action、engine events、history/evaluation side effects。
 - 为未来 adapter 保留边界，但近期只做本地 headless/terminal 验证，不暴露公网 API。
 - 用 deterministic headless harness 验证同一 action sequence 的事件、历史、评价一致性。
@@ -155,7 +155,7 @@ Date: 2026-05-25
 
 - UX 文案过度自信。
 - 训练建议和 benchmark evaluator 口径不一致。
-- `game.py` 继续变大，增加后续 engine 分离成本。
+- `texas_holdem/engine/game.py` 继续变大，增加后续 engine 分离成本。
 
 ### Phase C：Headless / Action-Driven Engine Readiness
 
@@ -170,7 +170,7 @@ Date: 2026-05-25
 - Headless action harness plan。
 - Action sequence fixture corpus。
 - Event/history/evaluation parity checks。
-- `game.py` 中高风险终端耦合点的 inventory 和小 slice 分离计划。
+- `texas_holdem/engine/game.py` 中高风险终端耦合点的 inventory 和小 slice 分离计划。
 
 **验收标准：**
 
@@ -180,7 +180,7 @@ Date: 2026-05-25
 
 **不要做的事：**
 
-- 不做大型 `game.py` 重写。
+- 不做大型 `texas_holdem/engine/game.py` 重写。
 - 不改变 canonical hand evaluator semantics。
 - 不移动 runtime data paths。
 
@@ -339,7 +339,7 @@ PY
 **可能触达文件：**
 
 - 读取：`docs/reports/2026-05-22-phase3-calling-station-negative-equity-call-tuning-benchmark.json`
-- 读取：`ai_system_evaluator.py` 仅理解 artifact shape，不做代码改动除非后续 slice 明确需要。
+- 读取：`texas_holdem/analytics/ai_system_evaluator.py` 仅理解 artifact shape，不做代码改动除非后续 slice 明确需要。
 - 可新增：`docs/reports/YYYY-MM-DD-post-phase3-remaining-poor-blunder-triage.md`
 - 更新：`docs/index.md`
 
@@ -443,11 +443,11 @@ PY
 
 - `docs/architecture/decision-action-event-boundaries.md`
 - `docs/architecture/external-agent-contract-stub.md`
-- `headless_simulation.py`
-- `decision_provider.py`
-- `action_validator.py`
-- `engine_events.py`
-- `game.py` 只读 inventory
+- `texas_holdem/analytics/headless_simulation.py`
+- `texas_holdem/ai/decision_provider.py`
+- `texas_holdem/ai/action_validator.py`
+- `texas_holdem/engine/engine_events.py`
+- `texas_holdem/engine/game.py` 只读 inventory
 - 可新增：`docs/reports/YYYY-MM-DD-headless-action-api-readiness-inventory.md`
 - 更新：`docs/index.md`
 
@@ -460,7 +460,7 @@ python3 -m pytest -q tests/test_decision_provider.py tests/test_action_validator
 **验收标准：**
 
 - Inventory 明确当前可复用 contract、缺口、不可碰边界。
-- 不提出大型 `game.py` 重写作为下一步。
+- 不提出大型 `texas_holdem/engine/game.py` 重写作为下一步。
 - 后续实现 slice 必须小于一个独立 action/API contract improvement。
 
 ## 决策 Gate

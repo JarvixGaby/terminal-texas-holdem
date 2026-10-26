@@ -1,52 +1,66 @@
-# Texas Hold'em Terminal Game
+# Terminal Texas Hold'em
 
-[简体中文说明](docs/readme-zh.md)
+[简体中文](docs/readme-zh.md) · [Player guide](docs/user-guide.md) · [Project index](docs/index.md)
 
-A local No-Limit Texas Hold'em practice game. Play against one to five computer opponents with different styles, then review your hands and training feedback. The app runs in a terminal and asks you to choose English or Chinese each time it starts.
+A local No-Limit Texas Hold'em game for one human and up to nine built-in computer opponents. Play a hand in your terminal, review it immediately, and use the history and training tools to study your decisions. Choose Chinese or English when the game starts.
 
-## Requirements and start
+## Pixel opponents
 
-- Python 3.12 or a compatible Python 3 version
-- A terminal that supports UTF-8
-- No third-party packages are required to play
+The opponents have terminal pixel portraits and playful English names. Their portraits are visual themes; their decisions come from this project's built-in poker AI. Seat order is fixed when a game starts, so the first six opponents have these names and styles:
 
-From the project directory:
+| Seat | Name shown in game | Playing style |
+| --- | --- | --- |
+| 1 | Clawd Kode | Balanced |
+| 2 | Kodeks | Loose-aggressive |
+| 3 | Jemini CLI | Calling station |
+| 4 | Kurser | Tight-aggressive |
+| 5 | OppenKode | Maniac |
+| 6 | Koder | Nit |
+
+Seats 7–9 repeat the first three styles and add a number to duplicate names. The name and portrait assignment is deterministic, not random. With seven or more opponents, the automatic table display stays compact; enter `avatars` on your turn to see the full gallery.
+
+![Original mascot frames and their terminal pixel samples](assets/ai_avatars/codeisland/comparison.png)
+
+The portrait samples come from [CodeIsland's MIT-licensed mascot animations](assets/ai_avatars/codeisland/SOURCE.md). They are used as visual inspiration and do not imply that the named products power or endorse the poker opponents.
+
+## Run locally
+
+You need Python 3.12 or a compatible Python 3 version and a UTF-8 terminal. Playing does not require third-party Python packages, an account, or a network connection.
 
 ```bash
+git clone https://github.com/JarvixGaby/terminal-texas-holdem.git
+cd terminal-texas-holdem
 ./scripts/start.sh
 ```
 
-The script also works when called by its path from another directory. Alternatively, run `python3 main.py` from the project directory. At the first prompt, enter `2` for English or `1` for Chinese.
+You can also run `python3 main.py` from the project directory. Choose `1` for Chinese or `2` for English, then select **New game**. Set your name, 1–9 opponents, blinds, and starting stack. The total table size is 2–10 players.
 
-## Play
-
-Choose **New game** from the main menu. Enter a player name, select one to five computer opponents, and choose the blinds and starting stack. The computer opponents use distinct playing styles.
-
-On your turn, use these commands:
+## At the table
 
 | Command | Action |
 | --- | --- |
 | `check` | Pass when no bet is due. |
-| `call` | Match the current bet. |
-| `bet` or `raise` | Put chips in or increase the bet; follow the amount prompt. |
-| `fold` | Give up the current hand. |
-| `status` | Show the table state. |
+| `call` | Match the amount owed. |
+| `bet` or `raise` | Bet or raise; enter the amount when prompted. |
+| `fold` | Give up the hand. |
+| `status` | Show the full table state. |
 | `help` | Show decision advice. |
+| `avatars` | Show every computer opponent's portrait. |
 
-Chinese action commands also work in English mode. Confirmation prompts accept `y`, `n`, and `back` as well as their Chinese equivalents.
+Chinese commands also work in English mode. Confirmation prompts accept `y`, `n`, and `back`, along with their Chinese equivalents. After each hand you can open an immediate replay. The main menu also provides hand history, quick replay, a training center, and player-style review. Advice and equity figures are practice estimates.
 
-The main menu also offers hand history, quick replay, a local training center, game instructions, and a player style review. Decision advice and equity figures are estimates for practice, not guarantees of the best move.
+The terminal uses color when supported; setting `NO_COLOR=1` gives a monochrome portrait fallback.
 
-## Local data
+## Development and evidence
 
-Hand history, player statistics, the SQLite database, and logs are stored in the local project directory. These runtime files are excluded by `.gitignore`. Playing does not require an account or a network connection.
+The application entry point is `main.py`. Game flow lives in `texas_holdem/engine/`, built-in AI in `texas_holdem/ai/`, terminal rendering in `texas_holdem/ui/`, and evaluation tools in `texas_holdem/analytics/`. See the [project index](docs/index.md) for the full map.
 
-## Development
+The latest [10-seed × 500-hand AI benchmark](docs/reports/2026-10-26-calling-station-astra-medium-equity-check.md) passed its existing completion and legality gate. Opponent-style calibration is still in progress; the [calling-station opportunity diagnostic](docs/reports/2026-10-26-calling-station-opportunity-diagnostic.md) explains its remaining call-rate warning. These reports use faster equity sampling than normal terminal play unless stated otherwise.
 
-Run the test suite from the project directory:
+To run the automated suite, install `pytest` in your development environment and run:
 
 ```bash
 python3 -m pytest -q
 ```
 
-The entry point is `main.py`. Terminal translations are in `localization.py`; game flow is in `game.py`; history and replay are in `game_history.py` and `quick_replay_system.py`. See the [project index](docs/index.md) for the file map and the [Chinese user guide](docs/user-guide.md) for more detailed play instructions.
+Hand history, player statistics, the SQLite database, and logs stay in the project directory and are excluded from Git.

@@ -1,5 +1,5 @@
-from engine_events import EngineEvent
-from terminal_renderer import TerminalEventRenderer
+from texas_holdem.engine.engine_events import EngineEvent
+from texas_holdem.ui.terminal_renderer import TerminalEventRenderer
 
 
 def test_terminal_renderer_renders_hand_started():
@@ -419,7 +419,7 @@ def test_terminal_renderer_renders_fold_winner_announced():
     assert handled is True
     assert lines == [
         "\n==============================",
-        "游戏结束",
+        "本手结束",
         "==============================",
         "\n🏆 AI-1 获胜！（其他玩家都已弃牌）",
     ]

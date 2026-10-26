@@ -1,6 +1,6 @@
 import json
 
-from ai_system_evaluator import (
+from texas_holdem.analytics.ai_system_evaluator import (
     AISystemEvaluationReport,
     benchmark_ai_system,
     benchmark_ai_system_multi_seed,
@@ -8,7 +8,7 @@ from ai_system_evaluator import (
     evaluate_benchmark_gates,
     summarize_ai_evaluations,
 )
-from headless_simulation import SimulationResult
+from texas_holdem.analytics.headless_simulation import SimulationResult
 
 
 def test_evaluate_ai_system_returns_report_and_dict():
@@ -639,7 +639,7 @@ def test_multi_seed_benchmark_reports_mean_std_min_max(monkeypatch, tmp_path):
             profile_calibration_distance=seed / 100,
         )
 
-    monkeypatch.setattr("ai_system_evaluator.evaluate_ai_system", fake_evaluate_ai_system)
+    monkeypatch.setattr("texas_holdem.analytics.ai_system_evaluator.evaluate_ai_system", fake_evaluate_ai_system)
     output_path = tmp_path / "multi-seed.json"
 
     report = benchmark_ai_system_multi_seed(
@@ -694,7 +694,7 @@ def test_multi_seed_benchmark_writes_progress_after_each_seed(monkeypatch, tmp_p
             call_rate_spread=0.1,
         )
 
-    monkeypatch.setattr("ai_system_evaluator.evaluate_ai_system", fake_evaluate_ai_system)
+    monkeypatch.setattr("texas_holdem.analytics.ai_system_evaluator.evaluate_ai_system", fake_evaluate_ai_system)
 
     report = benchmark_ai_system_multi_seed(
         seeds=[1, 2, 3],

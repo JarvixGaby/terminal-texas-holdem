@@ -1,5 +1,5 @@
-from game import TexasHoldemGame
-from player import AIPlayer
+from texas_holdem.engine.game import TexasHoldemGame
+from texas_holdem.engine.player import AIPlayer
 
 
 def test_ai_action_delay_uses_injected_delay_function():

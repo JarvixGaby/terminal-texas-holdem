@@ -1,4 +1,4 @@
-from engine_events import EngineEvent
+from texas_holdem.engine.engine_events import EngineEvent
 
 
 def test_engine_event_serializes_public_and_private_payloads():

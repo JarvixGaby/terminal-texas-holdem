@@ -12,8 +12,8 @@
 
 ## Scan Summary
 
-- `game.py` is the main Sprint 3 target: about 1388 lines and still mixes state mutation, CLI `print/input`, sleeps, history, decision evaluation, and side-pot payout.
-- Sprint 2 boundaries are already in place: `decision_provider.py`, `action_validator.py`, `headless_simulation.py`, `ai_system_evaluator.py`, and action/outcome metadata in `game_history.py`.
+- `texas_holdem/engine/game.py` is the main Sprint 3 target: about 1388 lines and still mixes state mutation, CLI `print/input`, sleeps, history, decision evaluation, and side-pot payout.
+- Sprint 2 boundaries are already in place: `texas_holdem/ai/decision_provider.py`, `texas_holdem/ai/action_validator.py`, `texas_holdem/analytics/headless_simulation.py`, `texas_holdem/analytics/ai_system_evaluator.py`, and action/outcome metadata in `texas_holdem/history/game_history.py`.
 - The strongest next move is not a web/API prototype. It is a narrow event boundary that can later support terminal, headless benchmark, and online adapters.
 - Current test command could not run in this environment because `pytest` is not installed: `/Library/Developer/CommandLineTools/usr/bin/python3: No module named pytest`.
 - No dependency manifest was found (`requirements.txt`, `pyproject.toml`, `setup.py`, lockfiles absent), so reproducible test setup should be fixed before larger refactors.
@@ -21,12 +21,12 @@
 
 ## File Structure
 
-- Create `engine_events.py`: immutable event dataclasses and payload serialization helpers.
-- Modify `game.py`: add event subscriber support and mirror narrow existing paths into events while preserving current prints.
+- Create `texas_holdem/engine/engine_events.py`: immutable event dataclasses and payload serialization helpers.
+- Modify `texas_holdem/engine/game.py`: add event subscriber support and mirror narrow existing paths into events while preserving current prints.
 - Create `tests/test_engine_events.py`: event serialization and privacy tests.
 - Create `tests/test_game_engine_events.py`: game-level event emission tests.
-- Later modify `headless_simulation.py`: collect events without terminal rendering after event mirroring is stable.
-- Later create `terminal_renderer.py`: terminal event renderer after enough events exist to replace selected print paths.
+- Later modify `texas_holdem/analytics/headless_simulation.py`: collect events without terminal rendering after event mirroring is stable.
+- Later create `texas_holdem/ui/terminal_renderer.py`: terminal event renderer after enough events exist to replace selected print paths.
 
 ## Task 0: Restore Reproducible Test Baseline
 
@@ -65,7 +65,7 @@ Expected: suite runs. Historical project baseline is `92 passed`; if the count d
 ## Task 1: Add Engine Event Data Contract
 
 **Files:**
-- Create: `engine_events.py`
+- Create: `texas_holdem/engine/engine_events.py`
 - Test: `tests/test_engine_events.py`
 
 - [ ] **Step 1: Write event contract tests**
@@ -73,7 +73,7 @@ Expected: suite runs. Historical project baseline is `92 passed`; if the count d
 Add `tests/test_engine_events.py`:
 
 ```python
-from engine_events import EngineEvent
+from texas_holdem.engine.engine_events import EngineEvent
 
 
 def test_engine_event_serializes_public_and_private_payloads():
@@ -117,7 +117,7 @@ Expected: FAIL because `engine_events` does not exist yet.
 
 - [ ] **Step 3: Implement minimal event module**
 
-Create `engine_events.py`:
+Create `texas_holdem/engine/engine_events.py`:
 
 ```python
 # -*- coding: utf-8 -*-
@@ -155,7 +155,7 @@ Expected: PASS.
 ## Task 2: Mirror Phase/Card Events Without Replacing Prints
 
 **Files:**
-- Modify: `game.py`
+- Modify: `texas_holdem/engine/game.py`
 - Test: `tests/test_game_engine_events.py`
 
 - [ ] **Step 1: Write game event emission tests**
@@ -163,9 +163,9 @@ Expected: PASS.
 Add `tests/test_game_engine_events.py`:
 
 ```python
-from engine_events import EngineEvent
-from game import TexasHoldemGame
-from player import AIPlayer
+from texas_holdem.engine.engine_events import EngineEvent
+from texas_holdem.engine.game import TexasHoldemGame
+from texas_holdem.engine.player import AIPlayer
 
 
 def make_game():
@@ -219,13 +219,13 @@ python3 -m pytest -q tests/test_game_engine_events.py
 
 Expected: FAIL because `subscribe_to_events` and `_emit_event` do not exist yet.
 
-- [ ] **Step 3: Add event subscriber support to `game.py`**
+- [ ] **Step 3: Add event subscriber support to `texas_holdem/engine/game.py`**
 
 Update imports:
 
 ```python
 from typing import Callable, List, Optional, Dict, Tuple, Any
-from engine_events import EngineEvent
+from texas_holdem.engine.engine_events import EngineEvent
 ```
 
 Add in `TexasHoldemGame.__init__`:
@@ -305,7 +305,7 @@ Expected: PASS.
 ## Task 3: Mirror Action-Applied and Validation-Failed Events
 
 **Files:**
-- Modify: `game.py`
+- Modify: `texas_holdem/engine/game.py`
 - Test: `tests/test_game_engine_events.py`
 
 - [ ] **Step 1: Add tests around validated action events**
@@ -313,8 +313,8 @@ Expected: PASS.
 Append to `tests/test_game_engine_events.py`:
 
 ```python
-from action_validator import ValidatedAction
-from decision_provider import ActionResponse
+from texas_holdem.ai.action_validator import ValidatedAction
+from texas_holdem.ai.decision_provider import ActionResponse
 
 
 def test_record_processed_action_emits_action_applied_event():
@@ -424,7 +424,7 @@ Expected: PASS.
 ## Task 4: Mirror Hand Completion Events
 
 **Files:**
-- Modify: `game.py`
+- Modify: `texas_holdem/engine/game.py`
 - Test: `tests/test_game_engine_events.py`
 
 - [ ] **Step 1: Add tests for hand-completed event privacy**
@@ -502,7 +502,7 @@ Expected: PASS.
 ## Task 5: Keep Headless Benchmark and CLI Behavior Stable
 
 **Files:**
-- Modify if needed: `headless_simulation.py`
+- Modify if needed: `texas_holdem/analytics/headless_simulation.py`
 - Test: existing test suite and benchmark command
 
 - [ ] **Step 1: Run headless simulation tests**
@@ -531,7 +531,7 @@ Run:
 
 ```bash
 python3 - <<'PY'
-from ai_system_evaluator import benchmark_ai_system
+from texas_holdem.analytics.ai_system_evaluator import benchmark_ai_system
 
 report = benchmark_ai_system(num_hands=20, player_count=4)
 data = report.to_dict()
@@ -546,13 +546,13 @@ Expected: prints `20` and an illegal action rate of `0.0`.
 
 Do not start this task until Tasks 0-5 pass.
 
-- [x] Extract `terminal_renderer.py` that renders selected `EngineEvent` objects.
-- [x] Replace direct street-deal prompts in `game.py` with renderer-driven `cards_dealt` output while preserving CLI text.
+- [x] Extract `texas_holdem/ui/terminal_renderer.py` that renders selected `EngineEvent` objects.
+- [x] Replace direct street-deal prompts in `texas_holdem/engine/game.py` with renderer-driven `cards_dealt` output while preserving CLI text.
 - [x] Replace `_display_community_cards()` direct print with renderer-driven `community_cards_displayed` output while preserving CLI text.
 - [x] Replace `_display_game_state()` direct print block with renderer-driven `game_state_displayed` output while preserving CLI text.
 - [x] Replace `_display_active_players()` direct print block with renderer-driven `active_players_displayed` output while preserving CLI text.
-- [x] Move AI delay sleeps from `game.py` into terminal-facing flow only.
-- [x] Make `headless_simulation.py` attach an event collector.
+- [x] Move AI delay sleeps from `texas_holdem/engine/game.py` into terminal-facing flow only.
+- [x] Make `texas_holdem/analytics/headless_simulation.py` attach an event collector.
 - [x] Define stricter immutable public/private state schema for external agents.
 - [ ] Only after the event and state contracts are stable, start external-agent API and online room design.
 

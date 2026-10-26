@@ -1,6 +1,6 @@
 import pytest
 
-from decision_evaluator import (
+from texas_holdem.ai.decision_evaluator import (
     DecisionContext,
     DecisionEvaluation,
     calculate_pot_odds,

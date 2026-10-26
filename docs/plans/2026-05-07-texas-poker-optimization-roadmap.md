@@ -85,12 +85,12 @@ Avoid positioning it as a generic poker game only. The most differentiated asset
 **Objective:** Prevent replay imports from failing.
 
 **Files:**
-- Modify: `quick_replay_system.py`
+- Modify: `texas_holdem/history/quick_replay_system.py`
 - Possibly create: `odds_calculator.py` compatibility shim, only if necessary.
 
 **Steps:**
-1. Replace `from odds_calculator import OddsCalculator` with compatible usage of `optimized_odds_calculator.py`.
-2. Add a focused import test for `quick_replay_system.py`.
+1. Replace `from odds_calculator import OddsCalculator` with compatible usage of `texas_holdem/ai/optimized_odds_calculator.py`.
+2. Add a focused import test for `texas_holdem/history/quick_replay_system.py`.
 3. Run: `python3 -m pytest -q`.
 
 ---
@@ -125,7 +125,7 @@ Avoid positioning it as a generic poker game only. The most differentiated asset
 **Objective:** Make game logic independent from terminal printing where possible.
 
 **Files:**
-- Modify: `game.py`
+- Modify: `texas_holdem/engine/game.py`
 - Create: `events.py` or `game_events.py`
 
 **Approach:**
@@ -135,24 +135,24 @@ Introduce simple game event objects instead of printing from every core method. 
 
 ### Task 1.3: Consolidate configuration system
 
-**Objective:** Avoid confusion between `config.py`, `game_config.py`, `enhanced_config_manager.py`, `game_config.json`, and `enhanced_game_config.json`.
+**Objective:** Avoid confusion between `texas_holdem/support/config.py`, `texas_holdem/support/game_config.py`, `texas_holdem/support/enhanced_config_manager.py`, `game_config.json`, and `enhanced_game_config.json`.
 
 **Files:**
-- Audit: `config.py`
-- Audit: `game_config.py`
-- Audit: `enhanced_config_manager.py`
+- Audit: `texas_holdem/support/config.py`
+- Audit: `texas_holdem/support/game_config.py`
+- Audit: `texas_holdem/support/enhanced_config_manager.py`
 - Decide one canonical config manager.
 
 **Recommendation:**
-Use `enhanced_config_manager.py` as the canonical path if the enhanced version is stable, then mark older config modules as compatibility wrappers.
+Use `texas_holdem/support/enhanced_config_manager.py` as the canonical path if the enhanced version is stable, then mark older config modules as compatibility wrappers.
 
 ### Task 1.4: Consolidate persistence around SQLite
 
 **Objective:** Move from mixed JSON/SQLite persistence to one canonical data store.
 
 **Files:**
-- Modify: `game_history.py`
-- Modify: `database.py`
+- Modify: `texas_holdem/history/game_history.py`
+- Modify: `texas_holdem/storage/database.py`
 - Create: `migrations/json_to_sqlite.py`
 - Add tests under: `tests/test_persistence.py`
 
@@ -235,7 +235,7 @@ A new mode that pauses after human decisions and explains:
 
 **Files:**
 - Modify: `main.py` or future `ui/menus.py`
-- Modify: `realtime_assistant.py`
+- Modify: `texas_holdem/training/realtime_assistant.py`
 - Add: `training_mode.py`
 - Add tests: `tests/test_training_mode.py`
 
@@ -249,9 +249,9 @@ A new mode that pauses after human decisions and explains:
 **Objective:** Make replay useful for learning, not only viewing history.
 
 **Files:**
-- Modify: `instant_replay.py`
-- Modify: `quick_replay_system.py`
-- Modify: `history_viewer.py`
+- Modify: `texas_holdem/history/instant_replay.py`
+- Modify: `texas_holdem/history/quick_replay_system.py`
+- Modify: `texas_holdem/history/history_viewer.py`
 
 **Add:**
 - Mark key decision points.
@@ -264,8 +264,8 @@ A new mode that pauses after human decisions and explains:
 **Objective:** Give users immediate feedback.
 
 **Files:**
-- Modify: `game.py`
-- Modify: `player_evaluation.py`
+- Modify: `texas_holdem/engine/game.py`
+- Modify: `texas_holdem/training/player_evaluation.py`
 - Add: `session_summary.py`
 
 **Summary metrics:**
@@ -290,7 +290,7 @@ A new mode that pauses after human decisions and explains:
 5. 专家/GTO挑战
 
 **Files:**
-- Modify: `game_config.py` or canonical config manager.
+- Modify: `texas_holdem/support/game_config.py` or canonical config manager.
 - Modify: AI setup path in player creation.
 
 ---
@@ -311,9 +311,9 @@ A new mode that pauses after human decisions and explains:
 - 平衡型 / Balanced
 
 **Files:**
-- Modify: `player_styles.py`
-- Modify: `smart_ai_system.py`
-- Modify: `advanced_ai_engine.py`
+- Modify: `texas_holdem/training/player_styles.py`
+- Modify: `texas_holdem/ai/smart_ai_system.py`
+- Modify: `texas_holdem/ai/advanced_ai_engine.py`
 - Modify: player creation UI.
 
 ### Task 4.2: Add transparent AI explanation mode
@@ -370,7 +370,7 @@ Run simulated AI-only sessions and compare outputs to target ranges.
 
 **Files:**
 - Add: `leak_detector.py`
-- Modify: `player_evaluation.py`
+- Modify: `texas_holdem/training/player_evaluation.py`
 - Add tests: `tests/test_leak_detector.py`
 
 ### Task 5.2: Improve terminal visualizations
@@ -378,7 +378,7 @@ Run simulated AI-only sessions and compare outputs to target ranges.
 **Objective:** Make analytics readable in CLI.
 
 **Files:**
-- Modify: `data_visualization.py`
+- Modify: `texas_holdem/analytics/data_visualization.py`
 
 **Charts:**
 - VPIP/PFR trend line.

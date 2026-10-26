@@ -2,12 +2,12 @@ import json
 
 import pytest
 
-from card import Card, Rank, Suit
-from decision_evaluator import DecisionContext
-import game as game_module
-from game import TexasHoldemGame
-from game_history import GameHistoryManager
-from player import AIPlayer, HumanPlayer
+from texas_holdem.engine.card import Card, Rank, Suit
+from texas_holdem.ai.decision_evaluator import DecisionContext
+import texas_holdem.engine.game as game_module
+from texas_holdem.engine.game import TexasHoldemGame
+from texas_holdem.history.game_history import GameHistoryManager
+from texas_holdem.engine.player import AIPlayer, HumanPlayer
 
 
 def test_record_action_stores_and_exposes_decision_evaluation(tmp_path):

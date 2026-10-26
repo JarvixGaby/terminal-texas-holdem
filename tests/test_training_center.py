@@ -1,6 +1,6 @@
 """Training center behavior tests for local trainer UX."""
 
-from training_center import LocalTrainerCenter
+from texas_holdem.training.training_center import LocalTrainerCenter
 
 
 def test_training_center_returns_onboarding_plan_when_history_is_insufficient():

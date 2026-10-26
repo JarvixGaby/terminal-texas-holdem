@@ -7,9 +7,9 @@ from dataclasses import asdict
 from pathlib import Path
 from types import SimpleNamespace
 
-import localization
-from game_history import GamePhase, GameRecord, PlayerAction, PlayerHand
-from player_evaluation import PlayerEvaluationSystem
+import texas_holdem.ui.localization as localization
+from texas_holdem.history.game_history import GamePhase, GameRecord, PlayerAction, PlayerHand
+from texas_holdem.training.player_evaluation import PlayerEvaluationSystem
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -40,7 +40,7 @@ def test_language_is_first_prompt_and_main_menu_is_translated(tmp_path):
 def test_visible_game_and_replay_literals_have_english_translations():
     localization.LANGUAGE = "en"
     try:
-        for filename in ("main.py", "game.py", "quick_replay_system.py", "history_viewer.py"):
+        for filename in ("main.py", "texas_holdem/engine/game.py", "texas_holdem/history/quick_replay_system.py", "texas_holdem/history/history_viewer.py"):
             tree = ast.parse((ROOT / filename).read_text())
             for call in (node for node in ast.walk(tree) if isinstance(node, ast.Call)):
                 func = call.func
@@ -55,8 +55,16 @@ def test_visible_game_and_replay_literals_have_english_translations():
         localization.LANGUAGE = "zh"
 
 
+def test_nine_opponent_prompt_has_english_translation():
+    from texas_holdem.engine.game_rules import MAX_PLAYERS
+
+    prompt = f"请输入AI玩家数量 (1-{MAX_PLAYERS - 1}，总人数{MAX_PLAYERS}人以内): "
+    with localization.terminal_language("en"):
+        assert localization.translate(prompt) == "Computer opponents (1-9; up to 10 players total): "
+
+
 def test_chinese_action_labels_are_only_for_terminal_session():
-    from game import TexasHoldemGame
+    from texas_holdem.engine.game import TexasHoldemGame
 
     game = object.__new__(TexasHoldemGame)
     assert game._get_human_display_actions(["check", "raise", "fold"], 0) == ["check", "bet", "fold"]
@@ -65,7 +73,7 @@ def test_chinese_action_labels_are_only_for_terminal_session():
 
 
 def test_chinese_betting_command_keeps_internal_action_values(monkeypatch, capsys):
-    from game import TexasHoldemGame
+    from texas_holdem.engine.game import TexasHoldemGame
 
     game = object.__new__(TexasHoldemGame)
     game.assistant_enabled = False

@@ -2,8 +2,8 @@
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
-from player import HumanPlayer
-from game import TexasHoldemGame
+from texas_holdem.engine.player import HumanPlayer
+from texas_holdem.engine.game import TexasHoldemGame
 
 
 def test_dealer_position_stable_after_player_busts():

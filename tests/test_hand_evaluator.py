@@ -8,8 +8,8 @@ import sys
 import os
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from card import Card, Suit, Rank
-from hand_evaluator import HandEvaluator, HandRank
+from texas_holdem.engine.card import Card, Suit, Rank
+from texas_holdem.engine.hand_evaluator import HandEvaluator, HandRank
 
 
 def test_royal_flush():

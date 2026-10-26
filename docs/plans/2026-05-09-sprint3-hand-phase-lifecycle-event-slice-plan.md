@@ -4,7 +4,7 @@
 
 **Goal:** Continue Sprint 3 robustness with public `hand_started` and `phase_started` lifecycle events while preserving terminal gameplay behavior.
 
-**Architecture:** Add non-rendered event mirroring at existing hand and street transition boundaries. Keep `game.py` as orchestrator for now; do not extract `GameState`, do not alter rules, and do not broaden benchmark artifact semantics.
+**Architecture:** Add non-rendered event mirroring at existing hand and street transition boundaries. Keep `texas_holdem/engine/game.py` as orchestrator for now; do not extract `GameState`, do not alter rules, and do not broaden benchmark artifact semantics.
 
 **Tech Stack:** Python, existing `EngineEvent`, existing pytest suite via `python3 -m pytest -q`.
 
@@ -12,7 +12,7 @@
 
 ## Guardrails
 
-- No broad rewrite of `game.py`.
+- No broad rewrite of `texas_holdem/engine/game.py`.
 - No canonical poker rule changes.
 - Preserve terminal print behavior.
 - No online-room/API work in this slice.
@@ -51,7 +51,7 @@ Expected first run: FAIL because these lifecycle events are not implemented yet.
 **Objective:** Add event emission at stable boundaries.
 
 **Files:**
-- Modify: `game.py`
+- Modify: `texas_holdem/engine/game.py`
 
 **Implementation notes:**
 - Emit `hand_started` in `start_new_hand()` after `current_game_id` is assigned and before dealing private cards.
@@ -74,7 +74,7 @@ Expected first run: FAIL because these lifecycle events are not implemented yet.
 python3 -m pytest -q tests/test_game_engine_events.py
 python3 -m pytest -q
 python3 - <<'PY'
-from headless_simulation import run_ai_only_simulation
+from texas_holdem.analytics.headless_simulation import run_ai_only_simulation
 result = run_ai_only_simulation(num_hands=1, player_count=4, starting_chips=500, collect_events=True)
 print(f"Hands completed: {result.hands_completed}")
 print(f"Errors: {result.errors}")

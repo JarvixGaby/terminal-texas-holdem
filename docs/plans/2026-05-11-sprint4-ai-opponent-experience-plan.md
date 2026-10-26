@@ -6,7 +6,7 @@
 
 **Architecture:** Build on Sprint 2's `DecisionProvider` / `ActionValidator` / benchmark boundary and Sprint 3's terminal/headless `EngineEvent` foundation. Keep changes small and test-driven: scenario spot tests first, then strategy fixes, then profile separation and benchmark hardening. Preserve canonical No-Limit Texas Hold'em rules and public/private state boundaries.
 
-**Tech Stack:** Python terminal app, `pytest`, existing AI modules (`advanced_ai_engine.py`, `decision_provider.py`, `action_validator.py`, `ai_system_evaluator.py`, `headless_simulation.py`), project docs/reports under `docs/`.
+**Tech Stack:** Python terminal app, `pytest`, existing AI modules (`texas_holdem/ai/advanced_ai_engine.py`, `texas_holdem/ai/decision_provider.py`, `texas_holdem/ai/action_validator.py`, `texas_holdem/analytics/ai_system_evaluator.py`, `texas_holdem/analytics/headless_simulation.py`), project docs/reports under `docs/`.
 
 ---
 
@@ -91,8 +91,8 @@ Do not build in Sprint 4:
 
 - Web UI, WebSocket, online room, login/auth, or external-agent platform.
 - GTO solver, CFR training, neural network training, or real-money features.
-- Broad `game.py` rewrites.
-- `hand_evaluator.py` semantic changes.
+- Broad `texas_holdem/engine/game.py` rewrites.
+- `texas_holdem/engine/hand_evaluator.py` semantic changes.
 - Core No-Limit Hold'em rule changes.
 - Public/private state contract changes unless explicitly planned.
 - Benchmark metric definition changes without focused tests and documentation.
@@ -109,7 +109,7 @@ Do not build in Sprint 4:
 
 - Create: `tests/test_ai_scenario_sanity.py`
 - Possibly create helpers in `tests/` or a small source-side scenario helper if needed.
-- Read/inspect: `advanced_ai_engine.py`, `decision_provider.py`, `action_validator.py`, `tests/test_ai_tuning.py`.
+- Read/inspect: `texas_holdem/ai/advanced_ai_engine.py`, `texas_holdem/ai/decision_provider.py`, `texas_holdem/ai/action_validator.py`, `tests/test_ai_tuning.py`.
 
 **Tests to add:**
 
@@ -140,7 +140,7 @@ python3 -m pytest -q
 
 **Likely files:**
 
-- Modify: `advanced_ai_engine.py`
+- Modify: `texas_holdem/ai/advanced_ai_engine.py`
 - Tests: `tests/test_ai_scenario_sanity.py`, `tests/test_ai_tuning.py`
 
 **Tests to add:**
@@ -169,7 +169,7 @@ python3 -m pytest -q
 
 **Likely files:**
 
-- Modify: `advanced_ai_engine.py`
+- Modify: `texas_holdem/ai/advanced_ai_engine.py`
 - Tests: `tests/test_ai_scenario_sanity.py`
 
 **Tests to add:**
@@ -201,8 +201,8 @@ python3 -m pytest -q
 
 **Likely files:**
 
-- Create or modify: `ai_profiles.py` or existing profile/config module.
-- Modify: `advanced_ai_engine.py` only if needed to read profile parameters.
+- Create or modify: `texas_holdem/ai/ai_profiles.py` or existing profile/config module.
+- Modify: `texas_holdem/ai/advanced_ai_engine.py` only if needed to read profile parameters.
 - Tests: new or existing AI profile tests.
 
 **Suggested profile fields:**
@@ -250,8 +250,8 @@ python3 -m pytest -q
 
 **Likely files:**
 
-- Modify: `advanced_ai_engine.py`
-- Modify: `ai_system_evaluator.py` if benchmark needs profile-level comparisons.
+- Modify: `texas_holdem/ai/advanced_ai_engine.py`
+- Modify: `texas_holdem/analytics/ai_system_evaluator.py` if benchmark needs profile-level comparisons.
 - Tests: `tests/test_ai_scenario_sanity.py`, `tests/test_ai_system_evaluator.py`
 
 **Tests to add:**
@@ -282,7 +282,7 @@ python3 -m pytest -q
 
 **Likely files:**
 
-- Modify: `ai_system_evaluator.py`
+- Modify: `texas_holdem/analytics/ai_system_evaluator.py`
 - Tests: `tests/test_ai_system_evaluator.py`
 - Docs/report update after implementation.
 
@@ -317,7 +317,7 @@ python3 -m pytest -q
 
 **Likely files:**
 
-- Modify: `advanced_ai_engine.py`
+- Modify: `texas_holdem/ai/advanced_ai_engine.py`
 - Tests: `tests/test_ai_scenario_sanity.py`, possibly new postflop policy tests.
 
 **Behavior categories:**
@@ -382,9 +382,9 @@ check_raise_frequency
 
 **Likely files:**
 
-- `decision_provider.py`
-- `advanced_ai_engine.py`
-- `engine_events.py` / `terminal_renderer.py` only if displaying via event boundary.
+- `texas_holdem/ai/decision_provider.py`
+- `texas_holdem/ai/advanced_ai_engine.py`
+- `texas_holdem/engine/engine_events.py` / `texas_holdem/ui/terminal_renderer.py` only if displaying via event boundary.
 - Tests for serialization and terminal toggle behavior.
 
 **Acceptance criteria:**

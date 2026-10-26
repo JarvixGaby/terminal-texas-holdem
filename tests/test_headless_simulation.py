@@ -2,9 +2,9 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 import json
 
-from decision_provider import ActionResponse
-import headless_simulation
-from headless_simulation import (
+from texas_holdem.ai.decision_provider import ActionResponse
+import texas_holdem.analytics.headless_simulation as headless_simulation
+from texas_holdem.analytics.headless_simulation import (
     SimulationResult,
     run_ai_only_simulation,
 )
@@ -87,6 +87,10 @@ def test_run_ai_only_simulation_handles_bad_arguments_safely():
     assert result.errors
     assert result.final_stacks == {}
 
+    too_many = run_ai_only_simulation(num_hands=2, player_count=11)
+    assert too_many.hands_completed == 0
+    assert too_many.errors == ["player_count must be between 2 and 10"]
+
 
 def test_run_ai_only_simulation_normalizes_dealer_when_players_bust():
     result = run_ai_only_simulation(num_hands=20, player_count=4, starting_chips=120, small_blind=5, big_blind=10)
@@ -95,8 +99,8 @@ def test_run_ai_only_simulation_normalizes_dealer_when_players_bust():
 
 
 def test_run_ai_only_simulation_restores_global_ai_engine_managers():
-    import advanced_ai_engine
-    import smart_ai_system
+    import texas_holdem.ai.advanced_ai_engine as advanced_ai_engine
+    import texas_holdem.ai.smart_ai_system as smart_ai_system
 
     original_smart_engines = dict(smart_ai_system.ai_engine_manager.engines)
     original_advanced_engines = dict(advanced_ai_engine.advanced_ai_manager.engines)
@@ -133,7 +137,7 @@ def test_headless_collect_events_allows_public_showdown_reveals(monkeypatch):
             return ActionResponse("call", state.amount_to_call)
         return ActionResponse("check", 0)
 
-    monkeypatch.setattr("game.BuiltInAIDecisionProvider.decide", passive_showdown_decision)
+    monkeypatch.setattr("texas_holdem.engine.game.BuiltInAIDecisionProvider.decide", passive_showdown_decision)
 
     result = run_ai_only_simulation(
         num_hands=1,

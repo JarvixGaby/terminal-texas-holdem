@@ -2,8 +2,8 @@ from dataclasses import FrozenInstanceError
 
 import pytest
 
-from agent_state_contract import ExternalAgentState, external_agent_state_from_snapshot
-from decision_provider import GameStateSnapshot, VisiblePlayerSnapshot
+from texas_holdem.ai.agent_state_contract import ExternalAgentState, external_agent_state_from_snapshot
+from texas_holdem.ai.decision_provider import GameStateSnapshot, VisiblePlayerSnapshot
 
 
 def make_snapshot():
