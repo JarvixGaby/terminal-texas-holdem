@@ -282,9 +282,9 @@ class EnhancedTexasHoldemUI:
             "nit": "紧手型",
         }
         companion_names = {
-            "balanced": "Clawd Kode",
-            "loose_aggressive": "Kodeks",
-            "calling_station": "Jemini CLI",
+            "balanced": "Claw",
+            "loose_aggressive": "Kodes",
+            "calling_station": "Jemini",
             "tight_aggressive": "Kurser",
             "maniac": "OppenKode",
             "nit": "Koder",

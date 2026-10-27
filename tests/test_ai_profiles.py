@@ -138,7 +138,7 @@ def test_terminal_game_supports_ten_total_players(monkeypatch):
 
     assert len(players) == 10
     assert len({player.name for player in players}) == 10
-    assert players[-1].name == "Jemini CLI 2"
+    assert players[-1].name == "Jemini 2"
     assert players[7].archetype_name == "balanced"
     assert isinstance(TexasHoldemGame(players), TexasHoldemGame)
 

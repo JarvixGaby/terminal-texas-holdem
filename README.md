@@ -10,9 +10,9 @@ The opponents have terminal pixel portraits and playful English names. Their por
 
 | Seat | Name shown in game | Playing style |
 | --- | --- | --- |
-| 1 | Clawd Kode | Balanced |
-| 2 | Kodeks | Loose-aggressive |
-| 3 | Jemini CLI | Calling station |
+| 1 | Claw | Balanced |
+| 2 | Kodes | Loose-aggressive |
+| 3 | Jemini | Calling station |
 | 4 | Kurser | Tight-aggressive |
 | 5 | OppenKode | Maniac |
 | 6 | Koder | Nit |

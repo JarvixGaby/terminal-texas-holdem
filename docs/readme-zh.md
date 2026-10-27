@@ -10,9 +10,9 @@
 
 | 席位 | 对局显示名 | 打法风格 |
 | --- | --- | --- |
-| 1 | Clawd Kode | 均衡型 |
-| 2 | Kodeks | 松凶型 |
-| 3 | Jemini CLI | 跟注型 |
+| 1 | Claw | 均衡型 |
+| 2 | Kodes | 松凶型 |
+| 3 | Jemini | 跟注型 |
 | 4 | Kurser | 紧凶型 |
 | 5 | OppenKode | 激进型 |
 | 6 | Koder | 紧手型 |
