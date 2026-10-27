@@ -19,9 +19,9 @@
 
 第 7–9 位会重复前三种风格，重名时在英文名后加数字。名字和头像按席位固定分配，并非每局随机。选择 7 位及以上电脑牌手时，自动牌桌显示会精简；轮到你行动时输入 `头像`，可以展开完整头像墙。
 
-![原始公仔首帧与终端像素采样对照](../assets/ai_avatars/codeisland/comparison.png)
+![六位对手的游戏内像素头像和显示名](../assets/ai_avatars/terminal-roster.png)
 
-头像采样来自 [CodeIsland 的 MIT 授权公仔动画](../assets/ai_avatars/codeisland/SOURCE.md)。这些图形仅作视觉参考，相关产品没有参与或背书本游戏的电脑牌手。
+上图由游戏当前的终端头像数据绘制。头像采样来自 [CodeIsland 的 MIT 授权公仔动画](../assets/ai_avatars/codeisland/SOURCE.md)；相关产品没有参与或背书本游戏的电脑牌手。
 
 ## 本地运行
 

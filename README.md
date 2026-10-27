@@ -19,9 +19,9 @@ The opponents have terminal pixel portraits and playful English names. Their por
 
 Seats 7–9 repeat the first three styles and add a number to duplicate names. The name and portrait assignment is deterministic, not random. With seven or more opponents, the automatic table display stays compact; enter `avatars` on your turn to see the full gallery.
 
-![Original mascot frames and their terminal pixel samples](assets/ai_avatars/codeisland/comparison.png)
+![Six in-game pixel opponents with their displayed names](assets/ai_avatars/terminal-roster.png)
 
-The portrait samples come from [CodeIsland's MIT-licensed mascot animations](assets/ai_avatars/codeisland/SOURCE.md). They are used as visual inspiration and do not imply that the named products power or endorse the poker opponents.
+The image above is rendered from the game's terminal sprite data. Those sprites were sampled from [CodeIsland's MIT-licensed mascot animations](assets/ai_avatars/codeisland/SOURCE.md); the named products do not power or endorse the poker opponents.
 
 ## Run locally
 
