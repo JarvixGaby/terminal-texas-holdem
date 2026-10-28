@@ -6,6 +6,7 @@
 """
 
 import os
+import random
 import sys
 from typing import List, Optional
 
@@ -273,6 +274,10 @@ class EnhancedTexasHoldemUI:
             "tight_aggressive", "maniac", "nit", "balanced",
             "loose_aggressive", "calling_station",
         ]
+        companion_names = [
+            "Claw", "Kodes", "Jemini", "Kurser", "OppenKode", "Koder",
+            "Mememax", "zcold", "DeepSeak", "Quen", "Kimee",
+        ]
         companion_style_names = {
             "balanced": "均衡型",
             "loose_aggressive": "松凶型",
@@ -281,24 +286,15 @@ class EnhancedTexasHoldemUI:
             "maniac": "激进型",
             "nit": "紧手型",
         }
-        companion_names = {
-            "balanced": "Claw",
-            "loose_aggressive": "Kodes",
-            "calling_station": "Jemini",
-            "tight_aggressive": "Kurser",
-            "maniac": "OppenKode",
-            "nit": "Koder",
-        }
-        name_counts = {}
+        selected_names = random.sample(companion_names, ai_count)
+        selected_profiles = random.sample(companion_profiles, ai_count)
         used_names = {human_player.name}
-        for i in range(ai_count):
-            profile = companion_profiles[i]
-            base_name = companion_names[profile]
-            name_counts[base_name] = name_counts.get(base_name, 0) + 1
-            ai_name = base_name if name_counts[base_name] == 1 else f"{base_name} {name_counts[base_name]}"
+        for base_name, profile in zip(selected_names, selected_profiles):
+            ai_name = base_name
+            suffix = 2
             while ai_name in used_names:
-                name_counts[base_name] += 1
-                ai_name = f"{base_name} {name_counts[base_name]}"
+                ai_name = f"{base_name} {suffix}"
+                suffix += 1
             used_names.add(ai_name)
             ai_player = AIPlayer(ai_name, settings['initial_chips'], archetype_name=profile)
             players.append(ai_player)

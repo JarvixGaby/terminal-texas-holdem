@@ -843,16 +843,8 @@ class TexasHoldemGame:
         self,
         print_fn: Optional[Callable[[str], None]] = None,
     ) -> TerminalEventRenderer:
-        """Pass display-only AI archetypes to the terminal renderer."""
-        ai_player_profiles = {
-            player.name: player.archetype_name
-            for player in self.players
-            if isinstance(player, AIPlayer) and player.archetype_name is not None
-        }
-        return TerminalEventRenderer(
-            print_fn=print_fn,
-            ai_player_profiles=ai_player_profiles,
-        )
+        """Build the terminal renderer for public game events."""
+        return TerminalEventRenderer(print_fn=print_fn)
 
     def subscribe_to_events(self, subscriber: Callable[[EngineEvent], None]) -> None:
         """Register a callback for structured engine events."""
@@ -1145,10 +1137,10 @@ class TexasHoldemGame:
         valid_actions = self._get_legal_actions(player, amount_to_call)
         display_actions = self._get_human_display_actions(valid_actions, amount_to_call)
         from texas_holdem.ui.localization import action_label
-        prompt_actions = "/".join(display_actions + [action_label("status"), action_label("avatars")])
+        prompt_actions = "/".join(display_actions + [action_label("status")])
         
         print(f"\n可选动作: {', '.join(display_actions)}")
-        print(f"附加命令: {action_label('status')} | {action_label('help')} | {action_label('avatars')}")
+        print(f"附加命令: {action_label('status')} | {action_label('help')}")
         
         while True:
             try:
@@ -1156,7 +1148,7 @@ class TexasHoldemGame:
                 action = {
                     "过牌": "check", "跟注": "call", "加注": "raise",
                     "下注": "bet", "弃牌": "fold", "状态": "status",
-                    "帮助": "help", "头像": "avatars",
+                    "帮助": "help",
                 }.get(action, action)
                 
                 if action == "status":
@@ -1168,12 +1160,7 @@ class TexasHoldemGame:
                     if amount_to_call > 0:
                         self._show_call_amount(player, amount_to_call)
                     print(f"\n可选动作: {', '.join(display_actions)}")
-                    print(f"附加命令: {action_label('status')} | {action_label('help')} | {action_label('avatars')}")
-                    continue
-
-                if action == "avatars":
-                    if self._terminal_event_renderer is not None:
-                        self._terminal_event_renderer.show_avatar_gallery()
+                    print(f"附加命令: {action_label('status')} | {action_label('help')}")
                     continue
                 
                 if action == "help":

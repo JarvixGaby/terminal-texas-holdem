@@ -4,24 +4,16 @@
 
 A local No-Limit Texas Hold'em game for one human and up to nine built-in computer opponents. Play a hand in your terminal, review it immediately, and use the history and training tools to study your decisions. Choose Chinese or English when the game starts.
 
-## Pixel opponents
+## Computer opponents
 
-The opponents have terminal pixel portraits and playful English names. Their portraits are visual themes; their decisions come from this project's built-in poker AI. Seat order is fixed when a game starts, so the first six opponents have these names and styles:
+Each new game randomly selects distinct names from this pool and independently assigns built-in poker playing styles. A name does not imply that the corresponding product powers the opponent.
 
-| Seat | Name shown in game | Playing style |
-| --- | --- | --- |
-| 1 | Claw | Balanced |
-| 2 | Kodes | Loose-aggressive |
-| 3 | Jemini | Calling station |
-| 4 | Kurser | Tight-aggressive |
-| 5 | OppenKode | Maniac |
-| 6 | Koder | Nit |
+| Names available in game |
+| --- |
+| Claw, Kodes, Jemini, Kurser, OppenKode, Koder |
+| Mememax, zcold, DeepSeak, Quen, Kimee |
 
-Seats 7–9 repeat the first three styles and add a number to duplicate names. The name and portrait assignment is deterministic, not random. With seven or more opponents, the automatic table display stays compact; enter `avatars` on your turn to see the full gallery.
-
-![Six in-game pixel opponents with their displayed names](assets/ai_avatars/terminal-roster.png)
-
-The image above is rendered from the game's terminal sprite data. Those sprites were sampled from [CodeIsland's MIT-licensed mascot animations](assets/ai_avatars/codeisland/SOURCE.md); the named products do not power or endorse the poker opponents.
+Up to nine of the eleven names appear in one game. Names and styles are fixed for that game, then drawn again when a new game starts. The available styles are balanced, loose-aggressive, calling station, tight-aggressive, maniac, and nit.
 
 ## Run locally
 
@@ -45,11 +37,8 @@ You can also run `python3 main.py` from the project directory. Choose `1` for Ch
 | `fold` | Give up the hand. |
 | `status` | Show the full table state. |
 | `help` | Show decision advice. |
-| `avatars` | Show every computer opponent's portrait. |
 
 Chinese commands also work in English mode. Confirmation prompts accept `y`, `n`, and `back`, along with their Chinese equivalents. After each hand you can open an immediate replay. The main menu also provides hand history, quick replay, a training center, and player-style review. Advice and equity figures are practice estimates.
-
-The terminal uses color when supported; setting `NO_COLOR=1` gives a monochrome portrait fallback.
 
 ## Development and evidence
 

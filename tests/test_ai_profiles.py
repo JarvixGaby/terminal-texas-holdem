@@ -112,7 +112,7 @@ def test_computer_player_uses_selected_archetype_and_refreshes_reused_name():
         advanced_ai_manager.engines = original
 
 
-def test_terminal_companions_get_distinct_play_styles(monkeypatch):
+def test_terminal_companions_get_builtin_play_styles(monkeypatch):
     import main
 
     monkeypatch.setattr(main, "log_user_action", lambda *args: None)
@@ -120,10 +120,8 @@ def test_terminal_companions_get_distinct_play_styles(monkeypatch):
     players = main.EnhancedTexasHoldemUI.__new__(main.EnhancedTexasHoldemUI).create_players(
         {"player_name": "Human", "initial_chips": 1000, "ai_count": 5}
     )
-    assert [player.archetype_name for player in players[1:]] == [
-        "balanced", "loose_aggressive", "calling_station",
-        "tight_aggressive", "maniac",
-    ]
+    assert len({player.name for player in players}) == 6
+    assert {player.archetype_name for player in players[1:]} <= set(list_archetype_names())
 
 
 def test_terminal_game_supports_ten_total_players(monkeypatch):
@@ -138,8 +136,15 @@ def test_terminal_game_supports_ten_total_players(monkeypatch):
 
     assert len(players) == 10
     assert len({player.name for player in players}) == 10
-    assert players[-1].name == "Jemini 2"
-    assert players[7].archetype_name == "balanced"
+    assert {player.name for player in players[1:]} <= {
+        "Claw", "Kodes", "Jemini", "Kurser", "OppenKode", "Koder",
+        "Mememax", "zcold", "DeepSeak", "Quen", "Kimee",
+    }
+    assert sorted(player.archetype_name for player in players[1:]) == sorted([
+        "balanced", "loose_aggressive", "calling_station",
+        "tight_aggressive", "maniac", "nit", "balanced",
+        "loose_aggressive", "calling_station",
+    ])
     assert isinstance(TexasHoldemGame(players), TexasHoldemGame)
 
     with pytest.raises(ValueError, match="2-10"):

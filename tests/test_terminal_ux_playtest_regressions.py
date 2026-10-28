@@ -8,7 +8,6 @@ from texas_holdem.engine.game import TexasHoldemGame
 from texas_holdem.engine.player import AIPlayer, HumanPlayer
 from texas_holdem.training.realtime_assistant import RealtimeAssistant
 from texas_holdem.ui import localization
-from texas_holdem.ui.terminal_renderer import TerminalEventRenderer
 
 
 def test_short_stack_call_uses_payable_amount(monkeypatch, capsys):
@@ -107,27 +106,8 @@ def test_good_raise_feedback_recommends_raise():
     assert evaluation.recommended_action == "raise"
 
 
-def test_large_table_offers_full_avatars_on_demand():
-    lines = []
-    profiles = {
-        f"AI-{index}": profile for index, profile in enumerate(
-            ["balanced", "loose_aggressive", "calling_station", "tight_aggressive",
-             "maniac", "nit", "balanced"], 1,
-        )
-    }
-    renderer = TerminalEventRenderer(print_fn=lines.append, ai_player_profiles=profiles)
-    renderer._render_ai_roster([{"name": name} for name in profiles])
-    assert any("输入'头像'" in line for line in lines)
-    assert all("AI 对手头像" not in line for line in lines)
-
-    renderer.show_avatar_gallery()
-    assert lines.count("\n🤖 AI 对手头像") == 1
-    assert any("AI-7" in line for line in lines)
-
-
-def test_english_avatar_and_hand_description_do_not_mix_languages():
+def test_english_hand_description_does_not_mix_languages():
     with localization.terminal_language("en"):
-        assert localization.translate("AI 对手头像") == "AI opponent portraits"
         assert localization.translate("两对 (J 和 6)") == "Two pair (J and 6)"
         assert localization.translate("赔率:满足(需25%)") == "Pot odds met (need 25%)"
         assert localization.translate("赔率门槛:40%") == "Pot odds threshold: 40%"

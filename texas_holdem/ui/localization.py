@@ -21,7 +21,6 @@ def action_label(action):
     return {
         "check": "过牌", "call": "跟注", "raise": "加注",
         "bet": "下注", "fold": "弃牌", "status": "状态", "help": "帮助",
-        "avatars": "头像",
     }.get(action, action)
 
 
@@ -531,12 +530,8 @@ ENGLISH.update({
 })
 
 ENGLISH.update({
-    "AI 对手头像": "AI opponent portraits",
     "本手结束": "Hand complete",
-    "完整像素头像可输入'头像'查看": "Type 'avatars' to view the full pixel portraits",
     "附加命令: ": "Commands: ",
-    "额外选项: 'status' 查看状态 | 'help' 显示辅助分析 | 'avatars' 查看头像": "Other commands: 'status' for table state | 'help' for advice | 'avatars' for portraits",
-    "' 查看头像": "' for portraits",
     "赔率:满足(需": "Pot odds met (need ",
     "赔率:不足(需": "Pot odds not met (need ",
     "赔率门槛:": "Pot odds threshold: ",

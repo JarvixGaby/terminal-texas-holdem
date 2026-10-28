@@ -1,5 +1,11 @@
 # Project Reflection
 
+## 2026-10-28 — Use randomly named opponents without portraits
+**Context:** The user found the terminal avatars unhelpful and asked for five more AI-themed player names, then specified that names and playing styles should be randomly paired at the start of each game.
+**Decision:** Remove the avatar renderer, gallery command, and bundled mascot assets. Draw up to nine distinct names from an eleven-name pool and independently draw built-in playing styles for those opponents when a new game starts.
+**Reasoning:** Names give opponents a light identity without crowding the terminal. Independent pairing makes the larger roster visible across games while keeping the existing style distribution and poker decision code.
+**Tradeoffs:** A full table cannot display all eleven names at once, and a given name no longer signals a fixed play style. Historical avatar decisions below remain as records of prior versions.
+
 ## 2026-10-26 — Use public price for calling-station small-blind completion
 **Context:** After the call-over-raise repair, the calling-station profile still folded too often before the flop. A position-level diagnostic found that most of its small-blind folds came from a generic entry-range threshold even when the additional call was cheap.
 **Decision:** Let only this profile complete the small blind outside its normal range when estimated equity covers the public pot-odds price and it has enough chips. Keep negative-price guards and all other positions unchanged. Accept the change after every seed completed the primary benchmark and the full suite passed.

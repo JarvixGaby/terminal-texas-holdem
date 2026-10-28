@@ -3,42 +3,20 @@
 
 from __future__ import annotations
 
-import os
-import sys
-import unicodedata
-from typing import Callable, Mapping, Optional
+from typing import Callable, Optional
 import builtins
 
 from texas_holdem.engine.engine_events import EngineEvent
-from texas_holdem.ui.ai_avatar_data import SPRITES
 
 
 class TerminalEventRenderer:
     """Render selected EngineEvent objects to terminal-friendly lines."""
 
-    # These themes use sampled first frames of CodeIsland's MIT-licensed GIFs.
-    _AVATAR_STYLES = {
-        "balanced": "claude",
-        "loose_aggressive": "codex",
-        "calling_station": "gemini",
-        "tight_aggressive": "cursor",
-        "maniac": "opencode",
-        "nit": "qoder",
-    }
-
     def __init__(
         self,
         print_fn: Optional[Callable[[str], None]] = None,
-        ai_player_profiles: Optional[Mapping[str, str]] = None,
     ):
         self.print_fn = print_fn or builtins.print
-        self.ai_player_profiles = dict(ai_player_profiles or {})
-        self._avatar_roster_rendered = False
-        self.use_color = (
-            print_fn is None
-            and sys.stdout.isatty()
-            and "NO_COLOR" not in os.environ
-        )
 
     def render(self, event: EngineEvent) -> bool:
         if event.type == "hand_started":
@@ -97,7 +75,6 @@ class TerminalEventRenderer:
         self.print_fn(f"\n当前彩池: {event.public_payload.get('pot', 0)}")
         self.print_fn(f"当前最高下注: {event.public_payload.get('current_bet', 0)}")
         players = event.public_payload.get("players", [])
-        self._render_ai_roster(players)
         for player in players:
             dealer_mark = " (D)" if player.get("is_dealer") else ""
             folded_mark = " [已弃牌]" if player.get("is_folded") else ""
@@ -114,7 +91,6 @@ class TerminalEventRenderer:
         self.print_fn("📊 当前在场玩家状态")
         self.print_fn("=" * 50)
         players = event.public_payload.get("players", [])
-        self._render_ai_roster(players)
         for player in players:
             name = player.get("name")
             if not player.get("is_folded"):
@@ -135,97 +111,6 @@ class TerminalEventRenderer:
             f"{event.public_payload.get('total_players', 0)}"
         )
         return True
-
-    def _render_ai_roster(self, players) -> None:
-        """Introduce source-derived terminal mascots once per game."""
-        if self._avatar_roster_rendered:
-            return
-
-        roster = [
-            (str(player.get("name")), self.ai_player_profiles[str(player.get("name"))])
-            for player in players
-            if str(player.get("name")) in self.ai_player_profiles
-        ]
-        if not roster:
-            return
-
-        self._avatar_roster_rendered = True
-        if len(roster) > 6:
-            self.print_fn("\n🤖 完整像素头像可输入'头像'查看")
-            return
-
-        self._print_avatar_gallery(roster)
-
-    def show_avatar_gallery(self) -> None:
-        """Show the full mascot gallery on demand at a player prompt."""
-        if self.ai_player_profiles:
-            self._print_avatar_gallery(list(self.ai_player_profiles.items()))
-
-    def _print_avatar_gallery(self, roster) -> None:
-        self.print_fn("\n🤖 AI 对手头像")
-        for start in range(0, len(roster), 3):
-            seats = roster[start:start + 3]
-            icons = [self._avatar_rows(profile) for _, profile in seats]
-            for row_index in range(len(icons[0])):
-                self.print_fn("  ".join(icon[row_index] for icon in icons))
-            self.print_fn("  ".join(self._center_terminal_text(name, 24) for name, _ in seats))
-            if start + 3 < len(roster):
-                self.print_fn("")
-
-    @staticmethod
-    def _center_terminal_text(value: str, width: int) -> str:
-        display_width = sum(
-            0 if unicodedata.combining(character)
-            else 2 if unicodedata.east_asian_width(character) in "FW"
-            else 1
-            for character in value
-        )
-        spaces = max(0, width - display_width)
-        return " " * (spaces // 2) + value + " " * (spaces - spaces // 2)
-
-    def _avatar_rows(self, profile: str):
-        sprite = self._AVATAR_STYLES.get(profile, self._AVATAR_STYLES["balanced"])
-        palette = SPRITES[sprite]["palette"]
-        pixels = SPRITES[sprite]["rows"]
-        return tuple(
-            "".join(
-                self._render_avatar_pixel(pixels[y][x], pixels[y + 1][x], palette)
-                for x in range(24)
-            )
-            for y in range(0, 18, 2)
-        )
-
-    def _render_avatar_pixel(self, top: str, bottom: str, palette: Mapping[str, str]) -> str:
-        if top == bottom == ".":
-            return " "
-        if not self.use_color:
-            def visible(key: str) -> bool:
-                if key == ".":
-                    return False
-                rgb = bytes.fromhex(palette[key].lstrip("#"))
-                return sum(rgb) > 200
-
-            top_visible = visible(top)
-            bottom_visible = visible(bottom)
-            if not top_visible and not bottom_visible:
-                return " "
-            if not top_visible:
-                return "▄"
-            if not bottom_visible:
-                return "▀"
-            return "█"
-
-        def rgb(key: str) -> str:
-            value = palette[key].lstrip("#")
-            return ";".join(str(int(value[index:index + 2], 16)) for index in (0, 2, 4))
-
-        if top == ".":
-            return f"\033[38;2;{rgb(bottom)}m▄\033[0m"
-        if bottom == ".":
-            return f"\033[38;2;{rgb(top)}m▀\033[0m"
-        if top == bottom:
-            return f"\033[48;2;{rgb(top)}m \033[0m"
-        return f"\033[38;2;{rgb(top)}m\033[48;2;{rgb(bottom)}m▀\033[0m"
 
     def _render_betting_round_started(self, event: EngineEvent) -> bool:
         phase = str(event.public_payload.get("phase") or event.phase).upper()
