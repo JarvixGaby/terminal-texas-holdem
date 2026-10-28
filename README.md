@@ -6,14 +6,18 @@ A local No-Limit Texas Hold'em game for one human and up to nine built-in comput
 
 ## Computer opponents
 
-Each new game randomly selects distinct names from this pool and independently assigns built-in poker playing styles. A name does not imply that the corresponding product powers the opponent.
+The built-in AI has six playing-style profiles. They shape its tendencies rather than guaranteeing a particular move:
 
-| Names available in game |
-| --- |
-| Claw, Kodes, Jemini, Kurser, OppenKode, Koder |
-| Mememax, zcold, DeepSeak, Quen, Kimee |
+| Style | Typical tendency |
+| --- | --- |
+| Balanced | Mixes selective calls, raises, and folds. |
+| Loose-aggressive | Enters more pots and raises more often. |
+| Calling station | Prefers calling and stays in hands longer. |
+| Tight-aggressive | Plays fewer hands, then bets more assertively. |
+| Maniac | Plays many hands with frequent raises and bluffs. |
+| Nit | Waits for stronger hands and folds more readily. |
 
-Up to nine of the eleven names appear in one game. Names and styles are fixed for that game, then drawn again when a new game starts. The available styles are balanced, loose-aggressive, calling station, tight-aggressive, maniac, and nit.
+Each new game randomly selects distinct opponent names and independently pairs them with these styles. A name does not imply that the corresponding product powers the opponent. Names and styles stay fixed during that game.
 
 ## Run locally
 
