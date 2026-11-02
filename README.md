@@ -17,6 +17,8 @@ The built-in AI has six playing-style profiles. They shape its tendencies rather
 | Maniac | Plays many hands with frequent raises and bluffs. |
 | Nit | Waits for stronger hands and folds more readily. |
 
+Preflop hand ranges vary by style, position, and table size. After the flop, opponents can fold, bluff, or semi-bluff according to their profile and the situation. The ranges are editable in `texas_holdem/ai/preflop_ranges.json`; they are heuristic starting points, not solver charts.
+
 Each new game randomly selects distinct opponent names and independently pairs them with these styles. A name does not imply that the corresponding product powers the opponent. Names and styles stay fixed during that game.
 
 ## Run locally
@@ -48,7 +50,7 @@ Chinese commands also work in English mode. Confirmation prompts accept `y`, `n`
 
 The application entry point is `main.py`. Game flow lives in `texas_holdem/engine/`, built-in AI in `texas_holdem/ai/`, terminal rendering in `texas_holdem/ui/`, and evaluation tools in `texas_holdem/analytics/`. See the [project index](docs/index.md) for the full map.
 
-The latest [10-seed × 500-hand AI benchmark](docs/reports/2026-10-26-calling-station-astra-medium-equity-check.md) passed its existing completion and legality gate. Opponent-style calibration is still in progress; the [calling-station opportunity diagnostic](docs/reports/2026-10-26-calling-station-opportunity-diagnostic.md) explains its remaining call-rate warning. These reports use faster equity sampling than normal terminal play unless stated otherwise.
+The latest [10-seed × 500-hand AI benchmark](docs/reports/2026-11-02-short-stack-call.md) passed its gates with no illegal actions or runtime errors. The full test suite passed 499 tests. Style calibration remains a work in progress; the benchmark uses fewer equity simulations per decision than normal terminal play. See the [range guide](docs/architecture/profile-hand-ranges.md) for position mapping and strategy limitations.
 
 To run the automated suite, install `pytest` in your development environment and run:
 

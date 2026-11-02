@@ -70,6 +70,7 @@ class BuiltInAIDecisionProvider(DecisionProvider):
                 player.name for player in state.visible_players
                 if player.name != state.player_name and not player.is_folded
             ]
+            postflop_in_position, has_actionable_opponent = self._postflop_position_context(state)
             community_cards = self.community_cards_provider() if self.community_cards_provider else state.community_cards
             raw = self.ai_player.make_decision(
                 current_bet=state.amount_to_call,
@@ -82,6 +83,8 @@ class BuiltInAIDecisionProvider(DecisionProvider):
                 table_current_bet=state.current_bet,
                 player_current_bet=self._acting_player_current_bet(state),
                 action_history=state.action_history,
+                postflop_in_position=postflop_in_position,
+                has_actionable_opponent=has_actionable_opponent,
             )
             action, amount = raw
             if action not in state.legal_actions:
@@ -115,6 +118,28 @@ class BuiltInAIDecisionProvider(DecisionProvider):
                 except (TypeError, ValueError):
                     return 0
         return 0
+
+    @staticmethod
+    def _postflop_position_context(state: GameStateSnapshot) -> tuple[bool, bool]:
+        """Compare public seats in postflop order, ignoring players unable to act.
+
+        The first seat left of BTN acts first, including heads-up where that
+        seat is BB. All-in opponents still belong in equity calculations.
+        """
+        player_count = len(state.visible_players)
+        opponents = [
+            player for player in state.visible_players
+            if player.name != state.player_name
+            and not player.is_folded and not player.is_all_in and player.chips > 0
+        ]
+        if player_count < 2 or not opponents:
+            return False, False
+        first_seat = (state.dealer_position + 1) % player_count
+        hero_order = (state.position - first_seat) % player_count
+        return all(
+            hero_order > (player.position - first_seat) % player_count
+            for player in opponents
+        ), True
 
     @staticmethod
     def _ai_position(state: GameStateSnapshot) -> int:

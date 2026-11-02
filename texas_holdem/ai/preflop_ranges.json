@@ -1,0 +1,374 @@
+{
+  "nit": {
+    "UTG": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo KK KQs QQ JJ TT",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "UTG+1": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "UTG+2": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "MP": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs A9s KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "LJ": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99 88",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs A9s A8s KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "HJ": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs QQ JJ TT",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "CO": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs A9s A8s KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs QQ JJ TT",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "BTN": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT 99 88 77 66",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "SB": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99 88",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "BB": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ TT",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    }
+  },
+  "tight_aggressive": {
+    "UTG": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs QQ JJ TT",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ TT"
+    },
+    "UTG+1": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs A9s A8s KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT 99 88 77 66",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK KQs QQ JJ TT"
+    },
+    "UTG+2": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 88 77 66",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK KQs QQ JJ TT"
+    },
+    "MP": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99"
+    },
+    "LJ": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99 88",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55 44",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99"
+    },
+    "HJ": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT 99 88 77 66",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 66 55 44 33",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99"
+    },
+    "CO": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 88 77 66",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs A9s KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 76s 66 55 44 33 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99 88"
+    },
+    "BTN": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55 44",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 76s 66 65s 55 44 33 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs A9s KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88"
+    },
+    "SB": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs A9s A8s KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT 99 88 77 66",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK KQs QQ JJ TT"
+    },
+    "BB": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99 88",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 66 55 44",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99"
+    }
+  },
+  "loose_aggressive": {
+    "UTG": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 76s 66 65s 55 44 33 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88"
+    },
+    "UTG+1": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55 44",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs J9s TT T9s 99 98s 88 87s 77 76s 66 65s 55 44 33 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88"
+    },
+    "UTG+2": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 66 55 44 33",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs A9s A8s KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T8s 99 98s 97s 88 87s 77 76s 66 65s 55 44 33 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs A9s A8s KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88"
+    },
+    "MP": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 76s 66 55 44 33 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 97s 88 87s 86s 77 76s 75s 66 65s 55 44 33 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77"
+    },
+    "LJ": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 76s 66 65s 55 44 33 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 97s 88 87s 86s 77 76s 75s 66 65s 64s 55 54s 44 33 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77"
+    },
+    "HJ": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 76s 66 65s 55 44 33 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 86s 77 76s 75s 66 65s 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77"
+    },
+    "CO": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs J9s TT T9s T8s 99 98s 88 87s 77 76s 66 65s 55 44 33 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT 99 88 77 66",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 75s 66 65s 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT 99 88 77 66"
+    },
+    "BTN": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 97s 88 87s 86s 77 76s 75s 66 65s 55 44 33 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55"
+    },
+    "SB": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 66 55 44",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs A9s KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs J9s TT T9s T8s 99 98s 88 87s 77 76s 66 65s 55 44 33 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs A9s KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88"
+    },
+    "BB": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 76s 66 65s 55 44 33 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 86s 77 76s 75s 66 65s 64s 55 54s 53s 44 43s 33 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77"
+    }
+  },
+  "calling_station": {
+    "UTG": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 75s 66 65s 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A7o A6s A6o A5s A5o A4s A4o A3s A3o A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K8o K7s K7o K6s K6o K5s K5o K4s K4o K3s K2s QQ QJs QJo QTs QTo Q9s Q9o Q8s Q8o Q7s Q7o Q6s Q6o Q5s Q5o Q4s Q3s Q2s JJ JTs JTo J9s J9o J8s J8o J7s J7o J6s J6o J5s J4s J3s TT T9s T9o T8s T8o T7s T7o T6s T5s T4s 99 98s 98o 97s 96s 95s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "UTG+1": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 76o 75s 66 65s 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A7o A6s A6o A5s A5o A4s A4o A3s A3o A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K8o K7s K7o K6s K6o K5s K5o K4s K4o K3s K2s QQ QJs QJo QTs QTo Q9s Q9o Q8s Q8o Q7s Q7o Q6s Q6o Q5s Q5o Q4s Q3s Q2s JJ JTs JTo J9s J9o J8s J8o J7s J7o J6s J6o J5s J4s J3s TT T9s T9o T8s T8o T7s T7o T6s T5s T4s 99 98s 98o 97s 96s 95s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "UTG+2": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A7o A6s A6o A5s A5o A4s A4o A3s A3o A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K8o K7s K7o K6s K6o K5s K5o K4s K4o K3s K2s QQ QJs QJo QTs QTo Q9s Q9o Q8s Q8o Q7s Q7o Q6s Q6o Q5s Q5o Q4s Q3s Q2s JJ JTs JTo J9s J9o J8s J8o J7s J7o J6s J6o J5s J4s J3s TT T9s T9o T8s T8o T7s T7o T6s T5s T4s 99 98s 98o 97s 96s 95s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "MP": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A7o A6s A6o A5s A5o A4s A4o A3s A3o A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K8o K7s K7o K6s K6o K5s K5o K4s K4o K3s K2s QQ QJs QJo QTs QTo Q9s Q9o Q8s Q8o Q7s Q7o Q6s Q6o Q5s Q5o Q4s Q3s Q2s JJ JTs JTo J9s J9o J8s J8o J7s J7o J6s J6o J5s J4s J3s TT T9s T9o T8s T8o T7s T7o T6s T5s T4s 99 98s 98o 97s 96s 95s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "LJ": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo K9s K8s QQ QJs QJo QTs QTo Q9s JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A7o A6s A6o A5s A5o A4s A4o A3s A3o A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K8o K7s K7o K6s K6o K5s K5o K4s K4o K3s K2s QQ QJs QJo QTs QTo Q9s Q9o Q8s Q8o Q7s Q7o Q6s Q6o Q5s Q5o Q4s Q3s Q2s JJ JTs JTo J9s J9o J8s J8o J7s J7o J6s J6o J5s J4s J3s TT T9s T9o T8s T8o T7s T7o T6s T5s T4s 99 98s 98o 97s 96s 95s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "HJ": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo K9s K8s K7s QQ QJs QJo QTs QTo Q9s Q8s JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A7o A6s A6o A5s A5o A4s A4o A3s A3o A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K8o K7s K7o K6s K6o K5s K5o K4s K4o K3s K2s QQ QJs QJo QTs QTo Q9s Q9o Q8s Q8o Q7s Q7o Q6s Q6o Q5s Q5o Q4s Q3s Q2s JJ JTs JTo J9s J9o J8s J8o J7s J7o J6s J6o J5s J4s J3s TT T9s T9o T8s T8o T7s T7o T6s T5s T4s 99 98s 98o 97s 96s 95s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "CO": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K7s K6s K5s QQ QJs QJo QTs QTo Q9s Q8s Q7s Q6s JJ JTs JTo J9s J8s J7s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs QQ JJ TT",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A7o A6s A6o A5s A5o A4s A4o A3s A3o A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K8o K7s K7o K6s K6o K5s K5o K4s K4o K3s K2s QQ QJs QJo QTs QTo Q9s Q9o Q8s Q8o Q7s Q7o Q6s Q6o Q5s Q5o Q4s Q3s Q2s JJ JTs JTo J9s J9o J8s J8o J7s J7o J6s J6o J5s J4s J3s TT T9s T9o T8s T8o T7s T7o T6s T5s T4s 99 98s 98o 97s 96s 95s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "BTN": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A7o A6s A6o A5s A5o A4s A3s A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K8o K7s K7o K6s K6o K5s K4s K3s K2s QQ QJs QJo QTs QTo Q9s Q9o Q8s Q8o Q7s Q7o Q6s Q5s Q4s Q3s JJ JTs JTo J9s J9o J8s J8o J7s J6s J5s J4s TT T9s T9o T8s T7s T6s T5s 99 98s 98o 97s 96s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs QQ JJ TT",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A7o A6s A6o A5s A5o A4s A4o A3s A3o A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K8o K7s K7o K6s K6o K5s K5o K4s K4o K3s K2s QQ QJs QJo QTs QTo Q9s Q9o Q8s Q8o Q7s Q7o Q6s Q6o Q5s Q5o Q4s Q3s Q2s JJ JTs JTo J9s J9o J8s J8o J7s J7o J6s J6o J5s J4s J3s TT T9s T9o T8s T8o T7s T7o T6s T5s T4s 99 98s 98o 97s 96s 95s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "SB": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 76o 75s 66 65s 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A7o A6s A6o A5s A5o A4s A4o A3s A3o A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K8o K7s K7o K6s K6o K5s K5o K4s K4o K3s K2s QQ QJs QJo QTs QTo Q9s Q9o Q8s Q8o Q7s Q7o Q6s Q6o Q5s Q5o Q4s Q3s Q2s JJ JTs JTo J9s J9o J8s J8o J7s J7o J6s J6o J5s J4s J3s TT T9s T9o T8s T8o T7s T7o T6s T5s T4s 99 98s 98o 97s 96s 95s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "BB": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo K9s K8s QQ QJs QJo QTs QTo Q9s JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A7o A6s A6o A5s A5o A4s A4o A3s A3o A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K8o K7s K7o K6s K6o K5s K5o K4s K4o K3s K2s QQ QJs QJo QTs QTo Q9s Q9o Q8s Q8o Q7s Q7o Q6s Q6o Q5s Q5o Q4s Q3s Q2s JJ JTs JTo J9s J9o J8s J8o J7s J7o J6s J6o J5s J4s J3s TT T9s T9o T8s T8o T7s T7o T6s T5s T4s 99 98s 98o 97s 96s 95s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    }
+  },
+  "maniac": {
+    "UTG": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 86s 77 76s 75s 66 65s 64s 55 54s 53s 44 43s 33 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 88 77 66",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo K9s K8s K7s QQ QJs QJo QTs QTo Q9s Q8s JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55 44"
+    },
+    "UTG+1": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 86s 77 76s 75s 66 65s 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 88 77 66 55",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K7s K6s QQ QJs QJo QTs QTo Q9s Q8s Q7s JJ JTs JTo J9s J8s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55 44"
+    },
+    "UTG+2": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 75s 66 65s 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55 44",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A7o A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K8o K7s K6s K5s K4s QQ QJs QJo QTs QTo Q9s Q9o Q8s Q7s Q6s Q5s JJ JTs JTo J9s J8s J7s J6s TT T9s T9o T8s T7s 99 98s 98o 97s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55 44"
+    },
+    "MP": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 76o 75s 66 65s 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 66 55 44 33",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A7o A6s A6o A5s A5o A4s A3s A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K8o K7s K7o K6s K6o K5s K4s K3s K2s QQ QJs QJo QTs QTo Q9s Q9o Q8s Q8o Q7s Q7o Q6s Q5s Q4s Q3s JJ JTs JTo J9s J9o J8s J8o J7s J6s J5s J4s TT T9s T9o T8s T7s T6s T5s 99 98s 98o 97s 96s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55 44"
+    },
+    "LJ": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 76s 66 55 44 33",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A7o A6s A6o A5s A5o A4s A4o A3s A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K8o K7s K7o K6s K6o K5s K5o K4s K3s K2s QQ QJs QJo QTs QTo Q9s Q9o Q8s Q8o Q7s Q7o Q6s Q6o Q5s Q4s Q3s Q2s JJ JTs JTo J9s J9o J8s J8o J7s J7o J6s J5s J4s J3s TT T9s T9o T8s T8o T7s T6s T5s T4s 99 98s 98o 97s 96s 95s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55 44"
+    },
+    "HJ": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo K9s QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 76s 66 65s 55 44 33 22",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A7o A6s A6o A5s A5o A4s A4o A3s A3o A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K8o K7s K7o K6s K6o K5s K5o K4s K4o K3s K2s QQ QJs QJo QTs QTo Q9s Q9o Q8s Q8o Q7s Q7o Q6s Q6o Q5s Q5o Q4s Q3s Q2s JJ JTs JTo J9s J9o J8s J8o J7s J7o J6s J6o J5s J4s J3s TT T9s T9o T8s T8o T7s T7o T6s T5s T4s 99 98s 98o 97s 96s 95s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55 44"
+    },
+    "CO": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo K9s K8s QQ QJs QJo QTs QTo Q9s JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 76s 66 65s 55 44 33 22",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A7o A6s A6o A5s A5o A4s A4o A3s A3o A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K8o K7s K7o K6s K6o K5s K5o K4s K4o K3s K2s QQ QJs QJo QTs QTo Q9s Q9o Q8s Q8o Q7s Q7o Q6s Q6o Q5s Q5o Q4s Q3s Q2s JJ JTs JTo J9s J9o J8s J8o J7s J7o J6s J6o J5s J4s J3s TT T9s T9o T8s T8o T7s T7o T6s T5s T4s 99 98s 98o 97s 96s 95s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55 44"
+    },
+    "BTN": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K7s K6s K5s QQ QJs QJo QTs QTo Q9s Q8s Q7s Q6s JJ JTs JTo J9s J8s J7s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T8s 99 98s 97s 88 87s 77 76s 66 65s 55 44 33 22",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A7o A6s A6o A5s A5o A4s A4o A3s A3o A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K8o K7s K7o K6s K6o K5s K5o K4s K4o K3s K2s QQ QJs QJo QTs QTo Q9s Q9o Q8s Q8o Q7s Q7o Q6s Q6o Q5s Q5o Q4s Q3s Q2s JJ JTs JTo J9s J9o J8s J8o J7s J7o J6s J6o J5s J4s J3s TT T9s T9o T8s T8o T7s T7o T6s T5s T4s 99 98s 98o 97s 96s 95s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55 44"
+    },
+    "SB": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 75s 66 65s 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K7s K6s K5s QQ QJs QJo QTs QTo Q9s Q8s Q7s Q6s JJ JTs JTo J9s J8s J7s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55 44"
+    },
+    "BB": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 98o 97s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 76s 66 55 44 33 22",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A9o A8s A8o A7s A7o A6s A6o A5s A5o A4s A4o A3s A3o A2s KK KQs KQo KJs KJo KTs KTo K9s K9o K8s K8o K7s K7o K6s K6o K5s K5o K4s K4o K3s K2s QQ QJs QJo QTs QTo Q9s Q9o Q8s Q8o Q7s Q7o Q6s Q6o Q5s Q5o Q4s Q3s Q2s JJ JTs JTo J9s J9o J8s J8o J7s J7o J6s J6o J5s J4s J3s TT T9s T9o T8s T8o T7s T7o T6s T5s T4s 99 98s 98o 97s 96s 95s 88 87s 87o 86s 77 76s 76o 75s 66 65s 65o 64s 55 54s 53s 44 43s 42s 33 32s 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55 44"
+    }
+  },
+  "balanced": {
+    "UTG": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs QQ JJ TT",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55 44",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "UTG+1": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs QQ JJ TT",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 66 55 44 33",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "UTG+2": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs QQ JJ TT",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 76s 66 55 44 33",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ TT"
+    },
+    "MP": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT 99 88 77 66",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 76s 66 65s 55 44 33 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK KQs QQ JJ TT"
+    },
+    "LJ": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 88 77 66 55",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 76s 66 65s 55 44 33 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK KQs QQ JJ TT"
+    },
+    "HJ": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 77 66 55",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs J9s TT T9s 99 98s 88 87s 77 76s 66 65s 55 44 33 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99"
+    },
+    "CO": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 66 55 44",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T8s 99 98s 97s 88 87s 77 76s 66 65s 55 44 33 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99"
+    },
+    "BTN": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 76s 66 55 44 33 22",
+      "raise": "AA AKs AKo AQs AQo AJs AJo ATs A9s A8s KK KQs KQo KJs KTs QQ QJs QTs JJ TT 99 88",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs JTo J9s TT T9s T9o T8s 99 98s 97s 88 87s 86s 77 76s 75s 66 65s 64s 55 54s 44 33 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99 88"
+    },
+    "SB": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ TT 99 88 77",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs QQ JJ TT",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 66 55 44 33",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK QQ JJ"
+    },
+    "BB": {
+      "enter": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 88 77 66 55",
+      "raise": "AA AKs AKo AQs AQo AJs AJo KK KQs KQo QQ JJ TT 99",
+      "call_raise": "AA AKs AKo AQs AQo AJs AJo ATs ATo A9s A8s A7s A6s A5s A4s A3s A2s KK KQs KQo KJs KJo KTs KTo QQ QJs QJo QTs QTo JJ JTs TT T9s 99 98s 88 87s 77 76s 66 65s 55 44 33 22",
+      "three_bet": "AA AKs AKo AQs AQo AJs AJo KK KQs QQ JJ TT"
+    }
+  }
+}

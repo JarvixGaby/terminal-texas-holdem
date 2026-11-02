@@ -377,3 +377,29 @@ Do not move these runtime files until code references and docs are updated and t
 2. Require fixture-backed public-information targets, safety verdicts, commands run, non-goals preserved, and pre/post benchmark comparison before accepting policy or evaluator changes.
 3. Keep profile target-band calibration WARNs as evidence for named tuning slices, not as benchmark gate failures.
 4. Keep online/API/WebSocket/auth/platform and external-agent runtime implementation deferred until the roadmap gates are met.
+
+## Profile ranges (2026-10-29)
+
+- [风格手牌范围与诈唬](architecture/profile-hand-ranges.md) — range 表字段、风格示例、条件诈唬概率与限制。
+- [Range implementation validation](reports/2026-10-29-profile-ranges.md) — tests and primary benchmark comparison.
+- [Primary benchmark](reports/2026-10-29-profile-ranges-primary.json).
+- [Gate evaluation](reports/2026-10-29-profile-ranges-primary-evaluation.json).
+
+## Table-size-aware ranges (2026-10-29)
+
+- [Position/range validation](reports/2026-10-29-position-ranges.md) — 2–10 seat mapping and ten-player before/after diagnostics.
+- [Primary benchmark](reports/2026-10-29-position-ranges-primary.json) and [gate evaluation](reports/2026-10-29-position-ranges-primary-evaluation.json).
+- [Ten-player before](reports/2026-10-29-position-ranges-ten-player-before.json) and [gate evaluation](reports/2026-10-29-position-ranges-ten-player-before-evaluation.json).
+- [Ten-player after](reports/2026-10-29-position-ranges-ten-player.json) and [gate evaluation](reports/2026-10-29-position-ranges-ten-player-evaluation.json).
+
+## Actual postflop position repair (2026-10-30)
+
+- [Astra repair and validation](reports/2026-10-30-actual-position.md) — actual decision-path correction, regression coverage and benchmark comparison.
+- [Primary benchmark](reports/2026-10-30-actual-position-primary.json) and [gate evaluation](reports/2026-10-30-actual-position-primary-evaluation.json).
+- [Ten-player diagnostic](reports/2026-10-30-actual-position-ten-player.json) and [gate evaluation](reports/2026-10-30-actual-position-ten-player-evaluation.json).
+
+## Short-stack strong-hand calls (2026-11-02)
+
+- [Short-stack call repair](reports/2026-11-02-short-stack-call.md) — audit findings, real-entry fixtures and benchmark comparison.
+- [Primary benchmark](reports/2026-11-02-short-stack-call-primary.json) and [evaluation](reports/2026-11-02-short-stack-call-primary-evaluation.json).
+- [Ten-player diagnostic](reports/2026-11-02-short-stack-call-ten-player.json) and [evaluation](reports/2026-11-02-short-stack-call-ten-player-evaluation.json).

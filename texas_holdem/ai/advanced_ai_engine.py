@@ -29,6 +29,8 @@ from texas_holdem.ai.constants import (
     MixedStrategyFreqs, PotOddsParams
 )
 from texas_holdem.ai.ai_profiles import AIArchetypeProfile, get_archetype_profile
+from texas_holdem.ai.preflop_ranges import get_preflop_range
+from texas_holdem.ai.positions import seat_names, range_position, POSITION_BONUSES
 
 
 class BoardTexture(Enum):
@@ -512,34 +514,11 @@ class PositionRangeManager:
         将数字位置转换为位置名称
         position: 0 为小盲注位，随后按座位顺序递增；两人桌 0 同时是按钮位
         """
-        if total_players == 2:
-            # In heads-up play the button also posts the small blind.
-            return Position.BTN if position == 0 else Position.BB
-        if total_players == 3:
-            # 短桌简化处理
-            if position == total_players - 1:
-                return Position.BTN
-            elif position == 0:
-                return Position.SB
-            else:
-                return Position.BB
-        
-        # 标准6-9人桌
-        positions_from_button = total_players - position - 1
-        
-        if positions_from_button == 0:
-            return Position.BTN
-        elif positions_from_button == 1:
-            return Position.CO
-        elif positions_from_button == total_players - 1:
-            return Position.SB
-        elif positions_from_button == total_players - 2:
-            return Position.BB
-        elif positions_from_button >= total_players - 4:
-            return Position.MP
-        else:
-            return Position.UTG
-    
+        names = seat_names(total_players)
+        if not 0 <= position < total_players:
+            raise ValueError("Seat index is outside the table")
+        return names[position]
+
     @staticmethod
     def hand_to_notation(hole_cards: List[Card]) -> str:
         """将手牌转换为标准记号 (如 AA, AKs, AKo)"""
@@ -830,7 +809,9 @@ class AdvancedAIEngine:
                      opponents_in_hand: List[str], phase: str = None,
                      table_current_bet: int = None,
                      player_current_bet: int = 0,
-                     action_history: Optional[List[Dict[str, Any]]] = None) -> Tuple[str, int]:
+                     action_history: Optional[List[Dict[str, Any]]] = None, *,
+                     postflop_in_position: Optional[bool] = None,
+                     has_actionable_opponent: Optional[bool] = None) -> Tuple[str, int]:
         """
         高级AI决策主函数
         
@@ -867,9 +848,14 @@ class AdvancedAIEngine:
         # 3. 评估手牌强度 (用于分类和范围分析)
         hand_strength = self._evaluate_hand_strength(hole_cards, community_cards, board_texture)
         
-        # 4. 评估位置优势
-        position_advantage = self._evaluate_position(position, total_players)
-        has_position = position_advantage > 0.5
+        # Public seat context determines relative postflop position. Older direct
+        # callers only identify a seat: BTN alone is certain to act last.
+        if has_actionable_opponent is None:
+            has_actionable_opponent = bool(opponents_in_hand)
+        has_position = has_actionable_opponent and (
+            postflop_in_position if postflop_in_position is not None
+            else position_name == Position.BTN
+        )
         
         # 5. 检查是否有听牌
         has_draw = hand_strength.get("draw_strength", 0) > 0.2
@@ -878,7 +864,7 @@ class AdvancedAIEngine:
         if phase == "preflop":
             action, amount = self._preflop_decision_v2(
                 hole_cards, position_name, monte_carlo_equity,
-                current_bet, min_raise, pot_size, player_chips, opponents_in_hand
+                current_bet, min_raise, pot_size, player_chips, opponents_in_hand, total_players
             )
             if action:
                 self.last_decision_explanation = self._build_decision_explanation(
@@ -903,7 +889,8 @@ class AdvancedAIEngine:
             hole_cards, community_cards, monte_carlo_equity, hand_strength,
             current_bet, min_raise, pot_size, player_chips,
             has_position, has_draw, board_texture, opponents_in_hand, phase,
-            table_current_bet, player_current_bet, action_history or []
+            table_current_bet, player_current_bet, action_history or [],
+            has_actionable_opponent=has_actionable_opponent,
         )
         self.last_decision_explanation = self._build_decision_explanation(
             action=action,
@@ -1005,7 +992,7 @@ class AdvancedAIEngine:
     def _preflop_decision_v2(self, hole_cards: List[Card], position_name: str,
                             equity: float, current_bet: int, min_raise: int,
                             pot_size: int, player_chips: int,
-                            opponents_in_hand: List[str]) -> Tuple[Optional[str], int]:
+                            opponents_in_hand: List[str], total_players: Optional[int] = None) -> Tuple[Optional[str], int]:
         """
         新版翻牌前决策 - 使用位置范围系统
         
@@ -1026,6 +1013,7 @@ class AdvancedAIEngine:
                 min_raise=min_raise,
                 pot_size=pot_size,
                 player_chips=player_chips,
+                total_players=total_players,
             )
         
         # 没有加注时 (只有盲注)
@@ -1098,7 +1086,7 @@ class AdvancedAIEngine:
     def _profiled_preflop_decision(self, hole_cards: List[Card], position_name: str,
                                    equity: float, current_bet: int, min_raise: int,
                                    pot_size: int,
-                                   player_chips: int) -> Tuple[Optional[str], int]:
+                                   player_chips: int, total_players: Optional[int] = None) -> Tuple[Optional[str], int]:
         """Apply explicit archetype tendencies to preflop entry/raise choices only."""
         profile = self.archetype_profile
         if profile is None or len(hole_cards) != 2:
@@ -1111,7 +1099,8 @@ class AdvancedAIEngine:
         paired = card1.rank.numeric_value == card2.rank.numeric_value
         raw_strength = self._get_preflop_strength(high_rank, low_rank, suited, paired)
         category = self._categorize_preflop_hand(high_rank, low_rank, suited, paired)
-        position_bonus = self._profile_position_bonus(position_name)
+        range_role = range_position(position_name, total_players)
+        position_bonus = self._profile_position_bonus(range_role)
 
         vpip_threshold = max(
             0.18,
@@ -1142,6 +1131,11 @@ class AdvancedAIEngine:
         is_premium = category in {"premium_pair", "premium_broadways"} or raw_strength >= 0.82
         wants_to_enter = raw_strength >= vpip_threshold or is_premium
         wants_to_raise = raw_strength >= pfr_threshold or is_premium
+        ranges = get_preflop_range(profile, range_role)
+        notation = PositionRangeManager.hand_to_notation(hole_cards)
+        if ranges is not None:
+            wants_to_enter = notation in ranges["enter"]
+            wants_to_raise = notation in ranges["raise"]
         pot_odds = current_bet / (pot_size + current_bet) if current_bet > 0 and pot_size + current_bet > 0 else 0.0
         equity_far_below_price = (
             current_bet > 0
@@ -1200,7 +1194,9 @@ class AdvancedAIEngine:
             return "fold", 0
 
         three_bet_threshold = max(0.50, pfr_threshold + 0.10 - profile.three_bet_frequency)
-        if raw_strength >= three_bet_threshold or is_premium:
+        wants_to_three_bet = (notation in ranges["three_bet"] if ranges is not None
+                              else raw_strength >= three_bet_threshold or is_premium)
+        if wants_to_three_bet:
             three_bet_probability = min(0.95, max(profile.three_bet_frequency, profile.aggression_bias * 0.45))
             if random.random() < three_bet_probability:
                 raise_size = int(current_bet * (2.4 + profile.sizing_bias))
@@ -1214,23 +1210,15 @@ class AdvancedAIEngine:
             return "fold", 0
         if strong_price_call:
             return "call", current_bet
-        if raw_strength >= call_threshold and current_bet <= player_chips and not equity_far_below_price:
+        wants_to_call_raise = (notation in ranges["call_raise"] if ranges is not None
+                               else raw_strength >= call_threshold)
+        if wants_to_call_raise and current_bet <= player_chips and not equity_far_below_price:
             if random.random() < call_probability:
                 return "call", current_bet
         return "fold", 0
 
     def _profile_position_bonus(self, position_name: str) -> float:
-        if position_name == Position.BTN:
-            return 0.08
-        if position_name == Position.CO:
-            return 0.05
-        if position_name == Position.SB:
-            return -0.03
-        if position_name == Position.BB:
-            return 0.02
-        if position_name == Position.UTG:
-            return -0.05
-        return 0.0
+        return POSITION_BONUSES.get(position_name, 0.0)
 
     def _profile_open_raise_multiplier(self, profile: AIArchetypeProfile) -> float:
         return 2.2 + profile.sizing_bias * 0.8
@@ -1245,7 +1233,8 @@ class AdvancedAIEngine:
                              board_texture: Dict, opponents_in_hand: List[str],
                              phase: str, table_current_bet: int = None,
                              player_current_bet: int = 0,
-                             action_history: Optional[List[Dict[str, Any]]] = None) -> Tuple[str, int]:
+                             action_history: Optional[List[Dict[str, Any]]] = None, *,
+                             has_actionable_opponent: bool = True) -> Tuple[str, int]:
         """
         新版翻牌后决策 - 使用底池赔率和混合策略
         """
@@ -1257,7 +1246,8 @@ class AdvancedAIEngine:
             return self._handle_no_bet_scenario(
                 equity, raw_strength, has_position, has_draw, 
                 pot_size, player_chips, min_raise, board_texture, opponents_in_hand,
-                phase, action_history or []
+                phase, action_history or [],
+                has_actionable_opponent=has_actionable_opponent,
             )
         
         # 需要跟注 (call/raise/fold场景)
@@ -1275,11 +1265,17 @@ class AdvancedAIEngine:
                                 pot_size: int, player_chips: int, min_raise: int,
                                 board_texture: Dict, opponents_in_hand: List[str],
                                 phase: str = "",
-                                action_history: Optional[List[Dict[str, Any]]] = None) -> Tuple[str, int]:
+                                action_history: Optional[List[Dict[str, Any]]] = None, *,
+                                has_actionable_opponent: bool = True) -> Tuple[str, int]:
         """
         处理无需跟注的场景 (check/bet)
         使用Monte Carlo胜率(equity)作为主要决策依据
         """
+
+        # No remaining player can fold: suppress weak-hand pressure, including
+        # the c-bet shortcut, while leaving existing value policies unchanged.
+        if equity < 0.45 and not has_actionable_opponent:
+            return "check", 0
         
         if self._is_flop_cbet_opportunity(phase, action_history or []):
             profile = self.archetype_profile or get_archetype_profile()
@@ -1331,7 +1327,9 @@ class AdvancedAIEngine:
         
         # 有听牌: 半诈唬
         if has_draw:
-            if random.random() < MixedStrategyFreqs.SEMI_BLUFF_FREQ:
+            probability = self._profile_bluff_probability(
+                has_position, True, board_texture, opponents_in_hand)
+            if random.random() < probability:
                 bet_size = BetSizingEngine.calculate_bet_size(
                     pot_size, player_chips, ActionLine.SEMI_BLUFF, board_texture
                 )
@@ -1339,13 +1337,33 @@ class AdvancedAIEngine:
             return "check", 0
         
         # 弱牌: 考虑诈唬 (有位置时)
-        if has_position and MixedStrategyDecider.should_bluff(has_position, has_draw):
+        probability = self._profile_bluff_probability(
+            has_position, False, board_texture, opponents_in_hand)
+        if has_position and random.random() < probability:
             bet_size = BetSizingEngine.calculate_bet_size(
                 pot_size, player_chips, ActionLine.BLUFF, board_texture
             )
             return "raise", self._legal_no_bet_raise_amount(bet_size, min_raise, player_chips)
         
         return "check", 0
+
+    def _profile_bluff_probability(self, has_position: bool, has_draw: bool,
+                                   board_texture: Dict, opponents_in_hand: List[str]) -> float:
+        """Bound weak-hand pressure by persona and public fold-equity proxies."""
+        profile = self.archetype_profile
+        if profile is None:
+            return (MixedStrategyFreqs.SEMI_BLUFF_FREQ if has_draw else
+                    MixedStrategyDecider.get_bluff_probability(has_position, False))
+        # Pure bluffs need position; draws can semi-bluff out of position.
+        if not has_draw and not has_position:
+            return 0.0
+        probability = profile.bluff_frequency * (2.0 if has_draw else 1.0)
+        if not has_position:
+            probability *= 0.6
+        probability /= max(1, len(opponents_in_hand))
+        if board_texture.get("danger_level", 0) >= 6:
+            probability *= 0.5
+        return min(0.60, probability)
 
     def _legal_no_bet_raise_amount(self, bet_size: int, min_raise: int, player_chips: int) -> int:
         return min(max(bet_size, min_raise), player_chips)
@@ -1359,6 +1377,9 @@ class AdvancedAIEngine:
         player_current_bet: int = 0,
     ) -> Optional[int]:
         max_total_bet = player_chips + max(player_current_bet, 0)
+        if max_total_bet <= table_current_bet:
+            # An all-in that only calls the existing wager is not a raise.
+            return None
         total_raise = table_current_bet + bet_size
         total_raise = min(max(total_raise, min_raise), max_total_bet)
         if total_raise >= min_raise or total_raise == max_total_bet:
@@ -1461,8 +1482,8 @@ class AdvancedAIEngine:
                 if raise_size is not None:
                     return "raise", raise_size
             # 平跟 (陷阱)
-            if current_bet <= player_chips:
-                return "call", current_bet
+            if player_chips > 0:
+                return "call", min(current_bet, player_chips)
             return "fold", 0
         
         # === 强牌 (胜率60-75%): 混合加注/跟注 ===
@@ -1476,8 +1497,8 @@ class AdvancedAIEngine:
                 )
                 if raise_size is not None:
                     return "raise", raise_size
-            if current_bet <= player_chips:
-                return "call", current_bet
+            if player_chips > 0:
+                return "call", min(current_bet, player_chips)
             return "fold", 0
         
         # === 中等牌 (胜率45-60%): 基于底池赔率 ===

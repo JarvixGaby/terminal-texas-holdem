@@ -246,6 +246,9 @@ class Position:
     """位置类型"""
     UTG = "UTG"      # Under The Gun (最早位置)
     UTG1 = "UTG+1"   # UTG+1
+    UTG2 = "UTG+2"
+    LJ = "LJ"
+    HJ = "HJ"
     MP = "MP"        # Middle Position (中间位置)
     MP1 = "MP+1"     # MP+1
     CO = "CO"        # Cut Off (按钮位前一位)
@@ -340,6 +343,13 @@ POSITION_COLD_CALL_RANGES = {
     Position.SB: {"tier3"},  # SB位置不好，范围窄
     Position.BB: {"tier3", "tier4", "tier5"},  # BB有很好的底池赔率
 }
+
+# Legacy non-profile engines use the closest existing tier chart explicitly.
+for _ranges in (POSITION_OPEN_RANGES, POSITION_3BET_RANGES, POSITION_COLD_CALL_RANGES):
+    for _new, _source in ((Position.UTG2, Position.UTG1),
+                          (Position.LJ, Position.MP), (Position.HJ, Position.MP1)):
+        _ranges[_new] = _ranges[_source].copy()
+del _ranges, _new, _source
 
 # BB面对开池加注的防守范围
 BB_DEFENSE_RANGES = {

@@ -1,0 +1,2942 @@
+{
+  "benchmark": {
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "hands_per_seed": 100,
+    "player_count": 10,
+    "starting_chips": 10000,
+    "ai_equity_simulations": 5,
+    "generated_at": "2026-11-01T23:29:46+00:00"
+  },
+  "runs": [
+    {
+      "hands_played": 100,
+      "total_actions": 1202,
+      "illegal_action_rate": 0.0,
+      "average_decision_score": 72.34193011647254,
+      "grade_distribution": {
+        "good": 1072,
+        "poor": 15,
+        "questionable": 80,
+        "excellent": 35
+      },
+      "final_stacks": {
+        "AI-1": 19179,
+        "AI-2": 12642,
+        "AI-3": 2172,
+        "AI-4": 9952,
+        "AI-5": 0,
+        "AI-6": 32353,
+        "AI-7": 0,
+        "AI-8": 9548,
+        "AI-9": 4591,
+        "AI-10": 9563
+      },
+      "errors": [],
+      "player_metrics": {
+        "AI-1": {
+          "hands_played": 100,
+          "actions": 133,
+          "vpip": 0.08,
+          "pfr": 0.05,
+          "aggression_factor": 2.5,
+          "call_rate": 0.06015037593984962,
+          "fold_rate": 0.6691729323308271,
+          "showdown_rate": 0.19,
+          "win_rate": 0.09,
+          "poor_blunder_rate": 0.007518796992481203,
+          "average_decision_score": 71.8796992481203,
+          "preflop_vpip_hands": 8,
+          "preflop_raise_hands": 5,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 20,
+          "call_actions": 8,
+          "fold_actions": 89,
+          "showdown_hands": 19,
+          "won_hands": 9,
+          "poor_blunder_actions": 1
+        },
+        "AI-10": {
+          "hands_played": 100,
+          "actions": 169,
+          "vpip": 0.27,
+          "pfr": 0.03,
+          "aggression_factor": 0.475,
+          "call_rate": 0.23668639053254437,
+          "fold_rate": 0.4911242603550296,
+          "showdown_rate": 0.19,
+          "win_rate": 0.14,
+          "poor_blunder_rate": 0.011834319526627219,
+          "average_decision_score": 72.0414201183432,
+          "preflop_vpip_hands": 27,
+          "preflop_raise_hands": 3,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 19,
+          "call_actions": 40,
+          "fold_actions": 83,
+          "showdown_hands": 19,
+          "won_hands": 14,
+          "poor_blunder_actions": 2
+        },
+        "AI-2": {
+          "hands_played": 100,
+          "actions": 138,
+          "vpip": 0.1,
+          "pfr": 0.05,
+          "aggression_factor": 1.7142857142857142,
+          "call_rate": 0.10144927536231885,
+          "fold_rate": 0.6521739130434783,
+          "showdown_rate": 0.19,
+          "win_rate": 0.08,
+          "poor_blunder_rate": 0.007246376811594203,
+          "average_decision_score": 73.3695652173913,
+          "preflop_vpip_hands": 10,
+          "preflop_raise_hands": 5,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 24,
+          "call_actions": 14,
+          "fold_actions": 90,
+          "showdown_hands": 19,
+          "won_hands": 8,
+          "poor_blunder_actions": 1
+        },
+        "AI-3": {
+          "hands_played": 100,
+          "actions": 146,
+          "vpip": 0.15,
+          "pfr": 0.11,
+          "aggression_factor": 4.625,
+          "call_rate": 0.0547945205479452,
+          "fold_rate": 0.5753424657534246,
+          "showdown_rate": 0.19,
+          "win_rate": 0.13,
+          "poor_blunder_rate": 0.03424657534246575,
+          "average_decision_score": 71.84931506849315,
+          "preflop_vpip_hands": 15,
+          "preflop_raise_hands": 11,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 37,
+          "call_actions": 8,
+          "fold_actions": 84,
+          "showdown_hands": 19,
+          "won_hands": 13,
+          "poor_blunder_actions": 5
+        },
+        "AI-4": {
+          "hands_played": 100,
+          "actions": 142,
+          "vpip": 0.18,
+          "pfr": 0.02,
+          "aggression_factor": 0.4666666666666667,
+          "call_rate": 0.2112676056338028,
+          "fold_rate": 0.5845070422535211,
+          "showdown_rate": 0.19,
+          "win_rate": 0.16,
+          "poor_blunder_rate": 0.014084507042253521,
+          "average_decision_score": 71.93661971830986,
+          "preflop_vpip_hands": 18,
+          "preflop_raise_hands": 2,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 14,
+          "call_actions": 30,
+          "fold_actions": 83,
+          "showdown_hands": 19,
+          "won_hands": 16,
+          "poor_blunder_actions": 2
+        },
+        "AI-5": {
+          "hands_played": 14,
+          "actions": 28,
+          "vpip": 0.21428571428571427,
+          "pfr": 0.14285714285714285,
+          "aggression_factor": 3.3333333333333335,
+          "call_rate": 0.10714285714285714,
+          "fold_rate": 0.42857142857142855,
+          "showdown_rate": 0.35714285714285715,
+          "win_rate": 0.07142857142857142,
+          "poor_blunder_rate": 0.03571428571428571,
+          "average_decision_score": 71.25,
+          "preflop_vpip_hands": 3,
+          "preflop_raise_hands": 2,
+          "preflop_opportunities": 14,
+          "aggressive_actions": 10,
+          "call_actions": 3,
+          "fold_actions": 12,
+          "showdown_hands": 5,
+          "won_hands": 1,
+          "poor_blunder_actions": 1
+        },
+        "AI-6": {
+          "hands_played": 100,
+          "actions": 154,
+          "vpip": 0.16,
+          "pfr": 0.1,
+          "aggression_factor": 1.7272727272727273,
+          "call_rate": 0.14285714285714285,
+          "fold_rate": 0.538961038961039,
+          "showdown_rate": 0.19,
+          "win_rate": 0.17,
+          "poor_blunder_rate": 0.006493506493506494,
+          "average_decision_score": 73.11688311688312,
+          "preflop_vpip_hands": 16,
+          "preflop_raise_hands": 10,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 38,
+          "call_actions": 22,
+          "fold_actions": 83,
+          "showdown_hands": 19,
+          "won_hands": 17,
+          "poor_blunder_actions": 1
+        },
+        "AI-7": {
+          "hands_played": 25,
+          "actions": 35,
+          "vpip": 0.16,
+          "pfr": 0.08,
+          "aggression_factor": 3.0,
+          "call_rate": 0.08571428571428572,
+          "fold_rate": 0.6,
+          "showdown_rate": 0.32,
+          "win_rate": 0.08,
+          "poor_blunder_rate": 0.0,
+          "average_decision_score": 74.28571428571429,
+          "preflop_vpip_hands": 4,
+          "preflop_raise_hands": 2,
+          "preflop_opportunities": 25,
+          "aggressive_actions": 9,
+          "call_actions": 3,
+          "fold_actions": 21,
+          "showdown_hands": 8,
+          "won_hands": 2,
+          "poor_blunder_actions": 0
+        },
+        "AI-8": {
+          "hands_played": 100,
+          "actions": 122,
+          "vpip": 0.09,
+          "pfr": 0.06,
+          "aggression_factor": 1.75,
+          "call_rate": 0.06557377049180328,
+          "fold_rate": 0.7377049180327869,
+          "showdown_rate": 0.19,
+          "win_rate": 0.08,
+          "poor_blunder_rate": 0.0,
+          "average_decision_score": 72.21311475409836,
+          "preflop_vpip_hands": 9,
+          "preflop_raise_hands": 6,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 14,
+          "call_actions": 8,
+          "fold_actions": 90,
+          "showdown_hands": 19,
+          "won_hands": 8,
+          "poor_blunder_actions": 0
+        },
+        "AI-9": {
+          "hands_played": 100,
+          "actions": 135,
+          "vpip": 0.15,
+          "pfr": 0.12,
+          "aggression_factor": 2.230769230769231,
+          "call_rate": 0.0962962962962963,
+          "fold_rate": 0.6222222222222222,
+          "showdown_rate": 0.19,
+          "win_rate": 0.12,
+          "poor_blunder_rate": 0.014814814814814815,
+          "average_decision_score": 72.03703703703704,
+          "preflop_vpip_hands": 15,
+          "preflop_raise_hands": 12,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 29,
+          "call_actions": 13,
+          "fold_actions": 84,
+          "showdown_hands": 19,
+          "won_hands": 12,
+          "poor_blunder_actions": 2
+        }
+      },
+      "profile_metrics": {
+        "nit": {
+          "player_count": 2,
+          "hands_played": 125,
+          "actions": 168,
+          "vpip": 0.096,
+          "pfr": 0.056,
+          "aggression_factor": 2.6363636363636362,
+          "call_rate": 0.06547619047619048,
+          "fold_rate": 0.6547619047619048,
+          "showdown_rate": 0.216,
+          "win_rate": 0.088,
+          "poor_blunder_rate": 0.005952380952380952,
+          "average_decision_score": 72.38095238095238,
+          "aggressive_actions": 29,
+          "call_actions": 11
+        },
+        "calling_station": {
+          "player_count": 2,
+          "hands_played": 200,
+          "actions": 311,
+          "vpip": 0.225,
+          "pfr": 0.025,
+          "aggression_factor": 0.4714285714285714,
+          "call_rate": 0.22508038585209003,
+          "fold_rate": 0.5337620578778135,
+          "showdown_rate": 0.19,
+          "win_rate": 0.15,
+          "poor_blunder_rate": 0.012861736334405145,
+          "average_decision_score": 71.9935691318328,
+          "aggressive_actions": 33,
+          "call_actions": 70
+        },
+        "tight_aggressive": {
+          "player_count": 2,
+          "hands_played": 200,
+          "actions": 260,
+          "vpip": 0.095,
+          "pfr": 0.055,
+          "aggression_factor": 1.7272727272727273,
+          "call_rate": 0.08461538461538462,
+          "fold_rate": 0.6923076923076923,
+          "showdown_rate": 0.19,
+          "win_rate": 0.08,
+          "poor_blunder_rate": 0.0038461538461538464,
+          "average_decision_score": 72.82692307692308,
+          "aggressive_actions": 38,
+          "call_actions": 22
+        },
+        "loose_aggressive": {
+          "player_count": 2,
+          "hands_played": 200,
+          "actions": 281,
+          "vpip": 0.15,
+          "pfr": 0.115,
+          "aggression_factor": 3.142857142857143,
+          "call_rate": 0.07473309608540925,
+          "fold_rate": 0.597864768683274,
+          "showdown_rate": 0.19,
+          "win_rate": 0.125,
+          "poor_blunder_rate": 0.02491103202846975,
+          "average_decision_score": 71.93950177935943,
+          "aggressive_actions": 66,
+          "call_actions": 21
+        },
+        "maniac": {
+          "player_count": 1,
+          "hands_played": 14,
+          "actions": 28,
+          "vpip": 0.21428571428571427,
+          "pfr": 0.14285714285714285,
+          "aggression_factor": 3.3333333333333335,
+          "call_rate": 0.10714285714285714,
+          "fold_rate": 0.42857142857142855,
+          "showdown_rate": 0.35714285714285715,
+          "win_rate": 0.07142857142857142,
+          "poor_blunder_rate": 0.03571428571428571,
+          "average_decision_score": 71.25,
+          "aggressive_actions": 10,
+          "call_actions": 3
+        },
+        "balanced": {
+          "player_count": 1,
+          "hands_played": 100,
+          "actions": 154,
+          "vpip": 0.16,
+          "pfr": 0.1,
+          "aggression_factor": 1.7272727272727273,
+          "call_rate": 0.14285714285714285,
+          "fold_rate": 0.538961038961039,
+          "showdown_rate": 0.19,
+          "win_rate": 0.17,
+          "poor_blunder_rate": 0.006493506493506494,
+          "average_decision_score": 73.11688311688312,
+          "aggressive_actions": 38,
+          "call_actions": 22
+        }
+      },
+      "weakest_profile": "maniac",
+      "style_separability_score": 0.28713043936713856,
+      "vpip_spread": 0.13,
+      "pfr_spread": 0.11785714285714285,
+      "aggression_spread": 2.861904761904762,
+      "call_rate_spread": 0.15960419537589954,
+      "largest_stack_share": 0.32353,
+      "bustout_rate": 0.2,
+      "hands_until_first_bust": 14,
+      "stack_gini": 0.493878,
+      "profile_calibration": {
+        "nit": {
+          "status": "WARN",
+          "distance": 0.183861,
+          "metrics": {
+            "vpip": {
+              "observed": 0.096,
+              "target_min": 0.08,
+              "target_max": 0.18,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "pfr": {
+              "observed": 0.056,
+              "target_min": 0.0,
+              "target_max": 0.1,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "aggression_factor": {
+              "observed": 2.636364,
+              "target_min": 0.0,
+              "target_max": 1.2,
+              "status": "WARN",
+              "distance": 1.436364
+            },
+            "call_rate": {
+              "observed": 0.065476,
+              "target_min": 0.1,
+              "target_max": 0.35,
+              "status": "WARN",
+              "distance": 0.034524
+            },
+            "fold_rate": {
+              "observed": 0.654762,
+              "target_min": 0.35,
+              "target_max": 0.9,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "showdown_rate": {
+              "observed": 0.216,
+              "target_min": 0.0,
+              "target_max": 0.35,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "poor_blunder_rate": {
+              "observed": 0.005952,
+              "target_min": 0.0,
+              "target_max": 0.1,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "average_decision_score": {
+              "observed": 72.380952,
+              "target_min": 60.0,
+              "target_max": 100.0,
+              "status": "PASS",
+              "distance": 0.0
+            }
+          }
+        },
+        "tight_aggressive": {
+          "status": "WARN",
+          "distance": 0.020673,
+          "metrics": {
+            "vpip": {
+              "observed": 0.095,
+              "target_min": 0.16,
+              "target_max": 0.28,
+              "status": "WARN",
+              "distance": 0.065
+            },
+            "pfr": {
+              "observed": 0.055,
+              "target_min": 0.12,
+              "target_max": 0.24,
+              "status": "WARN",
+              "distance": 0.065
+            },
+            "aggression_factor": {
+              "observed": 1.727273,
+              "target_min": 0.8,
+              "target_max": 3.5,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "call_rate": {
+              "observed": 0.084615,
+              "target_min": 0.12,
+              "target_max": 0.45,
+              "status": "WARN",
+              "distance": 0.035385
+            },
+            "fold_rate": {
+              "observed": 0.692308,
+              "target_min": 0.2,
+              "target_max": 0.7,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "showdown_rate": {
+              "observed": 0.19,
+              "target_min": 0.05,
+              "target_max": 0.45,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "poor_blunder_rate": {
+              "observed": 0.003846,
+              "target_min": 0.0,
+              "target_max": 0.1,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "average_decision_score": {
+              "observed": 72.826923,
+              "target_min": 60.0,
+              "target_max": 100.0,
+              "status": "PASS",
+              "distance": 0.0
+            }
+          }
+        },
+        "loose_aggressive": {
+          "status": "WARN",
+          "distance": 0.036283,
+          "metrics": {
+            "vpip": {
+              "observed": 0.15,
+              "target_min": 0.28,
+              "target_max": 0.45,
+              "status": "WARN",
+              "distance": 0.13
+            },
+            "pfr": {
+              "observed": 0.115,
+              "target_min": 0.2,
+              "target_max": 0.34,
+              "status": "WARN",
+              "distance": 0.085
+            },
+            "aggression_factor": {
+              "observed": 3.142857,
+              "target_min": 1.2,
+              "target_max": 5.0,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "call_rate": {
+              "observed": 0.074733,
+              "target_min": 0.15,
+              "target_max": 0.45,
+              "status": "WARN",
+              "distance": 0.075267
+            },
+            "fold_rate": {
+              "observed": 0.597865,
+              "target_min": 0.15,
+              "target_max": 0.65,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "showdown_rate": {
+              "observed": 0.19,
+              "target_min": 0.08,
+              "target_max": 0.55,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "poor_blunder_rate": {
+              "observed": 0.024911,
+              "target_min": 0.0,
+              "target_max": 0.1,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "average_decision_score": {
+              "observed": 71.939502,
+              "target_min": 60.0,
+              "target_max": 100.0,
+              "status": "PASS",
+              "distance": 0.0
+            }
+          }
+        },
+        "calling_station": {
+          "status": "WARN",
+          "distance": 0.06046,
+          "metrics": {
+            "vpip": {
+              "observed": 0.225,
+              "target_min": 0.3,
+              "target_max": 0.5,
+              "status": "WARN",
+              "distance": 0.075
+            },
+            "pfr": {
+              "observed": 0.025,
+              "target_min": 0.0,
+              "target_max": 0.16,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "aggression_factor": {
+              "observed": 0.471429,
+              "target_min": 0.0,
+              "target_max": 1.2,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "call_rate": {
+              "observed": 0.22508,
+              "target_min": 0.45,
+              "target_max": 1.0,
+              "status": "WARN",
+              "distance": 0.22492
+            },
+            "fold_rate": {
+              "observed": 0.533762,
+              "target_min": 0.0,
+              "target_max": 0.35,
+              "status": "WARN",
+              "distance": 0.183762
+            },
+            "showdown_rate": {
+              "observed": 0.19,
+              "target_min": 0.15,
+              "target_max": 0.75,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "poor_blunder_rate": {
+              "observed": 0.012862,
+              "target_min": 0.0,
+              "target_max": 0.1,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "average_decision_score": {
+              "observed": 71.993569,
+              "target_min": 60.0,
+              "target_max": 100.0,
+              "status": "PASS",
+              "distance": 0.0
+            }
+          }
+        }
+      },
+      "profile_calibration_status": "WARN",
+      "profile_calibration_distance": 0.075319,
+      "poor_blunder_samples": [
+        {
+          "hand_number": 1,
+          "player_name": "AI-2",
+          "profile": "tight_aggressive",
+          "phase": "preflop",
+          "action": "fold",
+          "amount": 0,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "overfold",
+          "risk_tags": [
+            "overfold"
+          ],
+          "public_board": [],
+          "equity": 0.6,
+          "pot_odds": 0.25
+        },
+        {
+          "hand_number": 14,
+          "player_name": "AI-5",
+          "profile": "maniac",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 62,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.3387096774193548
+        },
+        {
+          "hand_number": 31,
+          "player_name": "AI-4",
+          "profile": "calling_station",
+          "phase": "preflop",
+          "action": "call",
+          "amount": 10,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [],
+          "equity": 0.3,
+          "pot_odds": 0.4,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.1
+        },
+        {
+          "hand_number": 35,
+          "player_name": "AI-3",
+          "profile": "loose_aggressive",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 27,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.4
+        },
+        {
+          "hand_number": 44,
+          "player_name": "AI-9",
+          "profile": "loose_aggressive",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 79,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.3880597014925373
+        },
+        {
+          "hand_number": 44,
+          "player_name": "AI-9",
+          "profile": "loose_aggressive",
+          "phase": "preflop",
+          "action": "call",
+          "amount": 130,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [],
+          "equity": 0.2,
+          "pot_odds": 0.20569620253164558,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.0057
+        },
+        {
+          "hand_number": 47,
+          "player_name": "AI-3",
+          "profile": "loose_aggressive",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 27,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.4
+        },
+        {
+          "hand_number": 56,
+          "player_name": "AI-1",
+          "profile": "nit",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 25,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.4
+        },
+        {
+          "hand_number": 56,
+          "player_name": "AI-4",
+          "profile": "calling_station",
+          "phase": "flop",
+          "action": "call",
+          "amount": 32,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [
+            "6♣",
+            "8♥",
+            "5♥"
+          ],
+          "equity": 0.2,
+          "pot_odds": 0.24806201550387597,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.0481
+        },
+        {
+          "hand_number": 59,
+          "player_name": "AI-10",
+          "profile": "calling_station",
+          "phase": "preflop",
+          "action": "call",
+          "amount": 20,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [],
+          "equity": 0.2,
+          "pot_odds": 0.23529411764705882,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.0353
+        },
+        {
+          "hand_number": 64,
+          "player_name": "AI-3",
+          "profile": "loose_aggressive",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 76,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.1,
+          "pot_odds": 0.38461538461538464
+        },
+        {
+          "hand_number": 65,
+          "player_name": "AI-10",
+          "profile": "calling_station",
+          "phase": "preflop",
+          "action": "call",
+          "amount": 16,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [],
+          "equity": 0.2,
+          "pot_odds": 0.20512820512820512,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.0051
+        },
+        {
+          "hand_number": 83,
+          "player_name": "AI-3",
+          "profile": "loose_aggressive",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 27,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.4
+        },
+        {
+          "hand_number": 89,
+          "player_name": "AI-3",
+          "profile": "loose_aggressive",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 27,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.1,
+          "pot_odds": 0.4
+        },
+        {
+          "hand_number": 100,
+          "player_name": "AI-6",
+          "profile": "balanced",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 26,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.4
+        }
+      ],
+      "public_transcript_schema": {
+        "version": "phase3.4-public-transcript-v1",
+        "sample_fields": [
+          "hand_number",
+          "text",
+          "flags"
+        ],
+        "allowed_private_cards": "only legally revealed showdown contestants",
+        "forbidden_fields": [
+          "deck",
+          "hole_cards",
+          "opponent_hole_cards",
+          "private_ai_internals",
+          "unsafe_seed"
+        ]
+      },
+      "showdown_reveal_policy": {
+        "showdown": "reveal only players who legally reached showdown",
+        "non_showdown": "do not reveal any private hole cards",
+        "folded_players": "never reveal folded/non-contesting players' private cards"
+      },
+      "transcript_samples": [
+        {
+          "hand_number": 1,
+          "text": "Hand 1 | preflop: AI-4 fold; AI-5 fold; AI-6 fold; AI-7 fold; AI-8 fold; AI-9 fold; AI-10 fold; AI-1 fold; AI-2 fold | result: AI-3 won 15 by fold",
+          "flags": [
+            "no-obvious-issue"
+          ]
+        },
+        {
+          "hand_number": 2,
+          "text": "Hand 2 | preflop: AI-5 fold; AI-6 fold; AI-7 fold; AI-8 fold; AI-9 raise 27; AI-10 fold; AI-1 fold; AI-2 fold; AI-3 fold; AI-4 fold | result: AI-9 won 42 by fold",
+          "flags": [
+            "no-obvious-issue"
+          ]
+        },
+        {
+          "hand_number": 3,
+          "text": "Hand 3 | preflop: AI-6 fold; AI-7 fold; AI-8 fold; AI-9 raise 27; AI-10 fold; AI-1 fold; AI-2 fold; AI-3 fold; AI-4 fold; AI-5 raise 44; AI-9 call 27 | flop board: A♣ 5♦ J♣ | flop: AI-5 raise 37; AI-9 call 37 | turn board: A♣ 5♦ J♣ K♦ | turn: AI-5 raise 168; AI-9 call 168 | river board: A♣ 5♦ J♣ K♦ 8♦ | river: AI-5 raise 470; AI-9 raise 1363; AI-5 call 893 | result: AI-5 won 3249 by showdown | showdown: AI-5 [10♣ Q♥] 顺子 (到 A); AI-9 [A♦ J♥] 两对 (A 和 J)",
+          "flags": [
+            "c-bet"
+          ]
+        }
+      ],
+      "benchmark": {},
+      "hands": 100,
+      "actions": 1202,
+      "seed": 0
+    },
+    {
+      "hands_played": 100,
+      "total_actions": 1172,
+      "illegal_action_rate": 0.0,
+      "average_decision_score": 72.67491467576792,
+      "grade_distribution": {
+        "good": 1039,
+        "excellent": 49,
+        "questionable": 72,
+        "poor": 12
+      },
+      "final_stacks": {
+        "AI-1": 19199,
+        "AI-2": 0,
+        "AI-3": 8149,
+        "AI-4": 12607,
+        "AI-5": 0,
+        "AI-6": 10696,
+        "AI-7": 18611,
+        "AI-8": 0,
+        "AI-9": 17969,
+        "AI-10": 12769
+      },
+      "errors": [],
+      "player_metrics": {
+        "AI-1": {
+          "hands_played": 100,
+          "actions": 147,
+          "vpip": 0.08,
+          "pfr": 0.03,
+          "aggression_factor": 1.9230769230769231,
+          "call_rate": 0.08843537414965986,
+          "fold_rate": 0.564625850340136,
+          "showdown_rate": 0.22,
+          "win_rate": 0.14,
+          "poor_blunder_rate": 0.0,
+          "average_decision_score": 72.48299319727892,
+          "preflop_vpip_hands": 8,
+          "preflop_raise_hands": 3,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 25,
+          "call_actions": 13,
+          "fold_actions": 83,
+          "showdown_hands": 22,
+          "won_hands": 14,
+          "poor_blunder_actions": 0
+        },
+        "AI-10": {
+          "hands_played": 100,
+          "actions": 185,
+          "vpip": 0.29,
+          "pfr": 0.06,
+          "aggression_factor": 0.4444444444444444,
+          "call_rate": 0.24324324324324326,
+          "fold_rate": 0.43783783783783786,
+          "showdown_rate": 0.22,
+          "win_rate": 0.16,
+          "poor_blunder_rate": 0.016216216216216217,
+          "average_decision_score": 73.13513513513513,
+          "preflop_vpip_hands": 29,
+          "preflop_raise_hands": 6,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 20,
+          "call_actions": 45,
+          "fold_actions": 81,
+          "showdown_hands": 22,
+          "won_hands": 16,
+          "poor_blunder_actions": 3
+        },
+        "AI-2": {
+          "hands_played": 45,
+          "actions": 62,
+          "vpip": 0.15555555555555556,
+          "pfr": 0.1111111111111111,
+          "aggression_factor": 2.0,
+          "call_rate": 0.11290322580645161,
+          "fold_rate": 0.6129032258064516,
+          "showdown_rate": 0.2222222222222222,
+          "win_rate": 0.08888888888888889,
+          "poor_blunder_rate": 0.016129032258064516,
+          "average_decision_score": 71.7741935483871,
+          "preflop_vpip_hands": 7,
+          "preflop_raise_hands": 5,
+          "preflop_opportunities": 45,
+          "aggressive_actions": 14,
+          "call_actions": 7,
+          "fold_actions": 38,
+          "showdown_hands": 10,
+          "won_hands": 4,
+          "poor_blunder_actions": 1
+        },
+        "AI-3": {
+          "hands_played": 100,
+          "actions": 127,
+          "vpip": 0.14,
+          "pfr": 0.1,
+          "aggression_factor": 2.875,
+          "call_rate": 0.06299212598425197,
+          "fold_rate": 0.6614173228346457,
+          "showdown_rate": 0.22,
+          "win_rate": 0.14,
+          "poor_blunder_rate": 0.007874015748031496,
+          "average_decision_score": 72.51968503937007,
+          "preflop_vpip_hands": 14,
+          "preflop_raise_hands": 10,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 23,
+          "call_actions": 8,
+          "fold_actions": 84,
+          "showdown_hands": 22,
+          "won_hands": 14,
+          "poor_blunder_actions": 1
+        },
+        "AI-4": {
+          "hands_played": 100,
+          "actions": 195,
+          "vpip": 0.3,
+          "pfr": 0.03,
+          "aggression_factor": 0.375,
+          "call_rate": 0.28717948717948716,
+          "fold_rate": 0.41025641025641024,
+          "showdown_rate": 0.22,
+          "win_rate": 0.15,
+          "poor_blunder_rate": 0.02564102564102564,
+          "average_decision_score": 72.84615384615384,
+          "preflop_vpip_hands": 30,
+          "preflop_raise_hands": 3,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 21,
+          "call_actions": 56,
+          "fold_actions": 80,
+          "showdown_hands": 22,
+          "won_hands": 15,
+          "poor_blunder_actions": 5
+        },
+        "AI-5": {
+          "hands_played": 24,
+          "actions": 36,
+          "vpip": 0.125,
+          "pfr": 0.041666666666666664,
+          "aggression_factor": 1.0,
+          "call_rate": 0.1111111111111111,
+          "fold_rate": 0.5833333333333334,
+          "showdown_rate": 0.16666666666666666,
+          "win_rate": 0.041666666666666664,
+          "poor_blunder_rate": 0.027777777777777776,
+          "average_decision_score": 72.5,
+          "preflop_vpip_hands": 3,
+          "preflop_raise_hands": 1,
+          "preflop_opportunities": 24,
+          "aggressive_actions": 4,
+          "call_actions": 4,
+          "fold_actions": 21,
+          "showdown_hands": 4,
+          "won_hands": 1,
+          "poor_blunder_actions": 1
+        },
+        "AI-6": {
+          "hands_played": 100,
+          "actions": 131,
+          "vpip": 0.09,
+          "pfr": 0.05,
+          "aggression_factor": 2.5555555555555554,
+          "call_rate": 0.06870229007633588,
+          "fold_rate": 0.6793893129770993,
+          "showdown_rate": 0.22,
+          "win_rate": 0.1,
+          "poor_blunder_rate": 0.0,
+          "average_decision_score": 73.09160305343511,
+          "preflop_vpip_hands": 9,
+          "preflop_raise_hands": 5,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 23,
+          "call_actions": 9,
+          "fold_actions": 89,
+          "showdown_hands": 22,
+          "won_hands": 10,
+          "poor_blunder_actions": 0
+        },
+        "AI-7": {
+          "hands_played": 100,
+          "actions": 123,
+          "vpip": 0.03,
+          "pfr": 0.01,
+          "aggression_factor": 1.6666666666666667,
+          "call_rate": 0.07317073170731707,
+          "fold_rate": 0.7317073170731707,
+          "showdown_rate": 0.22,
+          "win_rate": 0.09,
+          "poor_blunder_rate": 0.0,
+          "average_decision_score": 73.41463414634147,
+          "preflop_vpip_hands": 3,
+          "preflop_raise_hands": 1,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 15,
+          "call_actions": 9,
+          "fold_actions": 90,
+          "showdown_hands": 22,
+          "won_hands": 9,
+          "poor_blunder_actions": 0
+        },
+        "AI-8": {
+          "hands_played": 37,
+          "actions": 46,
+          "vpip": 0.10810810810810811,
+          "pfr": 0.10810810810810811,
+          "aggression_factor": 12.0,
+          "call_rate": 0.021739130434782608,
+          "fold_rate": 0.6956521739130435,
+          "showdown_rate": 0.16216216216216217,
+          "win_rate": 0.10810810810810811,
+          "poor_blunder_rate": 0.021739130434782608,
+          "average_decision_score": 70.21739130434783,
+          "preflop_vpip_hands": 4,
+          "preflop_raise_hands": 4,
+          "preflop_opportunities": 37,
+          "aggressive_actions": 12,
+          "call_actions": 1,
+          "fold_actions": 32,
+          "showdown_hands": 6,
+          "won_hands": 4,
+          "poor_blunder_actions": 1
+        },
+        "AI-9": {
+          "hands_played": 100,
+          "actions": 120,
+          "vpip": 0.11,
+          "pfr": 0.09,
+          "aggression_factor": 2.4285714285714284,
+          "call_rate": 0.058333333333333334,
+          "fold_rate": 0.7,
+          "showdown_rate": 0.22,
+          "win_rate": 0.14,
+          "poor_blunder_rate": 0.0,
+          "average_decision_score": 72.33333333333333,
+          "preflop_vpip_hands": 11,
+          "preflop_raise_hands": 9,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 17,
+          "call_actions": 7,
+          "fold_actions": 84,
+          "showdown_hands": 22,
+          "won_hands": 14,
+          "poor_blunder_actions": 0
+        }
+      },
+      "profile_metrics": {
+        "nit": {
+          "player_count": 2,
+          "hands_played": 200,
+          "actions": 270,
+          "vpip": 0.055,
+          "pfr": 0.02,
+          "aggression_factor": 1.8181818181818181,
+          "call_rate": 0.08148148148148149,
+          "fold_rate": 0.6407407407407407,
+          "showdown_rate": 0.22,
+          "win_rate": 0.115,
+          "poor_blunder_rate": 0.0,
+          "average_decision_score": 72.9074074074074,
+          "aggressive_actions": 40,
+          "call_actions": 22
+        },
+        "calling_station": {
+          "player_count": 2,
+          "hands_played": 200,
+          "actions": 380,
+          "vpip": 0.295,
+          "pfr": 0.045,
+          "aggression_factor": 0.40594059405940597,
+          "call_rate": 0.2657894736842105,
+          "fold_rate": 0.4236842105263158,
+          "showdown_rate": 0.22,
+          "win_rate": 0.155,
+          "poor_blunder_rate": 0.021052631578947368,
+          "average_decision_score": 72.98684210526315,
+          "aggressive_actions": 41,
+          "call_actions": 101
+        },
+        "tight_aggressive": {
+          "player_count": 2,
+          "hands_played": 82,
+          "actions": 108,
+          "vpip": 0.13414634146341464,
+          "pfr": 0.10975609756097561,
+          "aggression_factor": 3.25,
+          "call_rate": 0.07407407407407407,
+          "fold_rate": 0.6481481481481481,
+          "showdown_rate": 0.1951219512195122,
+          "win_rate": 0.0975609756097561,
+          "poor_blunder_rate": 0.018518518518518517,
+          "average_decision_score": 71.11111111111111,
+          "aggressive_actions": 26,
+          "call_actions": 8
+        },
+        "loose_aggressive": {
+          "player_count": 2,
+          "hands_played": 200,
+          "actions": 247,
+          "vpip": 0.125,
+          "pfr": 0.095,
+          "aggression_factor": 2.6666666666666665,
+          "call_rate": 0.06072874493927125,
+          "fold_rate": 0.680161943319838,
+          "showdown_rate": 0.22,
+          "win_rate": 0.14,
+          "poor_blunder_rate": 0.004048582995951417,
+          "average_decision_score": 72.42914979757084,
+          "aggressive_actions": 40,
+          "call_actions": 15
+        },
+        "maniac": {
+          "player_count": 1,
+          "hands_played": 24,
+          "actions": 36,
+          "vpip": 0.125,
+          "pfr": 0.041666666666666664,
+          "aggression_factor": 1.0,
+          "call_rate": 0.1111111111111111,
+          "fold_rate": 0.5833333333333334,
+          "showdown_rate": 0.16666666666666666,
+          "win_rate": 0.041666666666666664,
+          "poor_blunder_rate": 0.027777777777777776,
+          "average_decision_score": 72.5,
+          "aggressive_actions": 4,
+          "call_actions": 4
+        },
+        "balanced": {
+          "player_count": 1,
+          "hands_played": 100,
+          "actions": 131,
+          "vpip": 0.09,
+          "pfr": 0.05,
+          "aggression_factor": 2.5555555555555554,
+          "call_rate": 0.06870229007633588,
+          "fold_rate": 0.6793893129770993,
+          "showdown_rate": 0.22,
+          "win_rate": 0.1,
+          "poor_blunder_rate": 0.0,
+          "average_decision_score": 73.09160305343511,
+          "aggressive_actions": 23,
+          "call_actions": 9
+        }
+      },
+      "weakest_profile": "maniac",
+      "style_separability_score": 0.31866879125130165,
+      "vpip_spread": 0.24,
+      "pfr_spread": 0.0897560975609756,
+      "aggression_spread": 2.844059405940594,
+      "call_rate_spread": 0.20506072874493927,
+      "largest_stack_share": 0.19199,
+      "bustout_rate": 0.3,
+      "hands_until_first_bust": 24,
+      "stack_gini": 0.408684,
+      "profile_calibration": {
+        "nit": {
+          "status": "WARN",
+          "distance": 0.082713,
+          "metrics": {
+            "vpip": {
+              "observed": 0.055,
+              "target_min": 0.08,
+              "target_max": 0.18,
+              "status": "WARN",
+              "distance": 0.025
+            },
+            "pfr": {
+              "observed": 0.02,
+              "target_min": 0.0,
+              "target_max": 0.1,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "aggression_factor": {
+              "observed": 1.818182,
+              "target_min": 0.0,
+              "target_max": 1.2,
+              "status": "WARN",
+              "distance": 0.618182
+            },
+            "call_rate": {
+              "observed": 0.081481,
+              "target_min": 0.1,
+              "target_max": 0.35,
+              "status": "WARN",
+              "distance": 0.018519
+            },
+            "fold_rate": {
+              "observed": 0.640741,
+              "target_min": 0.35,
+              "target_max": 0.9,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "showdown_rate": {
+              "observed": 0.22,
+              "target_min": 0.0,
+              "target_max": 0.35,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "poor_blunder_rate": {
+              "observed": 0.0,
+              "target_min": 0.0,
+              "target_max": 0.1,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "average_decision_score": {
+              "observed": 72.907407,
+              "target_min": 60.0,
+              "target_max": 100.0,
+              "status": "PASS",
+              "distance": 0.0
+            }
+          }
+        },
+        "tight_aggressive": {
+          "status": "WARN",
+          "distance": 0.010253,
+          "metrics": {
+            "vpip": {
+              "observed": 0.134146,
+              "target_min": 0.16,
+              "target_max": 0.28,
+              "status": "WARN",
+              "distance": 0.025854
+            },
+            "pfr": {
+              "observed": 0.109756,
+              "target_min": 0.12,
+              "target_max": 0.24,
+              "status": "WARN",
+              "distance": 0.010244
+            },
+            "aggression_factor": {
+              "observed": 3.25,
+              "target_min": 0.8,
+              "target_max": 3.5,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "call_rate": {
+              "observed": 0.074074,
+              "target_min": 0.12,
+              "target_max": 0.45,
+              "status": "WARN",
+              "distance": 0.045926
+            },
+            "fold_rate": {
+              "observed": 0.648148,
+              "target_min": 0.2,
+              "target_max": 0.7,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "showdown_rate": {
+              "observed": 0.195122,
+              "target_min": 0.05,
+              "target_max": 0.45,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "poor_blunder_rate": {
+              "observed": 0.018519,
+              "target_min": 0.0,
+              "target_max": 0.1,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "average_decision_score": {
+              "observed": 71.111111,
+              "target_min": 60.0,
+              "target_max": 100.0,
+              "status": "PASS",
+              "distance": 0.0
+            }
+          }
+        },
+        "loose_aggressive": {
+          "status": "WARN",
+          "distance": 0.047429,
+          "metrics": {
+            "vpip": {
+              "observed": 0.125,
+              "target_min": 0.28,
+              "target_max": 0.45,
+              "status": "WARN",
+              "distance": 0.155
+            },
+            "pfr": {
+              "observed": 0.095,
+              "target_min": 0.2,
+              "target_max": 0.34,
+              "status": "WARN",
+              "distance": 0.105
+            },
+            "aggression_factor": {
+              "observed": 2.666667,
+              "target_min": 1.2,
+              "target_max": 5.0,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "call_rate": {
+              "observed": 0.060729,
+              "target_min": 0.15,
+              "target_max": 0.45,
+              "status": "WARN",
+              "distance": 0.089271
+            },
+            "fold_rate": {
+              "observed": 0.680162,
+              "target_min": 0.15,
+              "target_max": 0.65,
+              "status": "WARN",
+              "distance": 0.030162
+            },
+            "showdown_rate": {
+              "observed": 0.22,
+              "target_min": 0.08,
+              "target_max": 0.55,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "poor_blunder_rate": {
+              "observed": 0.004049,
+              "target_min": 0.0,
+              "target_max": 0.1,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "average_decision_score": {
+              "observed": 72.42915,
+              "target_min": 60.0,
+              "target_max": 100.0,
+              "status": "PASS",
+              "distance": 0.0
+            }
+          }
+        },
+        "calling_station": {
+          "status": "WARN",
+          "distance": 0.032862,
+          "metrics": {
+            "vpip": {
+              "observed": 0.295,
+              "target_min": 0.3,
+              "target_max": 0.5,
+              "status": "WARN",
+              "distance": 0.005
+            },
+            "pfr": {
+              "observed": 0.045,
+              "target_min": 0.0,
+              "target_max": 0.16,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "aggression_factor": {
+              "observed": 0.405941,
+              "target_min": 0.0,
+              "target_max": 1.2,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "call_rate": {
+              "observed": 0.265789,
+              "target_min": 0.45,
+              "target_max": 1.0,
+              "status": "WARN",
+              "distance": 0.184211
+            },
+            "fold_rate": {
+              "observed": 0.423684,
+              "target_min": 0.0,
+              "target_max": 0.35,
+              "status": "WARN",
+              "distance": 0.073684
+            },
+            "showdown_rate": {
+              "observed": 0.22,
+              "target_min": 0.15,
+              "target_max": 0.75,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "poor_blunder_rate": {
+              "observed": 0.021053,
+              "target_min": 0.0,
+              "target_max": 0.1,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "average_decision_score": {
+              "observed": 72.986842,
+              "target_min": 60.0,
+              "target_max": 100.0,
+              "status": "PASS",
+              "distance": 0.0
+            }
+          }
+        }
+      },
+      "profile_calibration_status": "WARN",
+      "profile_calibration_distance": 0.043314,
+      "poor_blunder_samples": [
+        {
+          "hand_number": 5,
+          "player_name": "AI-8",
+          "profile": "tight_aggressive",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 26,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.1,
+          "pot_odds": 0.4
+        },
+        {
+          "hand_number": 10,
+          "player_name": "AI-4",
+          "profile": "calling_station",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 25,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.4
+        },
+        {
+          "hand_number": 15,
+          "player_name": "AI-10",
+          "profile": "calling_station",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 25,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.4
+        },
+        {
+          "hand_number": 16,
+          "player_name": "AI-2",
+          "profile": "tight_aggressive",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 26,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.4
+        },
+        {
+          "hand_number": 22,
+          "player_name": "AI-5",
+          "profile": "maniac",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 28,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.4
+        },
+        {
+          "hand_number": 23,
+          "player_name": "AI-4",
+          "profile": "calling_station",
+          "phase": "flop",
+          "action": "call",
+          "amount": 69,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [
+            "8♣",
+            "5♥",
+            "2♥"
+          ],
+          "equity": 0.2,
+          "pot_odds": 0.22186495176848875,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.0219
+        },
+        {
+          "hand_number": 23,
+          "player_name": "AI-3",
+          "profile": "loose_aggressive",
+          "phase": "turn",
+          "action": "call",
+          "amount": 672,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [
+            "8♣",
+            "5♥",
+            "2♥",
+            "8♠"
+          ],
+          "equity": 0.3,
+          "pot_odds": 0.3474663908996898,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.0475
+        },
+        {
+          "hand_number": 31,
+          "player_name": "AI-4",
+          "profile": "calling_station",
+          "phase": "preflop",
+          "action": "call",
+          "amount": 16,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [],
+          "equity": 0.2,
+          "pot_odds": 0.23880597014925373,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.0388
+        },
+        {
+          "hand_number": 49,
+          "player_name": "AI-4",
+          "profile": "calling_station",
+          "phase": "preflop",
+          "action": "call",
+          "amount": 10,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [],
+          "equity": 0.3,
+          "pot_odds": 0.4,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.1
+        },
+        {
+          "hand_number": 72,
+          "player_name": "AI-4",
+          "profile": "calling_station",
+          "phase": "preflop",
+          "action": "call",
+          "amount": 10,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [],
+          "equity": 0.3,
+          "pot_odds": 0.4,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.1
+        },
+        {
+          "hand_number": 83,
+          "player_name": "AI-10",
+          "profile": "calling_station",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 25,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.4
+        },
+        {
+          "hand_number": 84,
+          "player_name": "AI-10",
+          "profile": "calling_station",
+          "phase": "preflop",
+          "action": "call",
+          "amount": 66,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [],
+          "equity": 0.2,
+          "pot_odds": 0.2558139534883721,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.0558
+        }
+      ],
+      "public_transcript_schema": {
+        "version": "phase3.4-public-transcript-v1",
+        "sample_fields": [
+          "hand_number",
+          "text",
+          "flags"
+        ],
+        "allowed_private_cards": "only legally revealed showdown contestants",
+        "forbidden_fields": [
+          "deck",
+          "hole_cards",
+          "opponent_hole_cards",
+          "private_ai_internals",
+          "unsafe_seed"
+        ]
+      },
+      "showdown_reveal_policy": {
+        "showdown": "reveal only players who legally reached showdown",
+        "non_showdown": "do not reveal any private hole cards",
+        "folded_players": "never reveal folded/non-contesting players' private cards"
+      },
+      "transcript_samples": [
+        {
+          "hand_number": 1,
+          "text": "Hand 1 | preflop: AI-4 fold; AI-5 fold; AI-6 fold; AI-7 fold; AI-8 fold; AI-9 fold; AI-10 fold; AI-1 fold; AI-2 fold | result: AI-3 won 15 by fold",
+          "flags": [
+            "no-obvious-issue"
+          ]
+        },
+        {
+          "hand_number": 2,
+          "text": "Hand 2 | preflop: AI-5 fold; AI-6 fold; AI-7 fold; AI-8 fold; AI-9 fold; AI-10 call 10; AI-1 fold; AI-2 fold; AI-3 fold; AI-4 check | flop board: 7♣ 2♦ 3♣ | flop: AI-4 raise 22; AI-10 call 22 | turn board: 7♣ 2♦ 3♣ Q♦ | turn: AI-4 raise 62; AI-10 call 62 | river board: 7♣ 2♦ 3♣ Q♦ 2♣ | river: AI-4 raise 173; AI-10 call 173 | result: AI-4 won 539 by showdown | showdown: AI-4 [7♦ 9♠] 两对 (7 和 2); AI-10 [A♥ J♠] 一对 (2)",
+          "flags": [
+            "no-obvious-issue"
+          ]
+        },
+        {
+          "hand_number": 3,
+          "text": "Hand 3 | preflop: AI-6 fold; AI-7 fold; AI-8 fold; AI-9 fold; AI-10 fold; AI-1 fold; AI-2 fold; AI-3 fold; AI-4 call 5; AI-5 check | flop board: 7♦ 6♥ 6♣ | flop: AI-4 check; AI-5 check | turn board: 7♦ 6♥ 6♣ J♠ | turn: AI-4 check; AI-5 check | river board: 7♦ 6♥ 6♣ J♠ 8♠ | river: AI-4 check; AI-5 check | result: AI-4 won 20 by showdown | showdown: AI-4 [K♠ 4♦] 一对 (6); AI-5 [3♦ 2♣] 一对 (6)",
+          "flags": [
+            "no-obvious-issue"
+          ]
+        }
+      ],
+      "benchmark": {},
+      "hands": 100,
+      "actions": 1172,
+      "seed": 1
+    },
+    {
+      "hands_played": 100,
+      "total_actions": 1199,
+      "illegal_action_rate": 0.0,
+      "average_decision_score": 72.05170975813178,
+      "grade_distribution": {
+        "good": 1073,
+        "questionable": 73,
+        "excellent": 34,
+        "poor": 18,
+        "blunder": 1
+      },
+      "final_stacks": {
+        "AI-1": 12988,
+        "AI-2": 12831,
+        "AI-3": 15499,
+        "AI-4": 5163,
+        "AI-5": 9686,
+        "AI-6": 8233,
+        "AI-7": 9602,
+        "AI-8": 0,
+        "AI-9": 25998,
+        "AI-10": 0
+      },
+      "errors": [],
+      "player_metrics": {
+        "AI-1": {
+          "hands_played": 100,
+          "actions": 111,
+          "vpip": 0.07,
+          "pfr": 0.04,
+          "aggression_factor": 1.0,
+          "call_rate": 0.07207207207207207,
+          "fold_rate": 0.7837837837837838,
+          "showdown_rate": 0.17,
+          "win_rate": 0.12,
+          "poor_blunder_rate": 0.0,
+          "average_decision_score": 71.98198198198199,
+          "preflop_vpip_hands": 7,
+          "preflop_raise_hands": 4,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 8,
+          "call_actions": 8,
+          "fold_actions": 87,
+          "showdown_hands": 17,
+          "won_hands": 12,
+          "poor_blunder_actions": 0
+        },
+        "AI-10": {
+          "hands_played": 46,
+          "actions": 80,
+          "vpip": 0.21739130434782608,
+          "pfr": 0.06521739130434782,
+          "aggression_factor": 0.5714285714285714,
+          "call_rate": 0.2625,
+          "fold_rate": 0.4625,
+          "showdown_rate": 0.1956521739130435,
+          "win_rate": 0.10869565217391304,
+          "poor_blunder_rate": 0.025,
+          "average_decision_score": 72.9375,
+          "preflop_vpip_hands": 10,
+          "preflop_raise_hands": 3,
+          "preflop_opportunities": 46,
+          "aggressive_actions": 12,
+          "call_actions": 21,
+          "fold_actions": 37,
+          "showdown_hands": 9,
+          "won_hands": 5,
+          "poor_blunder_actions": 2
+        },
+        "AI-2": {
+          "hands_played": 100,
+          "actions": 110,
+          "vpip": 0.09,
+          "pfr": 0.04,
+          "aggression_factor": 1.5,
+          "call_rate": 0.07272727272727272,
+          "fold_rate": 0.7818181818181819,
+          "showdown_rate": 0.17,
+          "win_rate": 0.13,
+          "poor_blunder_rate": 0.0,
+          "average_decision_score": 72.77272727272727,
+          "preflop_vpip_hands": 9,
+          "preflop_raise_hands": 4,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 12,
+          "call_actions": 8,
+          "fold_actions": 86,
+          "showdown_hands": 17,
+          "won_hands": 13,
+          "poor_blunder_actions": 0
+        },
+        "AI-3": {
+          "hands_played": 100,
+          "actions": 133,
+          "vpip": 0.15,
+          "pfr": 0.09,
+          "aggression_factor": 1.875,
+          "call_rate": 0.12030075187969924,
+          "fold_rate": 0.6240601503759399,
+          "showdown_rate": 0.17,
+          "win_rate": 0.17,
+          "poor_blunder_rate": 0.015037593984962405,
+          "average_decision_score": 72.33082706766918,
+          "preflop_vpip_hands": 15,
+          "preflop_raise_hands": 9,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 30,
+          "call_actions": 16,
+          "fold_actions": 83,
+          "showdown_hands": 17,
+          "won_hands": 17,
+          "poor_blunder_actions": 2
+        },
+        "AI-4": {
+          "hands_played": 100,
+          "actions": 167,
+          "vpip": 0.24,
+          "pfr": 0.03,
+          "aggression_factor": 0.47619047619047616,
+          "call_rate": 0.25149700598802394,
+          "fold_rate": 0.49700598802395207,
+          "showdown_rate": 0.17,
+          "win_rate": 0.15,
+          "poor_blunder_rate": 0.041916167664670656,
+          "average_decision_score": 70.05988023952096,
+          "preflop_vpip_hands": 24,
+          "preflop_raise_hands": 3,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 20,
+          "call_actions": 42,
+          "fold_actions": 83,
+          "showdown_hands": 17,
+          "won_hands": 15,
+          "poor_blunder_actions": 7
+        },
+        "AI-5": {
+          "hands_played": 100,
+          "actions": 142,
+          "vpip": 0.18,
+          "pfr": 0.12,
+          "aggression_factor": 1.1666666666666667,
+          "call_rate": 0.1267605633802817,
+          "fold_rate": 0.6197183098591549,
+          "showdown_rate": 0.17,
+          "win_rate": 0.09,
+          "poor_blunder_rate": 0.02112676056338028,
+          "average_decision_score": 72.3943661971831,
+          "preflop_vpip_hands": 18,
+          "preflop_raise_hands": 12,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 21,
+          "call_actions": 18,
+          "fold_actions": 88,
+          "showdown_hands": 17,
+          "won_hands": 9,
+          "poor_blunder_actions": 3
+        },
+        "AI-6": {
+          "hands_played": 100,
+          "actions": 122,
+          "vpip": 0.08,
+          "pfr": 0.03,
+          "aggression_factor": 1.5555555555555556,
+          "call_rate": 0.07377049180327869,
+          "fold_rate": 0.7459016393442623,
+          "showdown_rate": 0.17,
+          "win_rate": 0.07,
+          "poor_blunder_rate": 0.01639344262295082,
+          "average_decision_score": 71.68032786885246,
+          "preflop_vpip_hands": 8,
+          "preflop_raise_hands": 3,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 14,
+          "call_actions": 9,
+          "fold_actions": 91,
+          "showdown_hands": 17,
+          "won_hands": 7,
+          "poor_blunder_actions": 2
+        },
+        "AI-7": {
+          "hands_played": 100,
+          "actions": 119,
+          "vpip": 0.07,
+          "pfr": 0.03,
+          "aggression_factor": 1.375,
+          "call_rate": 0.06722689075630252,
+          "fold_rate": 0.773109243697479,
+          "showdown_rate": 0.17,
+          "win_rate": 0.07,
+          "poor_blunder_rate": 0.0,
+          "average_decision_score": 73.31932773109244,
+          "preflop_vpip_hands": 7,
+          "preflop_raise_hands": 3,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 11,
+          "call_actions": 8,
+          "fold_actions": 92,
+          "showdown_hands": 17,
+          "won_hands": 7,
+          "poor_blunder_actions": 0
+        },
+        "AI-8": {
+          "hands_played": 61,
+          "actions": 79,
+          "vpip": 0.08196721311475409,
+          "pfr": 0.06557377049180328,
+          "aggression_factor": 3.25,
+          "call_rate": 0.05063291139240506,
+          "fold_rate": 0.7215189873417721,
+          "showdown_rate": 0.21311475409836064,
+          "win_rate": 0.03278688524590164,
+          "poor_blunder_rate": 0.02531645569620253,
+          "average_decision_score": 70.88607594936708,
+          "preflop_vpip_hands": 5,
+          "preflop_raise_hands": 4,
+          "preflop_opportunities": 61,
+          "aggressive_actions": 13,
+          "call_actions": 4,
+          "fold_actions": 57,
+          "showdown_hands": 13,
+          "won_hands": 2,
+          "poor_blunder_actions": 2
+        },
+        "AI-9": {
+          "hands_played": 100,
+          "actions": 136,
+          "vpip": 0.14,
+          "pfr": 0.12,
+          "aggression_factor": 2.8,
+          "call_rate": 0.07352941176470588,
+          "fold_rate": 0.6102941176470589,
+          "showdown_rate": 0.17,
+          "win_rate": 0.14,
+          "poor_blunder_rate": 0.007352941176470588,
+          "average_decision_score": 72.72058823529412,
+          "preflop_vpip_hands": 14,
+          "preflop_raise_hands": 12,
+          "preflop_opportunities": 100,
+          "aggressive_actions": 28,
+          "call_actions": 10,
+          "fold_actions": 83,
+          "showdown_hands": 17,
+          "won_hands": 14,
+          "poor_blunder_actions": 1
+        }
+      },
+      "profile_metrics": {
+        "nit": {
+          "player_count": 2,
+          "hands_played": 200,
+          "actions": 230,
+          "vpip": 0.07,
+          "pfr": 0.035,
+          "aggression_factor": 1.1875,
+          "call_rate": 0.06956521739130435,
+          "fold_rate": 0.7782608695652173,
+          "showdown_rate": 0.17,
+          "win_rate": 0.095,
+          "poor_blunder_rate": 0.0,
+          "average_decision_score": 72.67391304347827,
+          "aggressive_actions": 19,
+          "call_actions": 16
+        },
+        "calling_station": {
+          "player_count": 2,
+          "hands_played": 146,
+          "actions": 247,
+          "vpip": 0.2328767123287671,
+          "pfr": 0.0410958904109589,
+          "aggression_factor": 0.5079365079365079,
+          "call_rate": 0.2550607287449393,
+          "fold_rate": 0.48582995951417,
+          "showdown_rate": 0.1780821917808219,
+          "win_rate": 0.136986301369863,
+          "poor_blunder_rate": 0.03643724696356275,
+          "average_decision_score": 70.9919028340081,
+          "aggressive_actions": 32,
+          "call_actions": 63
+        },
+        "tight_aggressive": {
+          "player_count": 2,
+          "hands_played": 161,
+          "actions": 189,
+          "vpip": 0.08695652173913043,
+          "pfr": 0.049689440993788817,
+          "aggression_factor": 2.0833333333333335,
+          "call_rate": 0.06349206349206349,
+          "fold_rate": 0.7566137566137566,
+          "showdown_rate": 0.18633540372670807,
+          "win_rate": 0.09316770186335403,
+          "poor_blunder_rate": 0.010582010582010581,
+          "average_decision_score": 71.98412698412697,
+          "aggressive_actions": 25,
+          "call_actions": 12
+        },
+        "loose_aggressive": {
+          "player_count": 2,
+          "hands_played": 200,
+          "actions": 269,
+          "vpip": 0.145,
+          "pfr": 0.105,
+          "aggression_factor": 2.230769230769231,
+          "call_rate": 0.09665427509293681,
+          "fold_rate": 0.6171003717472119,
+          "showdown_rate": 0.17,
+          "win_rate": 0.155,
+          "poor_blunder_rate": 0.011152416356877323,
+          "average_decision_score": 72.5278810408922,
+          "aggressive_actions": 58,
+          "call_actions": 26
+        },
+        "maniac": {
+          "player_count": 1,
+          "hands_played": 100,
+          "actions": 142,
+          "vpip": 0.18,
+          "pfr": 0.12,
+          "aggression_factor": 1.1666666666666667,
+          "call_rate": 0.1267605633802817,
+          "fold_rate": 0.6197183098591549,
+          "showdown_rate": 0.17,
+          "win_rate": 0.09,
+          "poor_blunder_rate": 0.02112676056338028,
+          "average_decision_score": 72.3943661971831,
+          "aggressive_actions": 21,
+          "call_actions": 18
+        },
+        "balanced": {
+          "player_count": 1,
+          "hands_played": 100,
+          "actions": 122,
+          "vpip": 0.08,
+          "pfr": 0.03,
+          "aggression_factor": 1.5555555555555556,
+          "call_rate": 0.07377049180327869,
+          "fold_rate": 0.7459016393442623,
+          "showdown_rate": 0.17,
+          "win_rate": 0.07,
+          "poor_blunder_rate": 0.01639344262295082,
+          "average_decision_score": 71.68032786885246,
+          "aggressive_actions": 14,
+          "call_actions": 9
+        }
+      },
+      "weakest_profile": "calling_station",
+      "style_separability_score": 0.26929520089765285,
+      "vpip_spread": 0.1628767123287671,
+      "pfr_spread": 0.09,
+      "aggression_spread": 1.722832722832723,
+      "call_rate_spread": 0.1915686652528758,
+      "largest_stack_share": 0.25998,
+      "bustout_rate": 0.2,
+      "hands_until_first_bust": 46,
+      "stack_gini": 0.395478,
+      "profile_calibration": {
+        "nit": {
+          "status": "WARN",
+          "distance": 0.005054,
+          "metrics": {
+            "vpip": {
+              "observed": 0.07,
+              "target_min": 0.08,
+              "target_max": 0.18,
+              "status": "WARN",
+              "distance": 0.01
+            },
+            "pfr": {
+              "observed": 0.035,
+              "target_min": 0.0,
+              "target_max": 0.1,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "aggression_factor": {
+              "observed": 1.1875,
+              "target_min": 0.0,
+              "target_max": 1.2,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "call_rate": {
+              "observed": 0.069565,
+              "target_min": 0.1,
+              "target_max": 0.35,
+              "status": "WARN",
+              "distance": 0.030435
+            },
+            "fold_rate": {
+              "observed": 0.778261,
+              "target_min": 0.35,
+              "target_max": 0.9,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "showdown_rate": {
+              "observed": 0.17,
+              "target_min": 0.0,
+              "target_max": 0.35,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "poor_blunder_rate": {
+              "observed": 0.0,
+              "target_min": 0.0,
+              "target_max": 0.1,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "average_decision_score": {
+              "observed": 72.673913,
+              "target_min": 60.0,
+              "target_max": 100.0,
+              "status": "PASS",
+              "distance": 0.0
+            }
+          }
+        },
+        "tight_aggressive": {
+          "status": "WARN",
+          "distance": 0.032059,
+          "metrics": {
+            "vpip": {
+              "observed": 0.086957,
+              "target_min": 0.16,
+              "target_max": 0.28,
+              "status": "WARN",
+              "distance": 0.073043
+            },
+            "pfr": {
+              "observed": 0.049689,
+              "target_min": 0.12,
+              "target_max": 0.24,
+              "status": "WARN",
+              "distance": 0.070311
+            },
+            "aggression_factor": {
+              "observed": 2.083333,
+              "target_min": 0.8,
+              "target_max": 3.5,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "call_rate": {
+              "observed": 0.063492,
+              "target_min": 0.12,
+              "target_max": 0.45,
+              "status": "WARN",
+              "distance": 0.056508
+            },
+            "fold_rate": {
+              "observed": 0.756614,
+              "target_min": 0.2,
+              "target_max": 0.7,
+              "status": "WARN",
+              "distance": 0.056614
+            },
+            "showdown_rate": {
+              "observed": 0.186335,
+              "target_min": 0.05,
+              "target_max": 0.45,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "poor_blunder_rate": {
+              "observed": 0.010582,
+              "target_min": 0.0,
+              "target_max": 0.1,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "average_decision_score": {
+              "observed": 71.984127,
+              "target_min": 60.0,
+              "target_max": 100.0,
+              "status": "PASS",
+              "distance": 0.0
+            }
+          }
+        },
+        "loose_aggressive": {
+          "status": "WARN",
+          "distance": 0.035418,
+          "metrics": {
+            "vpip": {
+              "observed": 0.145,
+              "target_min": 0.28,
+              "target_max": 0.45,
+              "status": "WARN",
+              "distance": 0.135
+            },
+            "pfr": {
+              "observed": 0.105,
+              "target_min": 0.2,
+              "target_max": 0.34,
+              "status": "WARN",
+              "distance": 0.095
+            },
+            "aggression_factor": {
+              "observed": 2.230769,
+              "target_min": 1.2,
+              "target_max": 5.0,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "call_rate": {
+              "observed": 0.096654,
+              "target_min": 0.15,
+              "target_max": 0.45,
+              "status": "WARN",
+              "distance": 0.053346
+            },
+            "fold_rate": {
+              "observed": 0.6171,
+              "target_min": 0.15,
+              "target_max": 0.65,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "showdown_rate": {
+              "observed": 0.17,
+              "target_min": 0.08,
+              "target_max": 0.55,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "poor_blunder_rate": {
+              "observed": 0.011152,
+              "target_min": 0.0,
+              "target_max": 0.1,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "average_decision_score": {
+              "observed": 72.527881,
+              "target_min": 60.0,
+              "target_max": 100.0,
+              "status": "PASS",
+              "distance": 0.0
+            }
+          }
+        },
+        "calling_station": {
+          "status": "WARN",
+          "distance": 0.049737,
+          "metrics": {
+            "vpip": {
+              "observed": 0.232877,
+              "target_min": 0.3,
+              "target_max": 0.5,
+              "status": "WARN",
+              "distance": 0.067123
+            },
+            "pfr": {
+              "observed": 0.041096,
+              "target_min": 0.0,
+              "target_max": 0.16,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "aggression_factor": {
+              "observed": 0.507937,
+              "target_min": 0.0,
+              "target_max": 1.2,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "call_rate": {
+              "observed": 0.255061,
+              "target_min": 0.45,
+              "target_max": 1.0,
+              "status": "WARN",
+              "distance": 0.194939
+            },
+            "fold_rate": {
+              "observed": 0.48583,
+              "target_min": 0.0,
+              "target_max": 0.35,
+              "status": "WARN",
+              "distance": 0.13583
+            },
+            "showdown_rate": {
+              "observed": 0.178082,
+              "target_min": 0.15,
+              "target_max": 0.75,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "poor_blunder_rate": {
+              "observed": 0.036437,
+              "target_min": 0.0,
+              "target_max": 0.1,
+              "status": "PASS",
+              "distance": 0.0
+            },
+            "average_decision_score": {
+              "observed": 70.991903,
+              "target_min": 60.0,
+              "target_max": 100.0,
+              "status": "PASS",
+              "distance": 0.0
+            }
+          }
+        }
+      },
+      "profile_calibration_status": "WARN",
+      "profile_calibration_distance": 0.030567,
+      "poor_blunder_samples": [
+        {
+          "hand_number": 9,
+          "player_name": "AI-3",
+          "profile": "loose_aggressive",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 27,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.4
+        },
+        {
+          "hand_number": 15,
+          "player_name": "AI-4",
+          "profile": "calling_station",
+          "phase": "preflop",
+          "action": "call",
+          "amount": 59,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [],
+          "equity": 0.2,
+          "pot_odds": 0.21611721611721613,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.0161
+        },
+        {
+          "hand_number": 16,
+          "player_name": "AI-10",
+          "profile": "calling_station",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 25,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.4
+        },
+        {
+          "hand_number": 20,
+          "player_name": "AI-3",
+          "profile": "loose_aggressive",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 27,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.4
+        },
+        {
+          "hand_number": 22,
+          "player_name": "AI-5",
+          "profile": "maniac",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 28,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.4
+        },
+        {
+          "hand_number": 25,
+          "player_name": "AI-4",
+          "profile": "calling_station",
+          "phase": "preflop",
+          "action": "call",
+          "amount": 10,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [],
+          "equity": 0.2,
+          "pot_odds": 0.2857142857142857,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.0857
+        },
+        {
+          "hand_number": 26,
+          "player_name": "AI-6",
+          "profile": "balanced",
+          "phase": "preflop",
+          "action": "call",
+          "amount": 27,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [],
+          "equity": 0.2,
+          "pot_odds": 0.28125,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.0812
+        },
+        {
+          "hand_number": 26,
+          "player_name": "AI-5",
+          "profile": "maniac",
+          "phase": "flop",
+          "action": "call",
+          "amount": 32,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [
+            "8♦",
+            "2♠",
+            "2♥"
+          ],
+          "equity": 0.1,
+          "pot_odds": 0.2,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.1
+        },
+        {
+          "hand_number": 26,
+          "player_name": "AI-6",
+          "profile": "balanced",
+          "phase": "flop",
+          "action": "call",
+          "amount": 32,
+          "grade": "blunder",
+          "score": 15.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [
+            "8♦",
+            "2♠",
+            "2♥"
+          ],
+          "equity": 0.0,
+          "pot_odds": 0.16666666666666666,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.1667
+        },
+        {
+          "hand_number": 28,
+          "player_name": "AI-4",
+          "profile": "calling_station",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 25,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.4
+        },
+        {
+          "hand_number": 31,
+          "player_name": "AI-8",
+          "profile": "tight_aggressive",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 26,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.1,
+          "pot_odds": 0.4
+        },
+        {
+          "hand_number": 36,
+          "player_name": "AI-4",
+          "profile": "calling_station",
+          "phase": "preflop",
+          "action": "call",
+          "amount": 10,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [],
+          "equity": 0.3,
+          "pot_odds": 0.4,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.1
+        },
+        {
+          "hand_number": 36,
+          "player_name": "AI-4",
+          "profile": "calling_station",
+          "phase": "flop",
+          "action": "call",
+          "amount": 30,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [
+            "2♦",
+            "Q♦",
+            "9♣"
+          ],
+          "equity": 0.2,
+          "pot_odds": 0.2857142857142857,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.0857
+        },
+        {
+          "hand_number": 37,
+          "player_name": "AI-4",
+          "profile": "calling_station",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 25,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.2857142857142857
+        },
+        {
+          "hand_number": 40,
+          "player_name": "AI-10",
+          "profile": "calling_station",
+          "phase": "preflop",
+          "action": "call",
+          "amount": 26,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [],
+          "equity": 0.3,
+          "pot_odds": 0.3880597014925373,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.0881
+        },
+        {
+          "hand_number": 61,
+          "player_name": "AI-8",
+          "profile": "tight_aggressive",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 26,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.4
+        },
+        {
+          "hand_number": 68,
+          "player_name": "AI-9",
+          "profile": "loose_aggressive",
+          "phase": "preflop",
+          "action": "raise",
+          "amount": 27,
+          "grade": "poor",
+          "score": 30.0,
+          "classification": "low-equity bluff",
+          "risk_tags": [
+            "high_risk_bluff"
+          ],
+          "public_board": [],
+          "equity": 0.0,
+          "pot_odds": 0.4
+        },
+        {
+          "hand_number": 85,
+          "player_name": "AI-5",
+          "profile": "maniac",
+          "phase": "flop",
+          "action": "call",
+          "amount": 39,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [
+            "5♦",
+            "A♥",
+            "K♣"
+          ],
+          "equity": 0.2,
+          "pot_odds": 0.2846715328467153,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.0847
+        },
+        {
+          "hand_number": 87,
+          "player_name": "AI-4",
+          "profile": "calling_station",
+          "phase": "preflop",
+          "action": "call",
+          "amount": 10,
+          "grade": "poor",
+          "score": 35.0,
+          "classification": "pot-odds call mistake",
+          "risk_tags": [
+            "negative_pot_odds_call"
+          ],
+          "public_board": [],
+          "equity": 0.3,
+          "pot_odds": 0.4,
+          "audit_split": "true_negative_equity_call",
+          "audit_basis": "public_equity_vs_pot_odds",
+          "equity_edge": -0.1
+        }
+      ],
+      "public_transcript_schema": {
+        "version": "phase3.4-public-transcript-v1",
+        "sample_fields": [
+          "hand_number",
+          "text",
+          "flags"
+        ],
+        "allowed_private_cards": "only legally revealed showdown contestants",
+        "forbidden_fields": [
+          "deck",
+          "hole_cards",
+          "opponent_hole_cards",
+          "private_ai_internals",
+          "unsafe_seed"
+        ]
+      },
+      "showdown_reveal_policy": {
+        "showdown": "reveal only players who legally reached showdown",
+        "non_showdown": "do not reveal any private hole cards",
+        "folded_players": "never reveal folded/non-contesting players' private cards"
+      },
+      "transcript_samples": [
+        {
+          "hand_number": 1,
+          "text": "Hand 1 | preflop: AI-4 fold; AI-5 fold; AI-6 fold; AI-7 fold; AI-8 fold; AI-9 raise 27; AI-10 fold; AI-1 fold; AI-2 fold; AI-3 call 17 | flop board: 9♣ 3♥ 2♠ | flop: AI-3 raise 39; AI-9 fold | result: AI-3 won 98 by fold",
+          "flags": [
+            "no-obvious-issue"
+          ]
+        },
+        {
+          "hand_number": 2,
+          "text": "Hand 2 | preflop: AI-5 fold; AI-6 fold; AI-7 fold; AI-8 fold; AI-9 fold; AI-10 fold; AI-1 fold; AI-2 raise 26; AI-3 fold; AI-4 call 16 | flop board: 10♣ Q♣ 10♥ | flop: AI-4 raise 38; AI-2 raise 123; AI-4 call 85 | turn board: 10♣ Q♣ 10♥ 2♥ | turn: AI-4 raise 202; AI-2 raise 404; AI-4 call 202 | river board: 10♣ Q♣ 10♥ 2♥ J♥ | river: AI-4 raise 999; AI-2 raise 2898; AI-4 call 1899 | result: AI-4 won 6907 by showdown | showdown: AI-2 [K♣ A♠] 顺子 (到 A); AI-4 [Q♥ K♥] 同花 (K 高)",
+          "flags": [
+            "c-bet"
+          ]
+        },
+        {
+          "hand_number": 3,
+          "text": "Hand 3 | preflop: AI-6 fold; AI-7 fold; AI-8 fold; AI-9 fold; AI-10 fold; AI-1 fold; AI-2 fold; AI-3 fold; AI-4 call 5; AI-5 check | flop board: 7♠ 4♦ 2♠ | flop: AI-4 check; AI-5 raise 18; AI-4 fold | result: AI-5 won 38 by fold",
+          "flags": [
+            "no-obvious-issue"
+          ]
+        }
+      ],
+      "benchmark": {},
+      "hands": 100,
+      "actions": 1199,
+      "seed": 2
+    }
+  ],
+  "summary": {
+    "hands_played": {
+      "mean": 100.0,
+      "std": 0.0,
+      "min": 100.0,
+      "max": 100.0
+    },
+    "total_actions": {
+      "mean": 1191.0,
+      "std": 13.490737563232042,
+      "min": 1172.0,
+      "max": 1202.0
+    },
+    "illegal_action_rate": {
+      "mean": 0.0,
+      "std": 0.0,
+      "min": 0.0,
+      "max": 0.0
+    },
+    "average_decision_score": {
+      "mean": 72.35618485012408,
+      "std": 0.2546219294235745,
+      "min": 72.05170975813178,
+      "max": 72.67491467576792
+    },
+    "style_separability_score": {
+      "mean": 0.2916981438386977,
+      "std": 0.020413815570296284,
+      "min": 0.26929520089765285,
+      "max": 0.31866879125130165
+    },
+    "vpip_spread": {
+      "mean": 0.1776255707762557,
+      "std": 0.04610239776214133,
+      "min": 0.13,
+      "max": 0.24
+    },
+    "pfr_spread": {
+      "mean": 0.09920441347270614,
+      "std": 0.013189847287888055,
+      "min": 0.0897560975609756,
+      "max": 0.11785714285714285
+    },
+    "aggression_spread": {
+      "mean": 2.476265630226026,
+      "std": 0.5328073283027781,
+      "min": 1.722832722832723,
+      "max": 2.861904761904762
+    },
+    "call_rate_spread": {
+      "mean": 0.18541119645790485,
+      "std": 0.019061478133545265,
+      "min": 0.15960419537589954,
+      "max": 0.20506072874493927
+    },
+    "largest_stack_share": {
+      "mean": 0.2585,
+      "std": 0.053711176366438546,
+      "min": 0.19199,
+      "max": 0.32353
+    },
+    "bustout_rate": {
+      "mean": 0.2333333333333333,
+      "std": 0.04714045207910316,
+      "min": 0.2,
+      "max": 0.3
+    },
+    "stack_gini": {
+      "mean": 0.43267999999999995,
+      "std": 0.04360807273888631,
+      "min": 0.395478,
+      "max": 0.493878
+    },
+    "profile_calibration_distance": {
+      "mean": 0.04973333333333333,
+      "std": 0.018825359781127395,
+      "min": 0.030567,
+      "max": 0.075319
+    }
+  }
+}

@@ -166,7 +166,9 @@ class AIPlayer(Player):
                      total_players: int = 6, opponents_in_hand: list = None,
                      table_current_bet: int = None,
                      player_current_bet: int = 0,
-                     action_history: list = None) -> tuple:
+                     action_history: list = None, *,
+                     postflop_in_position: bool | None = None,
+                     has_actionable_opponent: bool | None = None) -> tuple:
         """
         AI决策逻辑
         
@@ -192,7 +194,9 @@ class AIPlayer(Player):
             return self._advanced_decision(
                 current_bet, min_raise, pot_size, 
                 community_cards, position, total_players, opponents_in_hand,
-                table_current_bet, player_current_bet, action_history
+                table_current_bet, player_current_bet, action_history,
+                postflop_in_position=postflop_in_position,
+                has_actionable_opponent=has_actionable_opponent
             )
         else:
             return self._standard_decision(
@@ -204,7 +208,9 @@ class AIPlayer(Player):
                           community_cards: list, position: int, total_players: int,
                           opponents_in_hand: list, table_current_bet: int = None,
                           player_current_bet: int = 0,
-                          action_history: list = None) -> tuple:
+                          action_history: list = None, *,
+                          postflop_in_position: bool | None = None,
+                          has_actionable_opponent: bool | None = None) -> tuple:
         """
         高级AI决策
         使用范围思维、GTO策略、剥削调整等高级技术
@@ -240,6 +246,8 @@ class AIPlayer(Player):
                 table_current_bet=table_current_bet,
                 player_current_bet=player_current_bet,
                 action_history=action_history or [],
+                postflop_in_position=postflop_in_position,
+                has_actionable_opponent=has_actionable_opponent,
             )
             self.last_decision_metadata = getattr(engine, "last_decision_explanation", None)
             return (action, amount)
